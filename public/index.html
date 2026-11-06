@@ -339,10 +339,11 @@ textarea{min-height:120px;resize:vertical}
 .timeline{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px}
 .timeline div{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:16px;display:flex;flex-direction:column;gap:6px;min-width:0}
 .timeline b{font-size:13px;color:var(--accent);font-weight:800;letter-spacing:.06em;text-transform:uppercase}
-.unlock{background:var(--deep);color:var(--on-deep);border-radius:22px;padding:34px;display:grid;grid-template-columns:1.2fr .8fr;gap:32px;align-items:center}
+.unlock{background:var(--deep);color:var(--on-deep);border-radius:26px;padding:clamp(26px,4vw,48px);display:grid;grid-template-columns:1.2fr .8fr;gap:32px;align-items:center}
 .unlock h2{color:#fff}
 .unlock ul{margin:16px 0 0;padding:0;list-style:none;display:grid;grid-template-columns:1fr 1fr;gap:10px 18px;color:var(--on-deep-2)}
-.unlock li::before{content:"✓  ";color:var(--sun);font-weight:800}
+.unlock li{position:relative;padding-left:26px}
+.unlock li::before{content:"✓";position:absolute;left:0;top:0;color:var(--sun);font-weight:800}
 .unlock .p{display:flex;flex-direction:column;gap:12px;background:var(--deep-2);border-radius:16px;padding:22px}
 .unlock .was{color:var(--on-deep-2);text-decoration:line-through;font-weight:700}
 .unlock .amt{font-family:var(--display);font-size:64px;font-weight:800;line-height:1;color:#fff}
@@ -1263,6 +1264,33 @@ footer .in{align-items:center}
 .wmore{display:flex;justify-content:center;margin-top:26px}
 .wmore button{font:inherit;font-weight:700;font-size:16px;border:1.5px solid var(--line);background:var(--card,#fff);color:var(--ink);border-radius:99px;padding:12px 22px;cursor:pointer}
 .wmore button:focus-visible{outline:3px solid var(--accent);outline-offset:2px}
+
+/* name-only brand mark */
+.ed .lg.nm b{font-weight:800;letter-spacing:-.01em}
+/* results: Instagram phone mockups */
+.igrow{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:26px;width:100%;max-width:1060px;align-items:start}
+.igp{margin:0;display:flex;flex-direction:column;gap:16px;align-items:center;min-width:0;animation:pop .7s cubic-bezier(.2,.8,.2,1) both}
+.igp1{animation-delay:.05s}.igp2{animation-delay:.2s}.igp3{animation-delay:.35s}
+.igp2 .igph{transform:translateY(-14px)}
+.igph{width:100%;max-width:320px;background:#fff;color:#111;border-radius:40px;padding:10px 0 14px;border:9px solid #0D0F0C;box-shadow:0 40px 70px -30px rgba(14,18,13,.55),inset 0 0 0 1px #e8e8e8;font-family:-apple-system,"Inter Tight",system-ui,sans-serif;overflow:hidden;position:relative}
+.igsb{display:flex;justify-content:space-between;align-items:center;padding:2px 22px 8px;font-size:13px}
+.igsb span{width:64px;height:18px;border-radius:99px;background:#0D0F0C;position:absolute;left:50%;top:9px;transform:translateX(-50%)}
+.ignav{display:grid;grid-template-columns:30px 1fr 30px;align-items:center;padding:2px 10px 8px;text-align:center;border-bottom:1px solid #efefef}
+.ignav .bk{font-size:28px;line-height:1}.ignav small{display:block;font-size:11px;color:#777;text-transform:lowercase}.ignav b{font-size:15px}
+.ighd{display:flex;align-items:center;gap:9px;padding:9px 12px}
+.ighd .av{width:32px;height:32px;border-radius:50%;display:grid;place-items:center;font-style:normal;font-size:11px;font-weight:800;color:#fff;background:#2E8B1E;box-shadow:0 0 0 2px #fff,0 0 0 3.5px #E1306C;overflow:hidden}
+.ighd .av img{width:100%;height:100%;object-fit:cover;background:#fff}
+.ighd b{display:block;font-size:13px}.ighd small{display:block;font-size:11px;color:#777}.ighd .dots{margin-left:auto;color:#333;letter-spacing:1px}
+.igpost .pp{border-radius:0}
+.igact{display:flex;gap:16px;padding:10px 14px 4px}.igact span svg{width:24px;height:24px}.igact .sv{margin-left:auto}
+.iglk{padding:2px 14px;font-size:13px}
+.igcp{margin:4px 0 0;padding:0 14px;font-size:13px;line-height:1.4;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
+.igtm{margin:4px 0 0;padding:0 14px;font-size:11px;color:#999}
+.igp figcaption{display:inline-flex;align-items:center;gap:8px;background:#fff;border:1px solid var(--line);border-radius:99px;padding:8px 14px;font-size:14px;font-weight:700;color:var(--ink)}
+.igp figcaption .ico{color:var(--accent)}.igp figcaption .ico svg{width:15px;height:15px}
+.igfmt{margin:0;text-align:center;font-size:14px;color:var(--ink-2);max-width:60ch}
+@media (max-width:900px){.igrow{display:flex;overflow-x:auto;scroll-snap-type:x mandatory;gap:16px;padding:20px 8vw 10px;margin-inline:-16px;scrollbar-width:none}
+.igrow::-webkit-scrollbar{display:none}.igp{flex:0 0 76%;scroll-snap-align:center}.igp2 .igph{transform:none}}
 </style>
 </head>
 <body>
@@ -1416,10 +1444,10 @@ footer .in{align-items:center}
         <div class="l"><h3>Every month you get</h3>
           <ul class="offer">
             <li class="star"><i>✓</i><div><b>Your own realistic brand model</b><span>A human face for your business that no other cleaner uses, in fresh scenes every month</span></div></li>
-            <li><i>✓</i><div><b>30 designed posts in your brand</b><span>Your colours, logo and name, ready to post</span></div></li>
+            <li><i>✓</i><div><b>30 posts based on your local market</b><span>We study what people in your town search for, and when, so every post answers what your next customers want. No random posting.</span></div></li>
             <li><i>✓</i><div><b>A local market report for your town</b><span>What people near you search for, and when it peaks</span></div></li>
             <li><i>✓</i><div><b>Your best reviews turned into posts</b><span>Quoted word for word from your Google profile</span></div></li>
-            <li><i>✓</i><div><b>Versions for Instagram, Facebook and Google</b><span>Plus captions, hashtags and a posting calendar</span></div></li>
+            <li><i>✓</i><div><b>Ready for Instagram, Facebook and Google</b><span>Sent to your email or WhatsApp in the right size for each: Instagram and Facebook 1080×1350, Google Business Profile 1200×900. Plus captions, hashtags and a posting calendar.</span></div></li>
           </ul></div>
         <div class="r"><span class="eyebrow">Founding price · first 10 businesses</span><div class="amt">$<span data-count="49">49</span><small>/month</small></div><div class="was">Worth <s>$549</s> a month</div>
           <button class="btn btn-main" type="button" data-open-quiz>Start with 3 free posts <span class="arr" aria-hidden="true">→</span></button>
@@ -1565,7 +1593,7 @@ const SVC_PHOTO = { tenancy: "p-counter", regular: "p-faucet", deep: "p-sink", o
 const PH = n => `/assets/localpost/photos/${n}.jpg`;
 const imgSrc = s => s.startsWith("/") || s.startsWith("data:") ? s : PH(s);
 const vv = t => `--a:${t.a};--s:${t.s};--d:${t.d}`;
-const logo = (b, light) => `<span class="lg ${light ? "l" : ""}">${b.logo ? `<img src="${b.logo}" alt="">` : `<i>${esc(initials(b.name))}</i>`}<b>${esc(b.name)}</b></span>`;
+const logo = (b, light) => `<span class="lg ${light ? "l" : ""}${b.logo ? "" : " nm"}">${b.logo ? `<img src="${b.logo}" alt="">` : ""}<b>${esc(b.name)}</b></span>`;
 let RINGN = 0;
 const ring = (txt, cls) => { const id = "rg" + (RINGN++); return `<span class="ring ${cls || ""}"><svg viewBox="0 0 100 100" aria-hidden="true"><defs><path id="${id}" d="M50,50 m-36,0 a36,36 0 1,1 72,0 a36,36 0 1,1 -72,0"/></defs><text><textPath href="#${id}" textLength="224" lengthAdjust="spacing">${txt}</textPath></text></svg><i>★</i></span>`; };
 const days = (on) => `<div class="wk">${["S","M","T","W","T","F","S"].map((x, i) => `<span class="${on.includes(i) ? "on" : ""}"><i></i>${x}</span>`).join("")}</div>`;
@@ -2011,7 +2039,15 @@ function results() {
   $("#qBody").innerHTML = `<div class="results">
     <div class="rstage">
       <div class="rhead"><span class="rbadge"><i class="ico">${ICON.check}</i>Ready · made for ${esc(S.name)}</span><h2>Your 3 posts are ready</h2><p>Built for ${esc(S.town)}, in your colours, with your brand face.</p></div>
-      <div class="rfan" id="rp">${qp.map((x, i) => `<figure class="rf rf${i + 1}"><div class="rpost">${x.html}</div><figcaption><i class="ico">${[ICON.trend, ICON.spark, ICON.target][i]}</i>${esc(x.why)}</figcaption></figure>`).join("")}</div>
+      <div class="igrow" id="rp">${qp.map((x, i) => `<figure class="igp igp${i + 1}"><div class="igph"><div class="igsb"><b>9:41</b><span></span></div>
+        <div class="ignav"><span class="bk">‹</span><div><small>${esc((S.name || "yourbusiness").toLowerCase().replace(/[^a-z0-9]/g, ""))}</small><b>Posts</b></div><span></span></div>
+        <div class="ighd"><i class="av">${S.logo ? `<img src="${S.logo}" alt="">` : esc(initials(S.name || "Your Business"))}</i><div><b>${esc((S.name || "yourbusiness").toLowerCase().replace(/[^a-z0-9]/g, ""))}</b><small>${esc(S.town || "")}</small></div><span class="dots">•••</span></div>
+        <div class="igpost">${x.html}</div>
+        <div class="igact"><span>${ICON.heart}</span><span>${ICON.comment}</span><span>${ICON.send}</span><span class="sv">${ICON.save}</span></div>
+        <div class="iglk"><b>${[128, 214, 96][i]} likes</b></div>
+        <p class="igcp"><b>${esc((S.name || "yourbusiness").toLowerCase().replace(/[^a-z0-9]/g, ""))}</b> ${esc(x.cap.split("\n")[0])}</p><p class="igtm">Just now · See translation</p></div>
+        <figcaption><i class="ico">${[ICON.trend, ICON.spark, ICON.target][i]}</i>${esc(x.why)}</figcaption></figure>`).join("")}</div>
+      <p class="igfmt">Sent to your email or WhatsApp, sized for Instagram, Facebook (1080×1350) and Google Business Profile (1200×900).</p>
       <div class="ract"><button class="btn btn-green" type="button" data-unlock><i class="ico">${ICON.wa}</i>Unlock 30 posts on WhatsApp <span class="arr" aria-hidden="true">→</span></button><span>Yours to keep · no card needed</span></div>
     </div>
     <section class="rcaps2" aria-label="Captions for your 3 posts">
@@ -2023,7 +2059,7 @@ function results() {
     </section>
     <div class="unlock" id="unlock">
       <div><div class="eyebrow">Unlock your full month</div><h2>30 posts like these, every month.</h2>
-        <ul><li>30 designed posts in your brand</li><li>Local research for ${esc(S.town)}</li><li>Your brand face in every post</li><li>Every new review turned into a post</li><li>Captions, hashtags and a calendar</li><li>Checked by a person, every time</li></ul></div>
+        <ul><li>Your own realistic brand model</li><li>30 posts based on what ${esc(S.town)} searches for</li><li>A local market report, in plain words</li><li>Every new review turned into a post</li><li>Captions, hashtags and a calendar</li><li>Checked by a person, every time</li></ul></div>
       <div class="p"><span class="was">Worth $549/month</span><div class="amt">$49<small>/month</small></div>
         <button class="btn btn-sun" type="button" data-unlock><i class="ico">${ICON.wa}</i>Unlock on WhatsApp</button>
         <span class="msg" id="unlockMsg">Cancel anytime · full refund if the first month isn't right</span></div>
