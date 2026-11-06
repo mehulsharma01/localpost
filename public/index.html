@@ -836,6 +836,7 @@ footer .in{align-items:center}
   .bface .steps li{font-size:14px}
 }
 
+.moremodels{display:flex;flex-direction:column;gap:2px;background:var(--soft);border:1px dashed var(--line-2);border-radius:14px;padding:12px 14px;font-size:15px}.moremodels b{font-size:15.5px}.moremodels span{color:var(--ink-2)}
 /* responsive */
 @media (max-width:1000px){
   .hero-grid,.pbox,.res-top,.unlock,.qgrid{grid-template-columns:1fr}
@@ -969,7 +970,7 @@ footer .in{align-items:center}
     <div class="in">
       <div class="copy">
         <div class="head rv"><span class="eyebrow" style="color:#0E4D7A">Your brand face</span><h2>One realistic face, in every post</h2><p class="lede">People stop for people. Pick a realistic model and the same face appears in your posts all month, in homes like your customers'.</p></div>
-        <ul class="steps rv dl2"><li><i>1</i>Pick a model or your team photo</li><li><i>2</i>New scenes every month</li><li><i>3</i>Never shown as your staff</li></ul>
+        <ul class="steps rv dl2"><li><i>1</i>3 free models, or many more male &amp; female models on the plan</li><li><i>2</i>New scenes every month</li><li><i>3</i>Never shown as your staff</li></ul>
       </div>
       <div class="podium rv dl2" aria-label="Example: one model across three posts">
         <span class="who"><img src="/assets/localpost/people/sofa-smile.jpg" alt="" style="object-position:65% 35%"><b>Emma</b><small>· your brand face</small></span>
@@ -1084,9 +1085,9 @@ const STYLES = [
   { id: "premium", label: "Premium", desc: "Deep tones, refined" },
 ];
 const MODELS = [
-  { id: "emma", label: "Emma", desc: "Relaxed at home", img: "/assets/localpost/photos/face-1.jpg" },
-  { id: "chloe", label: "Chloe", desc: "Cosy, unwinding", img: "/assets/localpost/photos/home-relax.jpg" },
-  { id: "sam", label: "Sam & Leah", desc: "Couple at home", img: "/assets/localpost/photos/face-3.jpg" },
+  { id: "sofia", label: "Sofia", desc: "Warm, natural", img: "/assets/localpost/models/sofia.jpg" },
+  { id: "mia", label: "Mia", desc: "Calm, confident", img: "/assets/localpost/models/mia.jpg" },
+  { id: "ava", label: "Ava", desc: "Bright, friendly", img: "/assets/localpost/models/ava.jpg" },
 ];
 
 /* ===== Helpers ===== */
@@ -1372,7 +1373,7 @@ if ($("#founderIni")) $("#founderIni").textContent = initials(CONFIG.founderName
 if ($("#contactLine")) $("#contactLine").textContent = [CONFIG.email, CONFIG.whatsapp && "WhatsApp +" + CONFIG.whatsapp].filter(Boolean).map(x => x + " · ").join("");
 
 /* ===== Quiz ===== */
-const S = { step: 0, name: "", town: "", country: "GB", mapsUrl: "", services: [], mainService: "", praise: [], review: "", rating: "", reviewCount: "", color: COLORS[0], style: "calm", logo: "", faceType: "model", model: "emma", photo: "", contactName: "", email: "", whatsapp: "", instagram: "", consent: false, website: "" };
+const S = { step: 0, name: "", town: "", country: "GB", mapsUrl: "", services: [], mainService: "", praise: [], review: "", rating: "", reviewCount: "", color: COLORS[0], style: "calm", logo: "", faceType: "model", model: "sofia", photo: "", contactName: "", email: "", whatsapp: "", instagram: "", consent: false, website: "" };
 function keep() { document.querySelectorAll("#qBody [data-k]").forEach(el => { S[el.dataset.k] = el.type === "checkbox" ? el.checked : el.value.trim(); }); }
 const steps = [
   { title: "Let's start with your business", render: () => `
@@ -1407,13 +1408,14 @@ const steps = [
   { title: "Pick your style", hint: "Each style is built from layouts that work on Pinterest and Instagram for local services.", render: () => `
       <div class="opts">${STYLES.map(s => { const p = palette(S.color, s.id); return `<button type="button" class="opt" aria-pressed="${S.style===s.id}" data-style="${s.id}"><span class="mood"><i style="background:${p.dark}"></i><i style="background:${p.pop}"></i><i style="background:${p.light}"></i><i style="background:${mix(p.dark, "#FFFFFF", .3)}"></i></span><b>${s.label}</b><span>${s.desc}</span></button>`; }).join("")}</div>`,
     check: () => "" },
-  { title: "Who's the face of your posts?", hint: "Your own team photo builds the most trust. Or pick one of 3 free lifestyle models for home scenes.", render: () => `
+  { title: "Who's the face of your posts?", hint: "Pick one of 3 free models for your preview, or use your team photo. With your monthly plan you choose from many realistic male and female models.", render: () => `
       <div class="opts four models-pick" id="faceOpts">
         <button type="button" class="opt" aria-pressed="${S.faceType==="team"}" data-face="team"><span class="team-up"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"><path d="M4 8h3l1.8-2.5h6.4L17 8h3v11H4z"/><circle cx="12" cy="13.5" r="3.5"/></svg></span><b>My team photo</b><span>Recommended</span></button>
         ${MODELS.map(m => `<button type="button" class="opt" aria-pressed="${S.faceType==="model" && S.model===m.id}" data-model="${m.id}"><img src="${m.img}" alt=""><b>${m.label} <span class="free">Free</span></b><span>${m.desc}</span></button>`).join("")}
       </div>
       <div class="field" id="photoField" ${S.faceType==="team" ? "" : "hidden"}><span class="flabel">Team photo</span><div class="upload"><div class="thumb" id="photoThumb">${S.photo ? `<img src="${S.photo}" alt="">` : "No photo"}</div><input type="file" id="f-photo" accept="image/png,image/jpeg,image/webp" aria-label="Upload team photo"></div></div>
-      <p class="note">Lifestyle models only appear in home scenes. Never as your staff, never next to a review.</p>`,
+      <div class="moremodels"><b>+ More models with your plan</b><span>Choose from many realistic male and female models, all ages and styles, for your Instagram page.</span></div>
+      <p class="note">Models appear as happy customers at home, never as your staff.</p>`,
     check: () => S.faceType === "team" && !S.photo ? "Upload your team photo, or pick a lifestyle model." : "" },
   { title: "Where should we send your posts?", hint: "Your 3 posts appear on the next screen. Your researched set follows within 24 hours.", render: () => `
       <div class="field"><label for="f-cname">Your name</label><input type="text" id="f-cname" data-k="contactName" autocomplete="name" value="${esc(S.contactName)}"></div>
