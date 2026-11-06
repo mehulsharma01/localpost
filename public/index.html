@@ -764,6 +764,26 @@ footer .in{align-items:center}
 .ed .glass .gb i.hi{background:var(--lime,#B6F07A)}
 .ed .xc{display:flex;justify-content:space-between;align-items:center}
 .ed .xc .arw{width:9cqw;height:9cqw;border-radius:50%;background:var(--lime,#B6F07A);color:#111;display:grid;place-items:center;font-size:4.6cqw;font-weight:700}
+/* datex: full photo, huge outlined date */
+.ed.datex{background:var(--d);color:#fff}
+.ed.datex .cimg{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.ed.datex .sh{background:linear-gradient(90deg,rgba(6,8,20,.72),rgba(6,8,20,.28) 48%,rgba(6,8,20,0) 66%),linear-gradient(180deg,rgba(0,0,0,.38),rgba(0,0,0,0) 18%,rgba(0,0,0,0) 52%,rgba(6,8,20,.88) 88%)}
+.ed.datex .xt{z-index:4}
+.ed.datex .tk{background:rgba(255,255,255,.92);color:#111;border-radius:99px;padding:1.2cqw 2.6cqw;font-size:2.5cqw;font-weight:700;display:inline-flex;align-items:center;gap:1.2cqw}
+.ed.datex .tk .ico{width:2.8cqw;height:2.8cqw;color:var(--a)}
+.ed.datex .big{position:absolute;z-index:3;left:5cqw;right:30cqw;top:44cqw;line-height:.8}
+.ed.datex .big b{display:block;font-family:"Fraunces",Georgia,serif;font-weight:300;font-size:40cqw;letter-spacing:-.06em;color:transparent;-webkit-text-stroke:.42cqw #fff;white-space:nowrap}
+.ed.datex .big.tr{left:auto;right:6cqw;top:24cqw;text-align:right}.ed.datex .big.tr span{margin:1.4cqw 1.6cqw 0 0;color:var(--a)}.ed.datex .big.tr b{color:var(--d);-webkit-text-stroke:0;font-weight:400}
+.ed.datex .big.w b{font-size:30cqw;letter-spacing:-.04em}
+.ed.datex .big span{display:block;font-family:"Fraunces",Georgia,serif;font-style:italic;font-size:7.4cqw;color:#E8C77A;margin:1.4cqw 0 0 1.6cqw;white-space:nowrap}
+.ed.datex .bt{position:absolute;left:6cqw;right:6cqw;bottom:6cqw;z-index:4}
+.ed.datex h4{font-size:7.2cqw;line-height:1.02;letter-spacing:-.04em;font-weight:800}
+.ed.datex h4 em{font-style:normal;color:var(--s)}
+.ed.datex .row4{display:flex;gap:2cqw;margin-top:3.2cqw;flex-wrap:wrap}
+.ed.datex .ch{display:inline-flex;align-items:center;gap:1.4cqw;background:rgba(255,255,255,.14);border:.25cqw solid rgba(255,255,255,.28);border-radius:99px;padding:1.4cqw 2.8cqw;font-size:2.8cqw;font-weight:700}
+.ed.datex .ch.gold{background:#E8C77A;border-color:#E8C77A;color:#1A1300}
+.ed.datex .mb{display:flex;align-items:flex-end;gap:.35cqw;width:9cqw;height:3cqw}
+.ed.datex .mb i{flex:1;background:#E8C77A;opacity:.4;border-radius:.3cqw .3cqw 0 0}.ed.datex .mb i.hi{opacity:1}
 /* calx: full-photo calendar trend post */
 .ed.calx{background:var(--d)}
 .ed.calx .cimg{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
@@ -1780,6 +1800,11 @@ function ed(kind, b, o) {
     <div class="tcard"><div class="tl"><span class="kk"><i class="ico">${ICON.chart}</i>${esc(o.kick || "Peak search time")}</span><b>${esc(o.peak)}</b><small>${esc(o.what)}</small></div>
       <div class="tg">${bars.map((h, i) => `<span class="${i === hiI ? "hi" : ""}"><i style="height:${Math.max(8, h)}%"></i><em>${lab[i] || ""}</em></span>`).join("")}</div></div>
     <div class="tb"><h4><span class="l1">${o.l1}</span><span class="l2">${o.l2}</span></h4><span class="go">→</span></div></div>`; }
+  if (kind === "datex") { const bars = o.bars || [], mx = Math.max(...bars, 1), hiI = Number.isInteger(o.hi) ? o.hi : bars.indexOf(mx);
+    return `<div class="pp ed datex" style="${vv(t)}"><img class="cimg" src="${imgSrc(o.img)}" alt="" loading="lazy" style="object-position:${o.pos || "50% 22%"}"><span class="sh"></span>
+    <div class="xt">${logo(b, true)}<span class="tk"><i class="ico">${ICON.chart}</i>${esc(o.k)}</span></div>
+    <div class="big ${o.wide ? "w" : ""} ${o.spot || ""}"><b>${esc(o.big)}</b><span>${esc(o.sub)}</span></div>
+    <div class="bt"><h4>${o.l1}<br>${o.l2}</h4><div class="row4"><span class="ch"><span class="mb">${bars.map((h, i) => `<i class="${i === hiI ? "hi" : ""}" style="height:${Math.max(12, h / mx * 100)}%"></i>`).join("")}</span>${esc(o.chip)}</span><span class="ch gold">${esc(o.gold)}</span></div></div></div>`; }
   if (kind === "calx") { const bars = o.bars || [], wk = bars.length === 7, now = new Date(), m = o.month, y = now.getFullYear() + (m < now.getMonth() ? 1 : 0);
     const first = (new Date(y, m, 1).getDay() + 6) % 7, n = new Date(y, m + 1, 0).getDate(), cur = m === now.getMonth() && y === now.getFullYear(), today = now.getDate();
     const pkDay = wk ? (bars.indexOf(Math.max(...bars))) : -1, ringD = m === 11 ? 25 : 0;
@@ -1854,6 +1879,8 @@ const TREND = {
 };
 const ROOMS = { tenancy: ["Kitchen + oven", "Bathroom", "Hall", "Bedroom", "Lounge + skirting"], regular: ["Kitchen", "Bathroom", "Hall", "Bedroom", "Lounge"], deep: ["Kitchen", "Bathroom", "Hall", "Bedroom", "Lounge"], office: ["Kitchen", "Toilets", "Reception", "Desks", "Meeting room"], airbnb: ["Kitchen", "Bathroom", "Hall", "Bedroom + linen", "Lounge"], oven: ["Oven", "Hob", "Racks", "Kitchen", "Extractor"], carpet: ["Stairs", "Hall", "Rugs", "Bedroom", "Lounge"] };
 const SHOT_ROOM = { "1-regular": "Kitchen", "2-deep": "Lounge" };
+/* where the big date goes when the face sits low on the left of a shot */
+const BIG_SPOT = { "olivia/2-deep": "tr" };
 const ALT_SHOT = { regular: "2-deep", deep: "1-regular", tenancy: "1-regular", office: "1-regular", airbnb: "1-regular", oven: "1-regular", carpet: "2-deep" };
 const PEOPLE_FALLBACK = { tenancy: "couple", regular: "sun-read", deep: "relax", office: "happy-laptop", airbnb: "window-read", oven: "sofa-smile", carpet: "relax" };
 function quizPeople(d, slot) {
@@ -1878,7 +1905,15 @@ function quizPosts(d) {
   const town = d.town || "your town", face = quizPeople(d), portrait = quizPeople(d, "portrait"), top = (d.praise || [])[0] || "thorough";
   const now = trendNow(tr, svc, town);
   const wkT = (tr.bars || []).length === 7, calM = wkT ? new Date().getMonth() : (Number.isInteger(now.hi) ? now.hi : new Date().getMonth());
-  const p1 = ed("calx", b, { img: face, pos: "50% 22%", k: "Search trend · " + town, month: calM, kick: now.kick, hi: now.hi, bars: tr.bars, l1: esc(now.l1 || tr.l1(town)), l2: now.l2h || tr.l2h });
+  const today = new Date(), xmasDate = new Date(today.getFullYear() + (today.getMonth() === 11 && today.getDate() > 25 ? 1 : 0), 11, 25);
+  const toXmas = Math.ceil((xmasDate - new Date(today.getFullYear(), today.getMonth(), today.getDate())) / 864e5);
+  const isXmas = !wkT && (calM === 11 || (calM === 10 && !!now.l1)) && toXmas > 0;
+  const WD = ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"], pkD = wkT ? tr.bars.indexOf(Math.max(...tr.bars)) : 0;
+  const big = wkT ? WD[pkD].slice(0, 3) : isXmas ? "25" : MONTHS[calM].slice(0, 3);
+  const sub = wkT ? `Every ${WD[pkD]}` : isXmas ? "December" : (calM === today.getMonth() ? `${MONTHS[calM]} · peak month` : `${MONTHS[calM]} · coming up`);
+  const chip = wkT ? `Busiest day in ${town}` : isXmas && calM !== 11 ? `This month in ${town}` : `Peak month in ${town}`;
+  const gold = isXmas ? `${toXmas} days to go` : wkT ? "Book your slot" : calM === today.getMonth() ? "Booking now" : "Book ahead";
+  const p1 = ed("datex", b, { img: face, spot: BIG_SPOT[(face.match(/models\/([^/]+\/[^/]+)\.jpg$/) || [])[1]] || "", pos: "50% 22%", k: "Search trend · " + town, big, sub, wide: big.length > 2, chip, gold, hi: now.hi, bars: tr.bars, l1: esc(now.l1 || tr.l1(town)), l2: now.l2h || tr.l2h });
   const [l1, l2] = splitHead(PRAISE[top]?.head || "Spotless, not just tidy.");
   const p2 = d.review
     ? ed("reviewx", b, { img: SVC_PHOTO[key] || "p-counter", q: quoteFrom(d.review, 150), who: "Verified customer", rating: d.rating, count: d.reviewCount, tag: "Words like these<br>never get old." })
