@@ -107,10 +107,8 @@ section{padding-block:100px;position:relative}
 .igact span:last-child{margin-left:auto}
 .igcap{padding:0 14px 16px;font-size:12.5px;line-height:1.4}
 .slides{position:relative;aspect-ratio:4/5;overflow:hidden}
-.slides>.track{position:absolute;inset:0}
 .slides .post,.slides .pp{border-radius:0;height:100%}
-.slides .track{display:flex;height:100%;transition:transform .75s cubic-bezier(.65,0,.25,1);will-change:transform}
-.slides .sl{flex:0 0 100%;height:100%}
+.slides .sl{position:absolute;inset:0}
 .dots{display:flex;justify-content:center;gap:4px;padding-top:8px}
 .dots i{width:6px;height:6px;border-radius:50%;background:#D5D5D5}.dots i.on{background:#3897F0}
 
@@ -870,6 +868,87 @@ footer .in{align-items:center}
   .row2,.opts,.unlock ul{grid-template-columns:1fr}
   .opts.four{grid-template-columns:1fr 1fr}
 }
+
+/* ===== free post 1 (trend) and 3 (promise), redesigned to match the review post ===== */
+.ed.trendy{background:var(--s)}
+.ed.trendy .tph{position:absolute;left:0;right:0;top:0;height:62%;overflow:hidden;border-radius:0 0 10cqw 10cqw}
+.ed.trendy .tph img,.ed.promisey .pph img{width:100%;height:100%;object-fit:cover;display:block}
+.ed.trendy .tph::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(0,0,0,.38),rgba(0,0,0,0) 38%)}
+.ed .tk{background:#fff;color:#111;border-radius:99px;padding:1.4cqw 3cqw;font-size:2.8cqw;font-weight:700;white-space:nowrap;max-width:46cqw;overflow:hidden;text-overflow:ellipsis}
+.ed .tk.dk{background:var(--d);color:#fff}
+.ed.trendy .tcard{position:absolute;left:7cqw;right:7cqw;top:50%;z-index:5;background:#fff;border-radius:5cqw;padding:4.4cqw 4.8cqw;box-shadow:0 4cqw 10cqw -3cqw rgba(0,0,0,.35);display:grid;grid-template-columns:auto 1fr;gap:4cqw;align-items:end}
+.ed.trendy .tl{display:flex;flex-direction:column;gap:1cqw;min-width:0;max-width:34cqw}
+.ed.trendy .kk{display:flex;align-items:center;gap:1.2cqw;font-size:2.5cqw;font-weight:800;letter-spacing:.08em;text-transform:uppercase;color:var(--a)}
+.ed.trendy .kk .ico{width:3.2cqw;height:3.2cqw}
+.ed.trendy .tl b{font-family:"Instrument Serif",Georgia,serif;font-weight:400;font-size:10cqw;line-height:.95;color:#111;letter-spacing:-.01em}
+.ed.trendy .tl small{font-size:2.6cqw;line-height:1.25;color:#666}
+.ed.trendy .tg{display:flex;align-items:flex-end;gap:1cqw;height:19cqw}
+.ed.trendy .tg span{flex:1;height:100%;display:flex;flex-direction:column;justify-content:flex-end;align-items:center;gap:.8cqw}
+.ed.trendy .tg i{width:100%;border-radius:1cqw 1cqw .4cqw .4cqw;background:color-mix(in srgb,var(--a) 22%,#fff)}
+.ed.trendy .tg .hi i{background:var(--a)}
+.ed.trendy .tg em{font-style:normal;font-size:2cqw;font-weight:700;color:#999;line-height:1}
+.ed.trendy .tg .hi em{color:var(--a)}
+.ed.trendy .tb{position:absolute;left:7cqw;right:7cqw;bottom:6cqw;z-index:5;display:flex;justify-content:space-between;align-items:flex-end;gap:3cqw;color:var(--d)}
+.ed.trendy h4{display:flex;flex-direction:column;gap:.4cqw;min-width:0}
+.ed.trendy .l1{font-size:4.2cqw;font-weight:600;opacity:.75;letter-spacing:-.01em}
+.ed.trendy .l2{font-size:7.8cqw;font-weight:800;letter-spacing:-.045em;line-height:1}
+.ed.trendy .l2 em{font-family:"Instrument Serif",Georgia,serif;font-style:italic;font-weight:400;color:var(--a);letter-spacing:-.01em;font-size:1.1em}
+.ed.trendy .go{flex:none;width:9cqw;height:9cqw;border-radius:50%;background:var(--a);color:#fff;display:grid;place-items:center;font-size:4.4cqw;font-weight:700}
+.ed.promisey{background:var(--s);color:var(--d)}
+.ed.promisey .xt .lg{color:var(--d)}
+.ed.promisey .pph{position:absolute;left:6cqw;right:6cqw;top:16cqw;height:58%;overflow:hidden;border-radius:6cqw;box-shadow:0 4cqw 10cqw -4cqw rgba(0,0,0,.35)}
+.ed.promisey .ring.pr{left:auto;right:3cqw;top:10cqw;background:var(--a)}
+.ed.promisey h4{position:absolute;left:7cqw;right:7cqw;bottom:15cqw;z-index:5;display:flex;flex-wrap:wrap;align-items:baseline;column-gap:2cqw;line-height:1}
+.ed.promisey .a{font-size:8cqw;font-weight:800;letter-spacing:-.05em}
+.ed.promisey .b{font-family:"Instrument Serif",Georgia,serif;font-style:italic;font-size:9.4cqw;color:var(--a);letter-spacing:-.01em}
+.ed.promisey .chips{position:absolute;left:7cqw;right:7cqw;bottom:6cqw;z-index:5;display:flex;gap:1.4cqw;overflow:hidden}
+.ed.promisey .chips span{background:#fff;color:#111;border-radius:99px;padding:1.5cqw 2.8cqw;font-size:2.7cqw;font-weight:600;white-space:nowrap;box-shadow:0 1cqw 3cqw -1cqw rgba(0,0,0,.2)}
+.ed.promisey .chips b{color:var(--a)}
+
+/* results: caption cards */
+.rcaps2{display:flex;flex-direction:column;gap:18px}
+.rcaps2 .rch{display:flex;justify-content:space-between;align-items:baseline;gap:12px;flex-wrap:wrap}
+.rcaps2 h3{margin:0;font-size:24px;letter-spacing:-.03em}
+.rcaps2 .rch p{margin:0;color:var(--ink-2);font-size:15px}
+.rcgrid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px}
+.rcaps2 .cap{background:var(--card,#fff);border:1px solid var(--line);border-radius:20px;padding:14px;display:flex;flex-direction:column;gap:12px;min-width:0;box-shadow:0 20px 40px -30px rgba(14,18,13,.35)}
+.rcaps2 .ch{display:flex;gap:12px;align-items:center}
+.rcaps2 .cpost{width:52px;flex:none}.rcaps2 .cpost .pp{border-radius:10px}
+.rcaps2 .cmeta{display:flex;flex-direction:column;min-width:0}
+.rcaps2 .cmeta b{font-size:15px}.rcaps2 .cmeta span{font-size:13px;color:var(--muted)}
+.rcaps2 .cbody{background:var(--soft,#F4F7F1);border-radius:14px;padding:14px;flex:1;display:flex;flex-direction:column;gap:10px}
+.rcaps2 .cbody p{margin:0;font-size:14.5px;line-height:1.5;color:var(--ink)}
+.rcaps2 .handle{font-weight:800}
+.rcaps2 .tags{color:#1E5BD8;font-weight:600;font-size:14px}
+.rcaps2 .copy{font:inherit;font-weight:700;font-size:14.5px;display:flex;align-items:center;justify-content:center;gap:8px;border:0;border-radius:99px;padding:11px 16px;background:var(--ink);color:#fff;cursor:pointer}
+.rcaps2 .copy .ico{width:16px;height:16px;display:none}
+.rcaps2 .copy.ok{background:var(--good,#2E8B1E)}.rcaps2 .copy.ok .ico{display:inline-block}
+.rcaps2 .copy:focus-visible{outline:3px solid var(--lime);outline-offset:2px}
+@media (max-width:900px){.rcgrid{grid-template-columns:1fr}}
+
+/* quiz side: surprise teaser instead of a live preview */
+.tease{display:flex;flex-direction:column;gap:16px;background:var(--card,#fff);border:1px solid var(--line);border-radius:22px;padding:18px}
+.tstack{position:relative;height:250px}
+.tstack .tc{position:absolute;left:50%;top:8px;width:170px;aspect-ratio:4/5;border-radius:18px;transform-origin:50% 100%}
+.tstack .t3{transform:translateX(-50%) rotate(9deg) translateX(46px);background:linear-gradient(160deg,var(--s),color-mix(in srgb,var(--a) 35%,#fff))}
+.tstack .t2{transform:translateX(-50%) rotate(-8deg) translateX(-46px);background:linear-gradient(160deg,color-mix(in srgb,var(--a) 55%,#fff),var(--s))}
+.tstack .t1{transform:translateX(-50%);background:linear-gradient(150deg,var(--a),var(--d));color:#fff;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:6px;text-align:center;box-shadow:0 24px 40px -20px rgba(0,0,0,.45);overflow:hidden}
+.tstack .t1::after{content:"";position:absolute;inset:0;background:linear-gradient(110deg,transparent 30%,rgba(255,255,255,.28) 50%,transparent 70%);transform:translateX(-100%);animation:shimmer 2.6s ease-in-out infinite}
+@keyframes shimmer{to{transform:translateX(100%)}}
+.tstack .t1 .ico{width:30px;height:30px;background:rgba(255,255,255,.18);border-radius:50%;padding:8px;box-sizing:content-box}
+.tstack .t1 b{font-size:15px}.tstack .t1 small{font-size:12.5px;opacity:.8}
+.trec{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:2px}
+.trec li{display:grid;grid-template-columns:22px 1fr auto;gap:10px;align-items:center;padding:7px 2px;border-bottom:1px dashed var(--line);font-size:14px;color:var(--muted)}
+.trec li:last-child{border-bottom:0}
+.trec .tick{width:22px;height:22px;border-radius:50%;border:1.5px solid var(--line-2,#ccd);display:grid;place-items:center;font-style:normal}
+.trec .tick svg{width:12px;height:12px}
+.trec li.on{color:var(--ink)}.trec li.on .tick{background:var(--lime);border-color:var(--lime);color:#111}
+.trec em{font-style:normal;font-weight:700;display:flex;align-items:center;gap:6px;max-width:150px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;color:inherit}
+.trec li:not(.on) em{font-weight:500;opacity:.7}
+.trec .sw{width:16px;height:16px;border-radius:50%;box-shadow:inset 0 0 0 1px rgba(0,0,0,.15)}
+.trec .fc{width:24px;height:24px;border-radius:50%;object-fit:cover}
+.tnote{margin:0;font-size:13.5px;color:var(--ink-2);background:var(--soft,#F4F7F1);border-radius:12px;padding:10px 12px}
+@media (prefers-reduced-motion:reduce){.tstack .t1::after{animation:none}}
 </style>
 </head>
 <body>
@@ -1197,20 +1276,22 @@ function ed(kind, b, o) {
     <h4 class="mh">${o.h}</h4>
     <div class="mc"><div class="sb"><i class="ico">${ICON.search}</i>${esc(o.query)}</div><div class="rs"><span class="pinm"></span><div><b>${esc(b.name)}</b><small><span class="st">★★★★★</span> ${esc(o.rating || "4.9")} · ${esc(o.area)}</small><small class="op">Open · Book today</small></div></div></div></div>`;
   // ===== premium templates (free posts) =====
-  if (kind === "trendx") return `<div class="pp ed trendx" style="${vv(t)}">${bg}<span class="sh"></span>
-    <div class="xt">${logo(b, true)}${ring(o.ring || "BOOK EARLY · LIMITED SLOTS · ")}</div>
-    <div class="xb"><h4><span class="l1">${o.l1}</span><span class="l2">${o.l2}</span></h4>
-      <div class="glass"><div class="gl"><span class="k"><i class="ico">${ICON.chart}</i>${esc(o.k)}</span><b>${esc(o.peak)}</b><small>${esc(o.what)}</small></div>
-        <div class="gb">${(o.bars || []).map(h => `<i style="height:${h}%" class="${h >= 85 ? "hi" : ""}"></i>`).join("")}</div></div>
-      <div class="xc"><span class="cpill">${esc(o.cta || "Book via link in bio")}</span><span class="arw">→</span></div></div></div>`;
+  if (kind === "trendx") { const bars = o.bars || [], lab = bars.length === 7 ? "MTWTFSS" : "JFMAMJJASOND", mx = Math.max(...bars, 1);
+    return `<div class="pp ed trendy" style="${vv(t)}"><span class="tph"><img src="${imgSrc(o.img)}" alt="" loading="lazy" style="object-position:${o.pos || "50% 30%"}"></span>
+    <div class="xt">${logo(b, true)}<span class="tk">${esc(o.k)}</span></div>
+    <div class="tcard"><div class="tl"><span class="kk"><i class="ico">${ICON.chart}</i>Peak search time</span><b>${esc(o.peak)}</b><small>${esc(o.what)}</small></div>
+      <div class="tg">${bars.map((h, i) => `<span class="${h === mx ? "hi" : ""}"><i style="height:${Math.max(8, h)}%"></i><em>${lab[i] || ""}</em></span>`).join("")}</div></div>
+    <div class="tb"><h4><span class="l1">${o.l1}</span><span class="l2">${o.l2}</span></h4><span class="go">→</span></div></div>`; }
   if (kind === "reviewx") return `<div class="pp ed reviewx" style="${vv(t)}"><span class="rph"><img src="${imgSrc(o.img)}" alt="" loading="lazy" style="object-position:${o.pos || "50% 50%"}"></span>
     <div class="xt">${logo(b, true)}<span class="r5">5.0 ★</span></div>
     <div class="rcard"><div class="rtop"><span class="av">${esc((o.who || "G")[0])}</span><div><b>${esc(o.who || "Verified customer")}</b><small>Google review · ${esc(b.town)}</small></div><span class="gg">G</span></div>
       <div class="stars">★★★★★</div><q>${esc(o.q)}</q></div>
     <div class="rbar"><span class="sf">${o.tag || "Thank you for the kind words."}</span><span class="rate">${o.rating ? `<b>${esc(o.rating)}</b> ★${o.count ? ` · ${esc(o.count)} reviews` : ""}` : "Google reviews"}</span></div></div>`;
-  if (kind === "promisex") return `<div class="pp ed promisex" style="${vv(t)}"><span class="arch"><img src="${imgSrc(o.img)}" alt="" loading="lazy" style="object-position:${o.pos || "50% 30%"}"></span>
-    <div class="xt">${logo(b, true)}</div>${ring(o.ring || "LOCAL · TRUSTED · INSURED · ", "pr")}
-    <h4><span class="a">${o.a}</span><span class="b sf">${o.b}</span></h4>
+  if (kind === "promisex") return `<div class="pp ed promisey" style="${vv(t)}">
+    <div class="xt">${logo(b)}</div>
+    <span class="pph"><img src="${imgSrc(o.img)}" alt="" loading="lazy" style="object-position:${o.pos || "50% 25%"}"></span>
+    ${ring(o.ring || "LOCAL · TRUSTED · INSURED · ", "pr")}
+    <h4><span class="a">${o.a}</span><span class="b">${o.b}</span></h4>
     <div class="chips">${(o.chips || []).map(c => `<span>${c}</span>`).join("")}</div></div>`;
   // 11. people + local insight card
   if (kind === "insight") return `<div class="pp ed insight" style="${vv(t)}">${bg}<span class="sh"></span>
@@ -1262,7 +1343,7 @@ function quizPosts(d) {
   const tag = x => "#" + String(x).replace(/[^A-Za-z0-9]/g, "");
   return [
     { html: p1, why: "Built on a local search trend", cap: `${tr.l1(town)} ${tr.l2}\n\nWe're booking up fast this month, message us to grab a slot.\n\n${tag(town)} ${tag(svc.short)} ${tag(town + "Cleaner")}` },
-    { html: p2, why: d.review ? "Your real Google review" : "Built on your top praise", cap: d.review ? `This is why we do it. Thank you for the kind words 🧡\n\nMessage us to book.\n\n${tag(town)} #CleaningService` : `${PRAISE[top]?.head || ""}\n\nMessage us to book your clean.\n\n${tag(town)} #CleaningService` },
+    { html: p2, why: d.review ? "Your real Google review" : "Built on your top praise", cap: d.review ? `This is why we do it. Thank you for the kind words 🧡\n\nMessage us to book.\n\n${tag(town)} #CleaningService` : `${PRAISE[top]?.label || "Reliable"}. That's the standard we hold ourselves to, every single visit.\n\nMessage us to book your clean.\n\n${tag(town)} #CleaningService` },
     { html: p3, why: "Your brand promise", cap: `${PRAISE[top]?.head || "Spotless, not just tidy."}\n\n${d.rating ? d.rating + "★ on Google. " : ""}Book via the link in bio.\n\n${tag(town)} #LocalBusiness` },
   ];
 }
@@ -1332,20 +1413,45 @@ const P = {
 
 (() => {
   const reduce = matchMedia("(prefers-reduced-motion: reduce)").matches;
-  // hero: posts slide across inside the phone, like swiping an Instagram carousel
+  // hero: a side card slides into the phone and becomes the post on screen; the old post slides back out to that card's spot
   {
-    const slides = $("#slides"), dots = $("#dots"), list = [P.deposit, P.care, P.spring, P.guests, P.quote, P.home];
-    slides.innerHTML = `<div class="track">${[...list, list[0]].map(f => `<div class="sl">${f()}</div>`).join("")}</div>`;
-    dots.innerHTML = list.map((_, i) => `<i class="${i ? "" : "on"}"></i>`).join("");
-    const track = slides.firstElementChild, d = dots.children;
-    let i = 0, inView = true;
-    if ("IntersectionObserver" in window) new IntersectionObserver(es => { inView = es[0].isIntersecting; }).observe(slides);
-    const go = n => { i = n; track.style.transform = `translateX(${-i * 100}%)`; [...d].forEach((x, k) => x.classList.toggle("on", k === i % list.length)); };
-    track.addEventListener("transitionend", () => { if (i === list.length) { track.style.transition = "none"; go(0); track.offsetWidth; track.style.transition = ""; } });
-    if (!reduce) setInterval(() => { if (inView && !document.hidden) go(i + 1); }, 3000);
+    const POOL = ["deposit", "care", "spring", "guests", "quote", "home"];
+    const fan = $(".fan"), slides = $("#slides"), dots = $("#dots");
+    const cards = [["cL1", "spring"], ["cR1", "quote"], ["cL2", "guests"], ["cR2", "home"]].map(([id, k]) => ({ el: $("#" + id), k }));
+    let onPhone = "deposit"; const queue = ["care"];
+    const setDots = () => dots.innerHTML = POOL.map(k => `<i class="${k === onPhone ? "on" : ""}"></i>`).join("");
+    slides.innerHTML = `<div class="sl">${P[onPhone]()}</div>`; setDots();
+    cards.forEach(c => c.el.innerHTML = P[c.k]());
+    let turn = 0, busy = false, inView = true;
+    if ("IntersectionObserver" in window) new IntersectionObserver(es => { inView = es[0].isIntersecting; }).observe(fan);
+    const E = "cubic-bezier(.65,0,.35,1)";
+    const step = () => {
+      if (busy || !inView || document.hidden) return;
+      const live = cards.filter(c => c.el.offsetParent !== null);
+      if (!live.length) return;
+      const c = live[turn++ % live.length], a = c.el.getBoundingClientRect(), b = slides.getBoundingClientRect();
+      if (!a.width || !b.width) return;
+      busy = true;
+      const dir = a.left + a.width / 2 < b.left + b.width / 2 ? 1 : -1; // 1: card is on the left, slides right into the phone
+      const dist = (b.left + b.width / 2) - (a.left + a.width / 2);
+      c.el.animate([{ transform: "translateX(0)", opacity: 1 }, { transform: `translateX(${dist * .75}px) scale(.92)`, opacity: 0 }], { duration: 700, easing: "cubic-bezier(.55,0,.75,.4)", fill: "forwards" });
+      setTimeout(() => {
+        const cur = slides.firstElementChild, inc = document.createElement("div");
+        inc.className = "sl"; inc.innerHTML = P[c.k]();
+        slides.appendChild(inc);
+        cur.animate([{ transform: "translateX(0)" }, { transform: `translateX(${dir * 100}%)` }], { duration: 650, easing: E, fill: "forwards" });
+        inc.animate([{ transform: `translateX(${-dir * 100}%)` }, { transform: "translateX(0)" }], { duration: 650, easing: E, fill: "forwards" }).onfinish = () => {
+          cur.remove(); inc.getAnimations().forEach(x => x.cancel());
+          queue.push(onPhone); onPhone = c.k; c.k = queue.shift(); setDots();
+          c.el.getAnimations().forEach(x => { if (x.effect && x.effect.getKeyframes().some(k => k.opacity !== undefined)) x.cancel(); });
+          c.el.innerHTML = P[c.k]();
+          c.el.animate([{ transform: `translateX(${-dir * 60}px)`, opacity: 0 }, { transform: "translateX(0)", opacity: 1 }], { duration: 600, easing: "cubic-bezier(.2,.8,.2,1)" });
+          busy = false;
+        };
+      }, 380);
+    };
+    if (!reduce && fan.animate) setInterval(step, 3200);
   }
-  $("#cL1").innerHTML = P.spring(); $("#cL2").innerHTML = P.guests();
-  $("#cR1").innerHTML = P.quote(); $("#cR2").innerHTML = P.home();
   { const fp = $("#finalPosts"); if (fp) fp.innerHTML = [P.bf1, P.bf2, P.bf3].map(f => `<div>${f()}</div>`).join(""); const wf = $("#waFoot"); if (wf) wf.href = `https://wa.me/${CONFIG.whatsapp}`; }
   ["bf1","bf2","bf3"].forEach(k => { const el = $("#" + k); if (el) el.innerHTML = P[k](); });
   { const w = $("#waPartner"); if (w) w.href = `https://wa.me/${CONFIG.whatsapp}?text=${encodeURIComponent("Hi Mayur, I saw LocalPost and have a question about posts for my cleaning business.")}`; }
@@ -1405,7 +1511,7 @@ const steps = [
       if (S.reviewCount && !/^\d{1,5}$/.test(S.reviewCount)) return "Number of reviews should be a number.";
       return "";
     } },
-  { title: "Your brand", hint: "Pick your main colour and add your logo. Watch the preview change.", render: () => `
+  { title: "Your brand", hint: "Pick your main colour and add your logo. We use them on all 3 posts.", render: () => `
       <div class="field"><span class="flabel">Brand colour</span><div class="swatches">${COLORS.map(c => `<button type="button" class="swatch" style="background:${c}" aria-label="Colour ${c}" aria-pressed="${S.color===c}" data-color="${c}"></button>`).join("")}
         <label class="note" style="display:flex;align-items:center;gap:8px">Custom <input type="color" id="f-color" value="${esc(S.color)}" style="width:46px;height:46px;border:0;background:none;padding:0"></label></div></div>
       <div class="field"><span class="flabel">Logo <span class="opt-tag">(optional)</span></span><div class="upload"><div class="thumb" id="logoThumb">${S.logo ? `<img src="${S.logo}" alt="">` : "No logo"}</div><input type="file" id="f-logo" accept="image/png,image/jpeg,image/webp" aria-label="Upload logo"></div></div>`,
@@ -1413,7 +1519,7 @@ const steps = [
   { title: "Pick your style", hint: "Each style is built from layouts that work on Pinterest and Instagram for local services.", render: () => `
       <div class="opts">${STYLES.map(s => { const p = palette(S.color, s.id); return `<button type="button" class="opt" aria-pressed="${S.style===s.id}" data-style="${s.id}"><span class="mood"><i style="background:${p.dark}"></i><i style="background:${p.pop}"></i><i style="background:${p.light}"></i><i style="background:${mix(p.dark, "#FFFFFF", .3)}"></i></span><b>${s.label}</b><span>${s.desc}</span></button>`; }).join("")}</div>`,
     check: () => "" },
-  { title: "Who's the face of your posts?", hint: "Pick one of 3 free models for your preview, or use your team photo. With your monthly plan you choose from many realistic male and female models.", render: () => `
+  { title: "Who's the face of your posts?", hint: "Pick one of 3 free models for your posts, or use your team photo. With your monthly plan you choose from many realistic male and female models.", render: () => `
       <div class="opts four models-pick" id="faceOpts">
         <button type="button" class="opt" aria-pressed="${S.faceType==="team"}" data-face="team"><span class="team-up"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"><path d="M4 8h3l1.8-2.5h6.4L17 8h3v11H4z"/><circle cx="12" cy="13.5" r="3.5"/></svg></span><b>My team photo</b><span>Recommended</span></button>
         ${MODELS.map(m => `<button type="button" class="opt" aria-pressed="${S.faceType==="model" && S.model===m.id}" data-model="${m.id}"><img src="${m.img}" alt=""><b>${m.label} <span class="free">Free</span></b><span>${m.desc}</span></button>`).join("")}
@@ -1442,14 +1548,27 @@ const steps = [
 function preview() {
   const side = $("#qSide"); if (!side) return;
   keep();
-  const d = { ...S, name: S.name || "Your Business", town: S.town || "Your town" };
-  const p = palette(S.color, S.style);
-  const qp = quizPosts(d); side.querySelector(".qprev").innerHTML = `${qp[0].html}<div class="row">${qp[1].html}${qp[2].html}</div>`;
+  const t = themeFor(S.color, S.style), svc = SERVICES[S.mainService], pr = PRAISE[(S.praise || [])[0]];
+  const m = S.faceType === "model" ? MODELS.find(x => x.id === S.model) : null;
+  const faceImg = S.faceType === "team" && S.photo ? S.photo : m ? m.img : "";
+  const rows = [
+    ["Business", S.name, ""],
+    ["Town", S.town, ""],
+    ["Main service", svc && svc.label, ""],
+    ["What customers love", pr && pr.label, ""],
+    ["Brand colour", S.color, `<i class="sw" style="background:${S.color}"></i>`],
+    ["Brand face", faceImg ? (m ? m.label : "Your team photo") : "", faceImg ? `<img class="fc" src="${faceImg}" alt="">` : ""],
+  ];
+  const doneN = rows.filter(r => r[1]).length;
+  side.querySelector(".qprev").innerHTML = `<div class="tease" style="${vv(t)}">
+    <div class="tstack" aria-hidden="true"><span class="tc t3"></span><span class="tc t2"></span><span class="tc t1"><i class="ico">${ICON.lock}</i><b>Revealed at the end</b><small>${doneN} of ${rows.length} ingredients</small></span></div>
+    <ul class="trec">${rows.map(([k, v, x]) => `<li class="${v ? "on" : ""}"><i class="tick">${v ? ICON.check : ""}</i><span>${k}</span><em>${x}${v ? esc(k === "Brand colour" ? "" : v) : "waiting"}</em></li>`).join("")}</ul>
+    <p class="tnote">${svc && S.town ? `We'll match real search trends for <b>${esc(svc.short)}</b> in <b>${esc(S.town)}</b>.` : "Each post is built on real local data."}</p></div>`;
 }
 function drawStep() {
   const st = steps[S.step];
   $("#qBody").innerHTML = `<div class="qgrid"><div class="qstep"><h2 id="qTitle">${st.title}</h2>${st.hint ? `<p class="hint">${st.hint}</p>` : ""}${st.render()}</div>
-    <aside class="qside" id="qSide" aria-label="Live preview"><div class="lbl">Live preview<em>● updating</em></div><div class="qprev"></div></aside></div>`;
+    <aside class="qside" id="qSide" aria-label="What we are making for you"><div class="lbl">Your 3 posts<em>● in the making</em></div><div class="qprev"></div></aside></div>`;
   $("#qCount").textContent = `Step ${S.step + 1} of ${steps.length}`;
   $("#qProg").style.width = `${((S.step + 1) / (steps.length + 1)) * 100}%`;
   $("#qBack").style.display = S.step ? "" : "none";
@@ -1549,12 +1668,13 @@ function results() {
       <div class="rfan" id="rp">${qp.map((x, i) => `<figure class="rf rf${i + 1}"><div class="rpost">${x.html}</div><figcaption><i class="ico">${[ICON.trend, ICON.spark, ICON.target][i]}</i>${esc(x.why)}</figcaption></figure>`).join("")}</div>
       <div class="ract"><button class="btn btn-green" type="button" data-unlock><i class="ico">${ICON.wa}</i>Unlock 30 posts on WhatsApp <span class="arr" aria-hidden="true">→</span></button><span>Yours to keep · no card needed</span></div>
     </div>
-    <div class="rcaps">${qp.map((x, i) => `<details${i ? "" : " open"}><summary>Caption for post ${i + 1}</summary><p>${esc(x.cap)}</p></details>`).join("")}</div>
-    <div class="timeline">
-      <div><b>Now</b>Your quick version, made from your answers.</div>
-      <div><b>Within 24 hours</b>Your researched set with real data for ${esc(S.town)}: what people search, when, and where nearby cleaners fall short. Sent to ${esc(S.email || "your WhatsApp")}.</div>
-      <div><b>When you unlock</b>30 posts for this month within 48 hours, then by the 1st of every month.</div>
-    </div>
+    <section class="rcaps2" aria-label="Captions for your 3 posts">
+      <div class="rch"><h3>Ready-to-post captions</h3><p>Written for each post, with local hashtags. Copy and paste.</p></div>
+      <div class="rcgrid">${qp.map((x, i) => { const parts = x.cap.split("\n\n"), tags = /^#/.test(parts[parts.length - 1]) ? parts.pop() : "";
+        return `<article class="cap"><div class="ch"><div class="cpost">${x.html}</div><div class="cmeta"><b>Post ${i + 1}</b><span>${esc(x.why)}</span></div></div>
+          <div class="cbody"><p><b class="handle">${esc((S.name || "yourbusiness").toLowerCase().replace(/[^a-z0-9]/g, ""))}</b> ${parts.map(esc).join("<br><br>")}</p>${tags ? `<p class="tags">${esc(tags)}</p>` : ""}</div>
+          <button type="button" class="copy" data-cap="${i}"><i class="ico">${ICON.check}</i><span>Copy caption</span></button></article>`; }).join("")}</div>
+    </section>
     <div class="unlock" id="unlock">
       <div><div class="eyebrow">Unlock your full month</div><h2>30 posts like these, every month.</h2>
         <ul><li>30 designed posts in your brand</li><li>Local research for ${esc(S.town)}</li><li>Your brand face in every post</li><li>Every new review turned into a post</li><li>Captions, hashtags and a calendar</li><li>Checked by a person, every time</li></ul></div>
@@ -1562,6 +1682,11 @@ function results() {
         <button class="btn btn-sun" type="button" data-unlock><i class="ico">${ICON.wa}</i>Unlock on WhatsApp</button>
         <span class="msg" id="unlockMsg">Cancel anytime · full refund if the first month isn't right</span></div>
     </div></div>`;
+  document.querySelectorAll("[data-cap]").forEach(b => b.onclick = () => {
+    const t = qp[+b.dataset.cap].cap, lbl = b.querySelector("span");
+    const done = () => { b.classList.add("ok"); lbl.textContent = "Copied"; setTimeout(() => { b.classList.remove("ok"); lbl.textContent = "Copy caption"; }, 1800); };
+    (navigator.clipboard ? navigator.clipboard.writeText(t) : Promise.reject()).then(done, () => { const r = document.createRange(); r.selectNodeContents(b.previousElementSibling); const sel = getSelection(); sel.removeAllRanges(); sel.addRange(r); lbl.textContent = "Selected, press copy"; });
+  });
   document.querySelectorAll("[data-unlock]").forEach(b => b.onclick = () => {
     if (CONFIG.stripeLink) { location.href = CONFIG.stripeLink + (CONFIG.stripeLink.includes("?") ? "&" : "?") + "client_reference_id=" + encodeURIComponent(S.leadId || ""); return; }
     const msg = `Hi ${CONFIG.founderName.split(" ")[0]}, I just got my 3 free posts for ${S.name || "my business"} in ${S.town || "my town"}. I'd like to unlock my full month (30 posts, $49/month). Ref: ${S.leadId || "-"}`;
