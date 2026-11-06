@@ -11,9 +11,10 @@
 <meta property="og:url" content="https://localpost.adsnora.com/">
 <meta property="og:type" content="website">
 <meta name="twitter:card" content="summary_large_image">
+<script src="/vendor/html-to-image.js" defer></script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Fraunces:ital,opsz,wght@0,9..144,300..800;1,9..144,300..700&family=Inter+Tight:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;600&family=Caveat:wght@600;700&family=Anton&display=swap">
+<link rel="stylesheet" crossorigin="anonymous" href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Fraunces:ital,opsz,wght@0,9..144,300..800;1,9..144,300..700&family=Inter+Tight:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;600&family=Caveat:wght@600;700&family=Anton&display=swap">
 <style>
 /* Layout: simple and visual. Centred two-tone headline, a phone with posts fanned in a 3D arc, 3 picture-first steps, a work grid, one price card, a short FAQ and a centred CTA. */
 :root{
@@ -1228,7 +1229,7 @@ footer .in{align-items:center}
 .uv2 q{font-family:"Fraunces",Georgia,serif;font-size:15px;line-height:1.15;color:#1B1A16;quotes:"\201C" "\201D"}
 .uv2 small{font-size:11px;color:#8A8270;font-weight:600}
 .uv3{background:linear-gradient(160deg,#EEF7EA,#F7FBF5);flex-direction:row;flex-wrap:wrap;align-content:center;gap:6px}
-.uv3 em{font-style:normal;font-size:11.5px;font-weight:700;border-radius:99px;padding:5px 10px;background:#fff;color:#556052;border:1px solid #DCE6D6}
+.uv3 em{font-style:normal;font-size:11.5px;line-height:1;font-weight:700;border-radius:99px;padding:6px 10px;display:inline-flex;align-items:center;background:#fff;color:#556052;border:1px solid #DCE6D6}
 .uv3 em.on{background:#1F6B4A;color:#fff;border-color:#1F6B4A}
 .uv4{background:linear-gradient(160deg,#F4EFE4,#FBF8F1);flex-direction:row;gap:14px}
 .ulogo{width:52px;height:52px;border-radius:15px;background:#1438C8;color:#fff!important;padding:0!important;display:grid;place-items:center;font-weight:800;font-size:17px;box-shadow:0 10px 20px -10px rgba(20,56,200,.6)}
@@ -1329,7 +1330,7 @@ footer .in{align-items:center}
 .insights.v2>div>b{padding:6px 6px 0;font-size:16px}.insights.v2>div>span{padding:0 6px;font-size:13.5px;color:var(--ink-2)}
 .insights .iv{height:96px;border-radius:14px;padding:10px;display:flex;flex-direction:column;justify-content:center;gap:6px;overflow:hidden}
 .insights .iv1{background:linear-gradient(160deg,#EAF0FF,#F6F8FF);align-items:flex-start}
-.iv1 em{font-style:normal;font-size:11.5px;font-weight:600;background:#fff;border-radius:99px;padding:4px 10px;color:#333;box-shadow:0 4px 10px -6px rgba(30,68,216,.4);white-space:nowrap;max-width:100%;overflow:hidden;text-overflow:ellipsis}
+.iv1 em{font-style:normal;font-size:11.5px;line-height:1;font-weight:600;background:#fff;border-radius:99px;padding:6px 10px;display:inline-flex;align-items:center;color:#333;box-shadow:0 4px 10px -6px rgba(30,68,216,.4);white-space:nowrap;max-width:100%;overflow:hidden;text-overflow:ellipsis}
 .iv1 em.h{background:#1E44D8;color:#fff}
 .insights .iv2{background:linear-gradient(160deg,#EEF7EA,#F7FBF5);gap:4px;padding:16px 14px 10px}
 .mbars{display:flex;align-items:flex-end;gap:3px;height:58px}
@@ -1369,6 +1370,11 @@ footer .in{align-items:center}
 .ighl i{background:#F2F2F2!important;color:#999!important;box-shadow:0 0 0 1px #DBDBDB,0 0 0 3px #fff,0 0 0 4px #DBDBDB!important}
 .glassbtn{color:#111!important;text-shadow:none!important;background:rgba(255,255,255,.55)!important;border:1px solid rgba(255,255,255,.85)!important;top:83%!important}
 .iggrid::after{top:50%!important}
+
+.pimg{display:block;width:100%;aspect-ratio:4/5;height:auto;object-fit:cover}
+.rf .pimg{border-radius:18px}.iggrid .pimg{border-radius:0}.rcaps2 .cpost .pimg{border-radius:8px}
+.dlbtn{background:#fff;color:var(--ink);border:1.5px solid var(--line)}
+.ract{flex-wrap:wrap;justify-content:center}
 </style>
 </head>
 <body>
@@ -1422,7 +1428,7 @@ footer .in{align-items:center}
         <div class="insights v2 rv dl3">
           <div><div class="iv iv1"><em>oven cleaning</em><em>cleaners near me</em><em class="h">deep clean</em></div><b>What they search</b><span>The exact words people type</span></div>
           <div><div class="iv iv2"><span class="mb">${""}</span></div><b>When they search</b><span>Your busy months, ahead of time</span></div>
-          <div><div class="iv iv3"><span class="rs">★★☆☆☆</span><q>Missed the skirting boards.</q><small>A rival's review</small></div><b>Where rivals fail</b><span>What their customers complain about</span></div>
+          <div><div class="iv iv3"><span class="rs">★★☆☆☆</span><q>Missed the skirting boards.</q><small>A competitor's review</small></div><b>Where competitors fall short</b><span>What their customers complain about</span></div>
         </div>
       </div>
       <div class="map rv dl2" aria-label="Example map of Leeds neighbourhoods with targeted posts">
@@ -1751,9 +1757,9 @@ function ed(kind, b, o) {
 
 /* Quiz results use the same system */
 function quizBiz(d) { return { name: d.name || "Your Business", town: d.town || "Your town", color: d.color, style: d.style, logo: d.logo }; }
-const TEAM_SHOT = { regular: "svc-regular", deep: "svc-deep", tenancy: "svc-tenancy", office: "svc-office", airbnb: "svc-airbnb", oven: "wipe-wall", carpet: "team-room" };
+const TEAM_SHOT = { regular: "p-faucet", deep: "p-sink", tenancy: "p-counter", office: "p-spray-grey", airbnb: "p-room", oven: "p-gloves-grey", carpet: "p-room2" };
 function quizPhoto(d, fallback) {
-  if (d.faceType === "team") return PH("team-pose");
+  if (d.faceType === "team") return PH("p-caddy");
   if (d.faceType === "model" && MODELS.some(x => x.id === d.model)) return modelShot(d.model, "8-portrait");
   return fallback || SVC_PHOTO[d.mainService] || "p-faucet";
 }
@@ -1769,7 +1775,7 @@ const TREND = {
 };
 const PEOPLE_FALLBACK = { tenancy: "couple", regular: "sun-read", deep: "relax", office: "happy-laptop", airbnb: "window-read", oven: "sofa-smile", carpet: "relax" };
 function quizPeople(d, slot) {
-  if (d.faceType === "team") return PH(slot === "portrait" ? "team-pose" : (TEAM_SHOT[d.mainService] || "svc-regular"));
+  if (d.faceType === "team") return PH(slot === "portrait" ? "p-caddy" : (TEAM_SHOT[d.mainService] || "p-faucet"));
   if (d.faceType === "model" && MODELS.some(x => x.id === d.model)) return modelShot(d.model, slot === "portrait" ? "8-portrait" : (MODEL_SHOT[d.mainService] || MODEL_SHOT.regular));
   return `/assets/localpost/people/${PEOPLE_FALLBACK[d.mainService] || "couple"}.jpg`;
 }
@@ -1985,9 +1991,9 @@ const steps = [
   { title: "Pick your style", hint: "Each style is built from layouts that work on Pinterest and Instagram for local services.", render: () => `
       <div class="opts">${STYLES.map(s => { const p = palette(S.color, s.id); return `<button type="button" class="opt" aria-pressed="${S.style===s.id}" data-style="${s.id}"><span class="mood"><i style="background:${p.dark}"></i><i style="background:${p.pop}"></i><i style="background:${p.light}"></i><i style="background:${mix(p.dark, "#FFFFFF", .3)}"></i></span><b>${s.label}</b><span>${s.desc}</span></button>`; }).join("")}</div>`,
     check: () => "" },
-  { title: "Who's the face of your posts?", hint: "Pick a free model, or use real cleaning-team photos.", render: () => `
+  { title: "Who's the face of your posts?", hint: "Pick a free model, or go with no model.", render: () => `
       <div class="opts four models-pick" id="faceOpts">
-        <button type="button" class="opt" aria-pressed="${S.faceType==="team"}" data-face="team"><img src="/assets/localpost/photos/team-pose.jpg" alt=""><b>Team photos</b><span>Real cleaners at work</span></button>
+        <button type="button" class="opt" aria-pressed="${S.faceType==="team"}" data-face="team"><img src="/assets/localpost/photos/p-caddy.jpg" alt=""><b>No model</b><span>Clean, simple photos</span></button>
         ${MODELS.map(m => `<button type="button" class="opt" aria-pressed="${S.faceType==="model" && S.model===m.id}" data-model="${m.id}"><img src="${m.img}" alt=""><b>${m.label} <span class="free">Free</span></b><span>${m.desc}</span></button>`).join("")}
       </div>
       <div class="moremodels"><b>+ More models with your plan</b><span>Choose from many realistic male and female models, all ages and styles, for your Instagram page.</span></div>
@@ -2015,14 +2021,14 @@ function preview() {
   keep();
   const t = themeFor(S.color, S.style), svc = SERVICES[S.mainService], pr = PRAISE[(S.praise || [])[0]];
   const m = S.faceType === "model" ? MODELS.find(x => x.id === S.model) : null;
-  const faceImg = S.faceType === "team" ? PH("team-pose") : m ? m.img : "";
+  const faceImg = S.faceType === "team" ? PH("p-caddy") : m ? m.img : "";
   const rows = [
     ["Business", S.name, ""],
     ["Town", S.town, ""],
     ["Main service", svc && svc.label, ""],
     ["What customers love", pr && pr.label, ""],
     ["Brand colour", S.color, `<i class="sw" style="background:${S.color}"></i>`],
-    ["Brand face", faceImg ? (m ? m.label : "Team photos") : "", faceImg ? `<img class="fc" src="${faceImg}" alt="">` : ""],
+    ["Brand face", faceImg ? (m ? m.label : "No model") : "", faceImg ? `<img class="fc" src="${faceImg}" alt="">` : ""],
   ];
   const doneN = rows.filter(r => r[1]).length, qp = quizPosts({ ...S, name: S.name || "Your Business", town: S.town || "Your town" });
   const peek = (i, extra) => `<span class="tc t${i + 1}"><span class="blur">${qp[i].html}</span>${extra || ""}</span>`;
@@ -2123,6 +2129,34 @@ function building() {
   lis.forEach((li, i) => setTimeout(() => li.classList.add("done"), 500 * (i + 1)));
   setTimeout(results, 500 * (lis.length + 1));
 }
+/* Render a post at its final size (1080×1350) and return a PNG, so what people see is exactly the file they get */
+async function postToImage(html) {
+  if (!window.htmlToImage) return null;
+  const host = document.createElement("div");
+  host.setAttribute("aria-hidden", "true");
+  host.style.cssText = "position:fixed;left:-12000px;top:0;width:1080px;pointer-events:none;z-index:-1";
+  host.innerHTML = html; document.body.appendChild(host);
+  const node = host.firstElementChild; node.style.borderRadius = "0";
+  try {
+    if (document.fonts) await document.fonts.ready;
+    const wait = (pr, ms) => Promise.race([pr, new Promise(r => setTimeout(r, ms))]);
+    const imgs = [...host.querySelectorAll("img")];
+    imgs.forEach(im => { im.loading = "eager"; im.decoding = "sync"; });
+    await wait(Promise.all(imgs.map(im => im.complete && im.naturalWidth ? 0 : new Promise(r => { im.onload = im.onerror = r; }))), 8000);
+    return await wait(window.htmlToImage.toPng(node, { pixelRatio: 1, width: 1080, height: 1350, cacheBust: false }), 15000) || null;
+  } catch (e) { return null; } finally { host.remove(); }
+}
+async function rasterizeResults(qp) {
+  const urls = [];
+  for (let i = 0; i < qp.length; i++) urls.push(await postToImage(qp[i].html));
+  urls.forEach((u, i) => {
+    if (!u) return;
+    const img = `<img class="pimg" src="${u}" alt="Free post ${i + 1}">`;
+    document.querySelectorAll(`.rf${i + 1} .rpost, .iggrid .gt:nth-child(${i + 1}), .rcaps2 .cap:nth-child(${i + 1}) .cpost`).forEach(el => { el.innerHTML = img; });
+  });
+  const dl = $("#dlPosts");
+  if (dl && urls.every(Boolean)) { dl.hidden = false; dl.onclick = () => urls.forEach((u, i) => { const a = document.createElement("a"); a.href = u; a.download = `${(S.name || "post").toLowerCase().replace(/[^a-z0-9]+/g, "-")}-post-${i + 1}.png`; document.body.appendChild(a); a.click(); a.remove(); }); }
+}
 function results() {
   const d = { ...S }, qp = quizPosts(d);
   $("#qCount").textContent = "Your 3 free posts";
@@ -2130,14 +2164,14 @@ function results() {
     <div class="rstage">
       <div class="rhead"><span class="rbadge"><i class="ico">${ICON.check}</i>Ready · made for ${esc(S.name)}</span><h2>Your 3 posts are ready</h2><p>Built for ${esc(S.town)}, in your colours, with your brand face.</p></div>
       <div class="rfan" id="rp">${qp.map((x, i) => `<figure class="rf rf${i + 1}"><div class="rpost">${x.html}</div><figcaption><i class="ico">${[ICON.trend, ICON.spark, ICON.target][i]}</i>${esc(x.why)}</figcaption></figure>`).join("")}</div>
-      <div class="ract"><button class="btn btn-green" type="button" data-unlock><i class="ico">${ICON.wa}</i>Unlock 30 posts on WhatsApp <span class="arr" aria-hidden="true">→</span></button><span>Yours to keep · no card needed</span></div>
+      <div class="ract"><button class="btn btn-ghost dlbtn" type="button" id="dlPosts" hidden>Download my 3 posts</button><button class="btn btn-green" type="button" data-unlock><i class="ico">${ICON.wa}</i>Unlock 30 posts on WhatsApp <span class="arr" aria-hidden="true">→</span></button><span>Yours to keep · no card needed</span></div>
     </div>
     <section class="igfeed" aria-label="How your Instagram page will look">
       <div class="igtx"><span class="eyebrow" style="color:var(--accent)">On your Instagram</span><h3>This is your page, every month.</h3>
         <p>Your 3 free posts sit at the top of your grid. With your plan, 30 posts like these fill it every month, so your page always looks busy, local and trusted.</p>
         <p class="igfmt2">Sent to your email or WhatsApp, sized for Instagram and Facebook (1080×1350) and Google Business Profile (1200×900).</p></div>
       <div class="igph1" style="${vv(themeFor(S.color, S.style))}"><div class="igsb"><b>9:41</b><span></span></div>
-        <div class="igpro"><i class="av" style="background:${S.color || "#1F6B4A"}">${S.logo ? `<img src="${S.logo}" alt="">` : esc(initials(S.name || "Your Business"))}</i><div class="ign"><b>${esc((S.name || "yourbusiness").toLowerCase().replace(/[^a-z0-9]/g, ""))}</b><div class="stt"><span><b>3</b>posts</span><span><b>—</b>followers</span><span><b>—</b>following</span></div></div></div>
+        <div class="igpro"><i class="av" style="background:${themeFor(S.color, S.style).a}">${S.logo ? `<img src="${S.logo}" alt="">` : esc(initials(S.name || "Your Business"))}</i><div class="ign"><b>${esc((S.name || "yourbusiness").toLowerCase().replace(/[^a-z0-9]/g, ""))}</b><div class="stt"><span><b>3</b>posts</span><span><b>—</b>followers</span><span><b>—</b>following</span></div></div></div>
         <p class="igbio"><b>${esc(S.name || "Your Business")}</b><br>${esc(SERVICES[S.mainService]?.label || "Home cleaning")} in ${esc(S.town || "your town")}<br><span class="lnk">linktr.ee/${esc((S.name || "yourbusiness").toLowerCase().replace(/[^a-z0-9]/g, ""))}</span></p>
         <div class="igbtn"><span class="pri">Follow</span><span>Message</span></div>
         <div class="ighl">${["Reviews", "Tips", "Book"].map(l => `<span class="h"><i></i><small>${l}</small></span>`).join("")}</div>
@@ -2159,6 +2193,7 @@ function results() {
         <button class="btn btn-sun" type="button" data-unlock><i class="ico">${ICON.wa}</i>Unlock on WhatsApp</button>
         <span class="msg" id="unlockMsg">Cancel anytime · full refund if the first month isn't right</span></div>
     </div></div>`;
+  rasterizeResults(qp);
   document.querySelectorAll("[data-cap]").forEach(b => b.onclick = () => {
     const t = qp[+b.dataset.cap].cap, lbl = b.querySelector("span");
     const done = () => { b.classList.add("ok"); lbl.textContent = "Copied"; setTimeout(() => { b.classList.remove("ok"); lbl.textContent = "Copy caption"; }, 1800); };
