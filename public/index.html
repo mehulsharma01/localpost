@@ -110,6 +110,8 @@ section{padding-block:100px;position:relative}
 .slides>div{position:absolute;inset:0;opacity:0;transition:opacity .8s ease}
 .slides>div.on{opacity:1}
 .slides .post,.slides .pp{border-radius:0;height:100%}
+.flyer{position:absolute;z-index:7;transform-origin:0 0;overflow:hidden;pointer-events:none;will-change:transform}
+.flyer .pp,.flyer .post{border-radius:0;height:100%}
 .dots{display:flex;justify-content:center;gap:4px;padding-top:8px}
 .dots i{width:6px;height:6px;border-radius:50%;background:#D5D5D5}.dots i.on{background:#3897F0}
 
@@ -1330,23 +1332,53 @@ const P = {
 };
 
 (() => {
-  // hero phone slideshow
-  const slides = [P.deposit, P.care, P.quote, P.home];
-  $("#slides").innerHTML = slides.map((f, i) => `<div class="${i ? "" : "on"}">${f()}</div>`).join("");
-  $("#dots").innerHTML = slides.map((_, i) => `<i class="${i ? "" : "on"}"></i>`).join("");
-  let cur = 0;
   const reduce = matchMedia("(prefers-reduced-motion: reduce)").matches;
-  if (!reduce) setInterval(() => {
-    const s = $("#slides").children, d = $("#dots").children;
-    s[cur].classList.remove("on"); d[cur].classList.remove("on");
-    cur = (cur + 1) % s.length;
-    s[cur].classList.add("on"); d[cur].classList.add("on");
-  }, 3200);
+  // hero: side cards fly into the phone one at a time; the post that was on the phone goes back out to that card's spot
+  {
+    const POOL = ["deposit", "care", "spring", "guests", "quote", "home"];
+    const fan = $(".fan"), slides = $("#slides"), dots = $("#dots");
+    const cards = [["cL1", "spring"], ["cR1", "quote"], ["cL2", "guests"], ["cR2", "home"]].map(([id, k]) => ({ el: $("#" + id), k }));
+    let onPhone = "deposit"; const queue = ["care"];
+    const drawPhone = () => { slides.innerHTML = `<div class="on">${P[onPhone]()}</div>`; dots.innerHTML = POOL.map(k => `<i class="${k === onPhone ? "on" : ""}"></i>`).join(""); };
+    cards.forEach(c => c.el.innerHTML = P[c.k]());
+    drawPhone();
+    let turn = 0, busy = false, inView = true;
+    if ("IntersectionObserver" in window) new IntersectionObserver(es => { inView = es[0].isIntersecting; }).observe(fan);
+    const fly = () => {
+      if (busy || !inView || document.hidden) return;
+      const live = cards.filter(c => c.el.offsetParent !== null && c.el.parentElement.offsetParent !== null);
+      if (!live.length) return;
+      const c = live[turn++ % live.length];
+      const fr = fan.getBoundingClientRect(), a = c.el.getBoundingClientRect(), b = slides.getBoundingClientRect();
+      if (!a.width || !b.width) return;
+      busy = true;
+      const fl = document.createElement("div");
+      fl.className = "flyer"; fl.innerHTML = P[c.k]();
+      const w = a.width, h = b.height / b.width * w, top = a.top + (a.height - h) / 2;
+      Object.assign(fl.style, { left: a.left - fr.left + "px", top: top - fr.top + "px", width: w + "px", height: h + "px" });
+      fan.appendChild(fl);
+      c.el.style.opacity = "0";
+      const dx = b.left - a.left, dy = b.top - top, s = b.width / w, side = a.left < b.left ? -1 : 1;
+      const anim = fl.animate([
+        { transform: `translate(0,0) scale(1) rotate(${side * 6}deg)`, borderRadius: "22px", boxShadow: "0 30px 40px -10px rgba(14,18,13,.35)" },
+        { transform: `translate(${dx * .55}px,${dy * .55 - 40}px) scale(${1 + (s - 1) * .7}) rotate(${-side * 3}deg)`, offset: .6 },
+        { transform: `translate(${dx}px,${dy}px) scale(${s}) rotate(0deg)`, borderRadius: "0px", boxShadow: "0 0 0 0 rgba(0,0,0,0)" }
+      ], { duration: 950, easing: "cubic-bezier(.65,0,.25,1)", fill: "forwards" });
+      anim.onfinish = () => {
+        queue.push(onPhone); onPhone = c.k; c.k = queue.shift();
+        drawPhone(); fl.remove();
+        $(".fan .phone").animate([{ transform: "translateX(-50%) scale(1)" }, { transform: "translateX(-50%) scale(1.03)" }, { transform: "translateX(-50%) scale(1)" }], { duration: 420, easing: "ease-out" });
+        c.el.innerHTML = P[c.k]();
+        c.el.style.opacity = "";
+        c.el.animate([{ opacity: 0, transform: "scale(.8) translateY(30px)" }, { opacity: 1, transform: "scale(1) translateY(0)" }], { duration: 600, easing: "cubic-bezier(.2,.9,.3,1.2)" });
+        busy = false;
+      };
+    };
+    if (!reduce && fan.animate) setInterval(fly, 3200);
+  }
   { const fp = $("#finalPosts"); if (fp) fp.innerHTML = [P.bf1, P.bf2, P.bf3].map(f => `<div>${f()}</div>`).join(""); const wf = $("#waFoot"); if (wf) wf.href = `https://wa.me/${CONFIG.whatsapp}`; }
   ["bf1","bf2","bf3"].forEach(k => { const el = $("#" + k); if (el) el.innerHTML = P[k](); });
   { const w = $("#waPartner"); if (w) w.href = `https://wa.me/${CONFIG.whatsapp}?text=${encodeURIComponent("Hi Mayur, I saw LocalPost and have a question about posts for my cleaning business.")}`; }
-  $("#cL1").innerHTML = P.spring(); $("#cL2").innerHTML = P.guests();
-  $("#cR1").innerHTML = P.quote(); $("#cR2").innerHTML = P.home();
   $("#stack3").innerHTML = P.ontime() + P.deposit() + P.spring();
   $("#mp1").innerHTML = P.hood(); $("#mp2").innerHTML = P.deposit();
   { const qs = ["end of tenancy cleaning leeds", "cleaners near headingley", "oven cleaning leeds", "deep clean before moving out"], el = $("#gq"); let qi = 0, ci = qs[0].length, del = true;
