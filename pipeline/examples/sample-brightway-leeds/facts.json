@@ -1,0 +1,90 @@
+{
+  "name": "Brightway Cleaning",
+  "category": "House cleaning service",
+  "town": "Leeds",
+  "phone": "0113 000 0000",
+  "website": "https://example.com",
+  "rating": 4.9,
+  "reviewsCount": 47,
+  "mapsUrl": "https://www.google.com/maps/place/example",
+  "reviewsAnalysed": 12,
+  "themes": [
+    {
+      "key": "reliable",
+      "label": "reliable",
+      "mentions": 4
+    },
+    {
+      "key": "thorough",
+      "label": "thorough",
+      "mentions": 4
+    },
+    {
+      "key": "trust",
+      "label": "trustworthy",
+      "mentions": 2
+    },
+    {
+      "key": "friendly",
+      "label": "friendly",
+      "mentions": 2
+    },
+    {
+      "key": "responsive",
+      "label": "quick to reply",
+      "mentions": 2
+    },
+    {
+      "key": "value",
+      "label": "great value",
+      "mentions": 1
+    }
+  ],
+  "services": [
+    {
+      "key": "end_of_tenancy",
+      "mentions": 4
+    },
+    {
+      "key": "oven",
+      "mentions": 3
+    },
+    {
+      "key": "regular",
+      "mentions": 2
+    }
+  ],
+  "bestReviews": [
+    {
+      "quote": "Moved out of our Headingley flat and got the full deposit back. The oven looked brand new and the landlord said it was the cleanest handover he'd seen. Would book again.",
+      "stars": 5,
+      "date": "2026-09-14",
+      "score": 22
+    },
+    {
+      "quote": "Jo has cleaned for us every fortnight for a year. Always on time, always thorough, and we trust her completely with our keys.",
+      "stars": 5,
+      "date": "2026-08-30",
+      "score": 22
+    },
+    {
+      "quote": "Reliable and friendly. They fitted us in at short notice before our inventory check.",
+      "stars": 5,
+      "date": "2026-08-02",
+      "score": 22
+    },
+    {
+      "quote": "We come home to a spotless house every week. Honest, reliable people.",
+      "stars": 5,
+      "date": "2026-05-28",
+      "score": 22
+    },
+    {
+      "quote": "Quick to respond and always reliable. Highly recommend to anyone moving out in Leeds.",
+      "stars": 5,
+      "date": "2026-03-12",
+      "score": 21
+    }
+  ],
+  "isSample": true
+}

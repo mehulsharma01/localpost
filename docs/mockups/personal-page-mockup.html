@@ -1,0 +1,209 @@
+<title>LocalPost for Brightway Cleaning</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,800&family=Figtree:wght@400;500;600;700&display=swap">
+<style>
+/* Layout: the personal link a cleaning owner opens. A checklist of what customers see, then their own reviews as posts, their month, one price. */
+:root{
+  --paper:#F5F7F4; --card:#FFFFFF; --ink:#13302B; --muted:#5B6E69; --line:#DCE4E0;
+  --accent:#1F5FD1; --accent-ink:#FFFFFF; --good:#1E8A5A; --bad:#C2412D; --badbg:#FBEBE7; --goodbg:#E5F4EC;
+  --post-a:#13302B; --post-b:#E9F0FB; --post-c:#FFD84D;
+  --display:"Bricolage Grotesque", "Arial Black", system-ui, sans-serif;
+  --body:"Figtree", system-ui, -apple-system, "Segoe UI", sans-serif;
+}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){
+  --paper:#0E1715; --card:#16221F; --ink:#E7EFEC; --muted:#9AB0AA; --line:#26362F;
+  --accent:#6E9BFF; --accent-ink:#0E1715; --good:#5CC98F; --bad:#FF8A73; --badbg:#3A1E18; --goodbg:#16352A;
+  --post-a:#0A1311; --post-b:#1B2A44; --post-c:#E8C33C; color-scheme:dark}}
+:root[data-theme="dark"]{
+  --paper:#0E1715; --card:#16221F; --ink:#E7EFEC; --muted:#9AB0AA; --line:#26362F;
+  --accent:#6E9BFF; --accent-ink:#0E1715; --good:#5CC98F; --bad:#FF8A73; --badbg:#3A1E18; --goodbg:#16352A;
+  --post-a:#0A1311; --post-b:#1B2A44; --post-c:#E8C33C; color-scheme:dark}
+*{box-sizing:border-box}
+body{background:var(--paper);color:var(--ink);font-family:var(--body);font-size:16px;line-height:1.55;
+  padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));padding-block:0 48px}
+.wrap{max-width:1040px;margin:0 auto;display:flex;flex-direction:column;gap:56px}
+.demo{font-size:13px;color:var(--muted);text-align:center;padding-block:10px;border-bottom:1px solid var(--line)}
+header{display:flex;justify-content:space-between;align-items:center;gap:16px;padding-block:18px 0;flex-wrap:wrap}
+.logo{font-family:var(--display);font-weight:800;font-size:20px;letter-spacing:-.02em}
+.logo span{color:var(--accent)}
+.for{font-size:14px;color:var(--muted)}
+h1,h2{font-family:var(--display);letter-spacing:-.025em;text-wrap:balance;margin:0}
+h1{font-size:clamp(34px,6vw,60px);line-height:1.02;font-weight:800;max-width:16ch}
+h2{font-size:clamp(24px,3.4vw,34px);line-height:1.1;font-weight:800}
+.lede{font-size:18px;color:var(--muted);max-width:58ch;margin:0}
+.eyebrow{font-size:12px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--accent)}
+.hero{display:grid;grid-template-columns:1.1fr .9fr;gap:40px;align-items:start}
+.hero>div{min-width:0;display:flex;flex-direction:column;gap:18px}
+/* checklist */
+.check{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:22px;display:flex;flex-direction:column;gap:4px}
+.check h3{margin:0 0 8px;font-size:14px;font-weight:700;color:var(--muted)}
+.row{display:grid;grid-template-columns:28px 1fr auto;gap:12px;align-items:center;padding:12px 0;border-top:1px solid var(--line)}
+.row:first-of-type{border-top:0}
+.mark{width:28px;height:28px;border-radius:50%;display:grid;place-items:center;font-weight:800;font-size:15px}
+.ok .mark{background:var(--goodbg);color:var(--good)} .no .mark{background:var(--badbg);color:var(--bad)}
+.row b{display:block;font-size:15px} .row small{color:var(--muted);font-size:13px}
+.row .v{font-weight:700;font-size:14px;font-variant-numeric:tabular-nums;white-space:nowrap}
+.ok .v{color:var(--good)} .no .v{color:var(--bad)}
+.verdict{margin-top:10px;background:var(--badbg);color:var(--ink);border-radius:10px;padding:12px 14px;font-size:14px}
+/* posts */
+.sec{display:flex;flex-direction:column;gap:22px}
+.posts{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:20px}
+.pcard{display:flex;flex-direction:column;gap:10px;min-width:0}
+.post{aspect-ratio:4/5;max-width:100%;border-radius:12px;overflow:hidden;position:relative;padding:22px;display:flex;flex-direction:column;justify-content:space-between}
+.tag{font-size:12px;color:var(--muted);font-weight:600}
+.cap{font-size:13px;color:var(--muted);background:var(--card);border:1px solid var(--line);border-radius:10px;padding:10px 12px}
+.biz{display:flex;align-items:center;gap:8px;font-size:12px;font-weight:700}
+.bdot{width:22px;height:22px;border-radius:6px;background:#2BB673;display:grid;place-items:center;color:#fff;font-size:12px;font-weight:800}
+/* post 1: review */
+.p1{background:var(--post-a);color:#F2F7F4}
+.p1 .stars{color:#FFD84D;font-size:22px;letter-spacing:3px}
+.p1 q{font-family:var(--display);font-size:clamp(20px,2.3vw,26px);line-height:1.15;font-weight:600;quotes:"\201C" "\201D"}
+.p1 .who{font-size:13px;opacity:.75}
+/* post 2: checklist tip */
+.p2{background:var(--post-b);color:#13302B}
+:root[data-theme="dark"] .p2{color:#E7EFEC}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]) .p2{color:#E7EFEC}}
+.p2 .t{font-family:var(--display);font-weight:800;font-size:clamp(19px,2.1vw,24px);line-height:1.08}
+.p2 ul{list-style:none;padding:0;margin:0;display:flex;flex-direction:column;gap:7px;font-size:13.5px;font-weight:600}
+.p2 li{display:flex;gap:8px;align-items:flex-start}
+.p2 li::before{content:"";flex:none;width:15px;height:15px;margin-top:3px;border:2px solid currentColor;border-radius:4px}
+/* post 3: trust */
+.p3{background:var(--post-c);color:#13302B}
+.p3 .t{font-family:var(--display);font-weight:800;font-size:clamp(26px,3vw,36px);line-height:.98;letter-spacing:-.03em}
+.p3 .pills{display:flex;flex-wrap:wrap;gap:6px}
+.p3 .pills span{background:#13302B;color:#FFD84D;font-size:12px;font-weight:700;padding:5px 10px;border-radius:99px}
+.p3 .biz .bdot{background:#13302B}
+.photo{position:absolute;right:-30px;top:44%;width:150px;height:150px;border-radius:50%;
+  background:radial-gradient(circle at 35% 35%,#fff 0 18%,transparent 19%),radial-gradient(circle,#13302B22 0 60%,transparent 61%);opacity:.9}
+.real{font-size:11px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;opacity:.7}
+/* month */
+.month{display:grid;grid-template-columns:repeat(7,minmax(0,1fr));gap:6px}
+.dow{font-size:12px;color:var(--muted);font-weight:700;text-align:center}
+.day{background:var(--card);border:1px solid var(--line);border-radius:8px;min-height:64px;padding:6px;display:flex;flex-direction:column;gap:4px;font-size:11px;min-width:0}
+.day .n{color:var(--muted);font-variant-numeric:tabular-nums}
+.chip{border-radius:5px;padding:2px 5px;font-weight:700;font-size:10.5px;line-height:1.3;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.c-rev{background:var(--post-a);color:#F2F7F4}.c-tip{background:var(--post-b);color:var(--ink)}.c-trust{background:var(--post-c);color:#13302B}.c-local{background:var(--accent);color:var(--accent-ink)}
+.legend{display:flex;flex-wrap:wrap;gap:14px;font-size:13px;color:var(--muted)}
+.legend span{display:flex;align-items:center;gap:6px}.legend i{width:12px;height:12px;border-radius:3px;display:inline-block}
+.insight{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:18px 20px;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:20px}
+.insight div{min-width:0}.insight b{display:block;font-family:var(--display);font-size:22px;font-weight:800;font-variant-numeric:tabular-nums}
+.insight small{color:var(--muted);font-size:13px}
+/* how */
+.how{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:24px}
+.how div{min-width:0;border-top:2px solid var(--ink);padding-top:14px}
+.how b{font-size:16px;display:block;margin-bottom:4px}.how p{margin:0;color:var(--muted);font-size:15px}
+/* price */
+.price{background:var(--post-a);color:#F2F7F4;border-radius:18px;padding:32px;display:grid;grid-template-columns:1fr auto;gap:28px;align-items:center}
+.price h2{color:#F2F7F4}.price p{margin:8px 0 0;opacity:.8;max-width:52ch}
+.amt{font-family:var(--display);font-size:56px;font-weight:800;line-height:1}.amt small{font-size:18px;opacity:.7;font-weight:600}
+.cta{display:inline-block;margin-top:14px;background:#FFD84D;color:#13302B;font-weight:800;padding:14px 22px;border-radius:10px;border:0;font-size:16px;font-family:var(--body);cursor:pointer}
+.cta:focus-visible{outline:3px solid var(--accent);outline-offset:3px}
+.fine{font-size:13px;opacity:.7;margin-top:10px}
+footer{font-size:13px;color:var(--muted);text-align:center}
+@media (max-width:820px){.hero,.price{grid-template-columns:1fr}.posts,.how,.insight{grid-template-columns:1fr}.post{max-width:420px}}
+@media (max-width:520px){.month{gap:3px}.day{min-height:48px;padding:3px}.chip{font-size:0;padding:0;height:6px}.dow{font-size:10px}}
+</style>
+
+<div class="demo">Demo with sample data. Brightway Cleaning is a made-up business used to show what an owner receives.</div>
+<div class="wrap">
+  <header>
+    <div class="logo">Local<span>Post</span></div>
+    <div class="for">Made for <strong>Brightway Cleaning</strong> · Leeds</div>
+  </header>
+
+  <section class="hero">
+    <div>
+      <div class="eyebrow">What customers see before they call you</div>
+      <h1>47 people gave you 5 stars. Nobody on Facebook can see it.</h1>
+      <p class="lede">Most people check a cleaner's Facebook or Instagram before letting them into their home. Yours went quiet 7 months ago, so to a new customer it can look like you've stopped trading. Your Google reviews say the opposite. We turned them into posts.</p>
+    </div>
+    <div class="check" aria-label="Online check for Brightway Cleaning">
+      <h3>Brightway Cleaning: online check</h3>
+      <div class="row ok"><div class="mark">✓</div><div><b>Google rating</b><small>Better than most cleaners in Leeds</small></div><div class="v">4.9 ★ (47)</div></div>
+      <div class="row no"><div class="mark">✕</div><div><b>Facebook last post</b><small>Looks closed to new customers</small></div><div class="v">214 days ago</div></div>
+      <div class="row no"><div class="mark">✕</div><div><b>Instagram last post</b><small>3 posts in total</small></div><div class="v">Mar 2025</div></div>
+      <div class="row no"><div class="mark">✕</div><div><b>Google Business posts</b><small>No updates on your Maps listing</small></div><div class="v">None</div></div>
+      <div class="verdict"><strong>Your reviews are great. Your pages hide them.</strong> That's the gap LocalPost fills.</div>
+    </div>
+  </section>
+
+  <section class="sec">
+    <div class="eyebrow">Your first 3 posts · free, yours to keep</div>
+    <h2>Built from your real reviews, not stock templates</h2>
+    <div class="posts">
+      <div class="pcard">
+        <div class="post p1">
+          <div class="stars" aria-label="5 stars">★★★★★</div>
+          <q>Moved out of our Headingley flat and got the full deposit back. The oven looked brand new.</q>
+          <div><div class="who">Sarah M. · Google review</div><br><div class="biz"><span class="bdot">B</span>Brightway Cleaning · Leeds</div></div>
+        </div>
+        <div class="tag">Review post · from your Google reviews</div>
+        <div class="cap">"This is why we do it 🧡 Moving out in Leeds? We'll help you get that deposit back. Book: 0113 000 0000"</div>
+      </div>
+      <div class="pcard">
+        <div class="post p2">
+          <div class="t">Leeds landlords check these 5 things first</div>
+          <ul><li>Inside the oven</li><li>Limescale on taps</li><li>Skirting boards</li><li>Behind the fridge</li><li>Window tracks</li></ul>
+          <div class="biz"><span class="bdot">B</span>End of tenancy? We do all 5.</div>
+        </div>
+        <div class="tag">Tip post · people save these</div>
+        <div class="cap">"Save this before your move-out inspection 📌 #LeedsStudents #EndOfTenancy"</div>
+      </div>
+      <div class="pcard">
+        <div class="post p3">
+          <div class="real">Your photo goes here</div>
+          <div class="photo" aria-hidden="true"></div>
+          <div class="t">Same cleaner. Every visit.</div>
+          <div><div class="pills"><span>Fully insured</span><span>DBS checked</span><span>4.9★ on Google</span></div><br><div class="biz"><span class="bdot">B</span>Brightway Cleaning</div></div>
+        </div>
+        <div class="tag">Trust post · uses your team photo</div>
+        <div class="cap">"No strangers, no surprises. Meet Jo, who'll be cleaning your home."</div>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec">
+    <div class="eyebrow">Your month · planned around what Leeds searches for</div>
+    <h2>30 posts, timed to when people need a cleaner</h2>
+    <div class="insight">
+      <div><b>June &amp; Sept</b><small>"end of tenancy cleaning Leeds" peaks when student lets end (example data)</small></div>
+      <div><b>No-shows</b><small>The most common complaint in reviews of other Leeds cleaners. Your posts lead with reliability.</small></div>
+      <div><b>"The oven"</b><small>The detail your own customers mention most. It becomes a recurring theme.</small></div>
+    </div>
+    <div class="legend"><span><i class="c-rev"></i>Your reviews</span><span><i class="c-tip"></i>Tips</span><span><i class="c-trust"></i>Trust</span><span><i class="c-local"></i>Local &amp; offers</span></div>
+    <div class="month" id="month" aria-label="Posting calendar"></div>
+  </section>
+
+  <section class="sec">
+    <div class="eyebrow">How it works</div>
+    <div class="how">
+      <div><b>New review in, new post out</b><p>Every new Google review becomes a ready post automatically. Your best marketing is already written by your customers.</p></div>
+      <div><b>Two minutes a week</b><p>Open the link, tap download, paste the caption. Posts come sized for Instagram, Facebook and your Google listing.</p></div>
+      <div><b>Real, never fake</b><p>We only use your genuine reviews and your own photos of your team and your work. No invented customers, no fake before-and-afters.</p></div>
+    </div>
+  </section>
+
+  <section class="price">
+    <div>
+      <h2>Keep your page as good as your reviews</h2>
+      <p>30 posts a month from your reviews and local searches, with captions, a calendar and versions for your Google listing.</p>
+      <button class="cta" id="cta" type="button">Start my month</button>
+      <div class="fine" id="fine">Cancel anytime. If the first month doesn't feel like you, it's free.</div>
+    </div>
+    <div><div class="amt">$49<small>/month</small></div></div>
+  </section>
+
+  <footer>LocalPost · demo page. Reviews, numbers and the business shown are sample data.</footer>
+</div>
+<script>
+const plan={1:['rev','Sarah: deposit back'],2:['tip','5 landlord checks'],4:['trust','Same cleaner'],5:['local','June move-outs'],7:['rev','Oven review'],8:['tip','Limescale hack'],9:['trust','Insured + DBS'],11:['local','Book before July'],12:['rev','Weekly client'],14:['tip','Fridge trick'],15:['trust','Meet Jo'],16:['local','Headingley slots'],18:['rev','Airbnb host'],19:['tip','Window tracks'],21:['trust','Our checklist'],22:['local','Refer a friend'],23:['rev','5★ again'],25:['tip','Mould 101'],26:['trust','We text ahead'],28:['local','2 slots left'],29:['rev','Office review'],30:['tip','Deposit guide']};
+const names={rev:'c-rev',tip:'c-tip',trust:'c-trust',local:'c-local'};
+const m=document.getElementById('month');
+['Mon','Tue','Wed','Thu','Fri','Sat','Sun'].forEach(d=>{const e=document.createElement('div');e.className='dow';e.textContent=d;m.appendChild(e)});
+for(let i=0;i<6;i++){const e=document.createElement('div');m.appendChild(e)} // month starts on Sunday
+for(let d=1;d<=30;d++){const e=document.createElement('div');e.className='day';e.innerHTML='<span class="n">'+d+'</span>';
+  if(plan[d]){const c=document.createElement('span');c.className='chip '+names[plan[d][0]];c.textContent=plan[d][1];c.title=plan[d][1];e.appendChild(c)}
+  m.appendChild(e)}
+document.getElementById('cta').addEventListener('click',()=>{document.getElementById('fine').textContent='Demo only: this is where the $49 checkout would open.'});
+</script>
