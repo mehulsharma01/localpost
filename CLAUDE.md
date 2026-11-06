@@ -9,6 +9,7 @@
 ## Read first
 - `docs/SYSTEM.md`: what, who, problem, positioning, offer, process, funnel, numbers.
 - `docs/LAUNCH.md`: the 14-day plan and outreach scripts.
+- `docs/PROMPTING.md`: the locked 6-pillar image prompt format (Nano Banana Pro, 2k) and the story-content direction for model photos.
 
 ## Layout
 - `public/index.html`: the landing page, quiz and results screen, all in one file. Set `CONFIG` at the top of its script.
