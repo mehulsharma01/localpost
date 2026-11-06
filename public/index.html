@@ -1307,7 +1307,7 @@ footer .in{align-items:center}
 .igph1 .igsb{display:flex;justify-content:space-between;padding:2px 24px 8px;font-size:13px}
 .igph1 .igsb span{width:70px;height:20px;border-radius:99px;background:#0D0F0C;position:absolute;left:50%;top:9px;transform:translateX(-50%)}
 .igpro{display:flex;gap:14px;align-items:center;padding:8px 16px 12px}
-.igpro .av{width:62px;height:62px;flex:none;border-radius:50%;display:grid;place-items:center;font-style:normal;font-weight:800;font-size:18px;color:#fff;background:#2E8B1E;box-shadow:0 0 0 3px #fff,0 0 0 5px #E1306C;overflow:hidden}
+.igpro .av{width:62px;height:62px;flex:none;border-radius:50%;display:grid;place-items:center;font-style:normal;font-weight:800;font-size:18px;color:#fff;background:linear-gradient(145deg,var(--a),var(--d));box-shadow:0 0 0 3px #fff,0 0 0 5.5px var(--a);overflow:hidden}
 .igpro .av img{width:100%;height:100%;object-fit:cover;background:#fff}
 .igpro .ign{display:flex;flex-direction:column;min-width:0}.igpro .ign b{font-size:15px}.igpro .ign small{font-size:13px;font-weight:600}.igpro .ign span{font-size:12.5px;color:#777}
 .igtabs{display:grid;grid-template-columns:repeat(3,1fr);border-top:1px solid #efefef;text-align:center;font-size:16px;color:#999}
@@ -1343,6 +1343,17 @@ footer .in{align-items:center}
 .iv3 .rs{color:#E0623A;letter-spacing:1px;font-size:13px}
 .iv3 q{font-family:"Fraunces",Georgia,serif;font-size:15px;line-height:1.1;color:#3A1A10;quotes:"\201C" "\201D"}
 .iv3 small{font-size:11px;color:#B2593A;font-weight:700}
+
+.igbio{margin:0;padding:0 16px 10px;font-size:13px;line-height:1.35;color:#222}
+.igbtn{display:grid;grid-template-columns:1fr 1fr;gap:6px;padding:0 16px 12px}
+.igbtn span{text-align:center;font-size:13px;font-weight:700;border-radius:8px;padding:7px 0;background:#EFEFEF;color:#111}
+.igbtn .pri{background:var(--a);color:#fff}
+.ighl{display:flex;gap:16px;padding:0 16px 12px}
+.ighl .h{display:flex;flex-direction:column;align-items:center;gap:4px}
+.ighl i{width:52px;height:52px;border-radius:50%;display:grid;place-items:center;font-style:normal;box-shadow:0 0 0 2px #fff,0 0 0 3px #DBDBDB}
+.ighl i svg{width:20px;height:20px}
+.ighl .h1 i{background:var(--a);color:#fff}.ighl .h2 i{background:var(--s);color:var(--d)}.ighl .h3 i{background:var(--d);color:#fff}
+.ighl small{font-size:11px;color:#222}
 </style>
 </head>
 <body>
@@ -2112,8 +2123,11 @@ function results() {
       <div class="igtx"><span class="eyebrow" style="color:var(--accent)">On your Instagram</span><h3>This is your page, every month.</h3>
         <p>Your 3 free posts sit at the top of your grid. With your plan, 30 posts like these fill it every month, so your page always looks busy, local and trusted.</p>
         <p class="igfmt2">Sent to your email or WhatsApp, sized for Instagram and Facebook (1080×1350) and Google Business Profile (1200×900).</p></div>
-      <div class="igph1"><div class="igsb"><b>9:41</b><span></span></div>
+      <div class="igph1" style="${vv(themeFor(S.color, S.style))}"><div class="igsb"><b>9:41</b><span></span></div>
         <div class="igpro"><i class="av">${S.logo ? `<img src="${S.logo}" alt="">` : esc(initials(S.name || "Your Business"))}</i><div class="ign"><b>${esc((S.name || "yourbusiness").toLowerCase().replace(/[^a-z0-9]/g, ""))}</b><small>${esc(S.name || "")}</small><span>Cleaning service · ${esc(S.town || "")}</span></div></div>
+        <p class="igbio">${esc(SERVICES[S.mainService]?.label || "Home cleaning")} in ${esc(S.town || "your town")} ✨<br>Book via the link below</p>
+        <div class="igbtn"><span class="pri">Book now</span><span>Message</span></div>
+        <div class="ighl">${[["Reviews", ICON.spark], ["Tips", ICON.check], ["Book", ICON.cal]].map(([l, ic], i) => `<span class="h h${i + 1}"><i>${ic}</i><small>${l}</small></span>`).join("")}</div>
         <div class="igtabs"><span class="on">▦</span><span>▶</span><span>☺</span></div>
         <div class="iggrid">${qp.map(x => `<div class="gt">${x.html}</div>`).join("")}${["1", "2", "13", "6", "9", "3"].map(k => `<div class="gt lk">${HX[k] || ""}</div>`).join("")}
           <button type="button" class="glassbtn" data-unlock><span class="lkic">${ICON.lock}</span>Unlock 27 more posts</button></div></div>
