@@ -1291,6 +1291,58 @@ footer .in{align-items:center}
 .igfmt{margin:0;text-align:center;font-size:14px;color:var(--ink-2);max-width:60ch}
 @media (max-width:900px){.igrow{display:flex;overflow-x:auto;scroll-snap-type:x mandatory;gap:16px;padding:20px 8vw 10px;margin-inline:-16px;scrollbar-width:none}
 .igrow::-webkit-scrollbar{display:none}.igp{flex:0 0 76%;scroll-snap-align:center}.igp2 .igph{transform:none}}
+
+/* team photo option */
+.opt .team-up.tp{position:relative;overflow:hidden;background:#ddd}
+.opt .team-up.tp img{width:100%;height:100%;object-fit:cover}
+.opt .team-up.tp em{position:absolute;left:8px;right:8px;bottom:8px;display:flex;align-items:center;justify-content:center;gap:6px;font-style:normal;font-size:12.5px;font-weight:700;color:#fff;background:rgba(14,18,13,.55);backdrop-filter:blur(8px);border:1px solid rgba(255,255,255,.3);border-radius:99px;padding:6px 8px}
+.opt .team-up.tp em svg{width:15px;height:15px}
+/* results: Instagram feed phone */
+.igfeed{display:grid;grid-template-columns:1fr 360px;gap:48px;align-items:center;background:var(--soft,#F4F7F1);border:1px solid var(--line);border-radius:30px;padding:clamp(24px,4vw,48px)}
+.igtx{display:flex;flex-direction:column;gap:14px;min-width:0}
+.igtx h3{margin:0;font-size:clamp(28px,3.4vw,40px);letter-spacing:-.04em;line-height:1.02}
+.igtx p{margin:0;color:var(--ink-2);font-size:17px;max-width:46ch}
+.igtx .igfmt2{font-size:14px;color:var(--muted)}
+.igph1{width:100%;max-width:360px;justify-self:center;background:#fff;color:#111;border-radius:44px;border:10px solid #0D0F0C;box-shadow:0 40px 70px -30px rgba(14,18,13,.55);font-family:-apple-system,"Inter Tight",system-ui,sans-serif;overflow:hidden;position:relative;padding-top:10px}
+.igph1 .igsb{display:flex;justify-content:space-between;padding:2px 24px 8px;font-size:13px}
+.igph1 .igsb span{width:70px;height:20px;border-radius:99px;background:#0D0F0C;position:absolute;left:50%;top:9px;transform:translateX(-50%)}
+.igpro{display:flex;gap:14px;align-items:center;padding:8px 16px 12px}
+.igpro .av{width:62px;height:62px;flex:none;border-radius:50%;display:grid;place-items:center;font-style:normal;font-weight:800;font-size:18px;color:#fff;background:#2E8B1E;box-shadow:0 0 0 3px #fff,0 0 0 5px #E1306C;overflow:hidden}
+.igpro .av img{width:100%;height:100%;object-fit:cover;background:#fff}
+.igpro .ign{display:flex;flex-direction:column;min-width:0}.igpro .ign b{font-size:15px}.igpro .ign small{font-size:13px;font-weight:600}.igpro .ign span{font-size:12.5px;color:#777}
+.igtabs{display:grid;grid-template-columns:repeat(3,1fr);border-top:1px solid #efefef;text-align:center;font-size:16px;color:#999}
+.igtabs span{padding:8px 0}.igtabs .on{color:#111;border-bottom:1.5px solid #111}
+.iggrid{display:grid;grid-template-columns:repeat(3,1fr);gap:2px;position:relative}
+.iggrid .gt{overflow:hidden;aspect-ratio:4/5;background:#eee}
+.iggrid .gt>*{border-radius:0!important;box-shadow:none!important}
+.iggrid .gt.lk>*{filter:blur(5px) saturate(1.1);transform:scale(1.08)}
+.iggrid::after{content:"";position:absolute;left:0;right:0;top:33.4%;bottom:0;background:linear-gradient(180deg,rgba(255,255,255,0),rgba(255,255,255,.35));pointer-events:none}
+.glassbtn{position:absolute;left:50%;top:66%;transform:translate(-50%,-50%);z-index:3;display:inline-flex;align-items:center;gap:8px;font:inherit;font-weight:700;font-size:15px;color:#fff;white-space:nowrap;cursor:pointer;
+ background:linear-gradient(160deg,rgba(255,255,255,.38),rgba(255,255,255,.12));border:1px solid rgba(255,255,255,.6);backdrop-filter:blur(16px) saturate(1.4);-webkit-backdrop-filter:blur(16px) saturate(1.4);border-radius:99px;padding:13px 20px;box-shadow:0 12px 30px -10px rgba(0,0,0,.45),inset 0 1px 0 rgba(255,255,255,.6);text-shadow:0 1px 6px rgba(0,0,0,.35)}
+.glassbtn .lkic svg{width:17px;height:17px}
+.glassbtn:hover{background:linear-gradient(160deg,rgba(255,255,255,.5),rgba(255,255,255,.2))}
+.glassbtn:focus-visible{outline:3px solid var(--lime);outline-offset:3px}
+@media (max-width:900px){.igfeed{grid-template-columns:1fr;gap:28px}.igtx{text-align:center;align-items:center}}
+/* local research boxes v2 */
+.insights.v2{gap:12px}
+.insights.v2>div{background:var(--card,#fff);border:1px solid var(--line);border-radius:20px;padding:10px 10px 16px;gap:4px;box-shadow:0 20px 36px -30px rgba(14,18,13,.35)}
+.insights.v2>div>b{padding:6px 6px 0;font-size:16px}.insights.v2>div>span{padding:0 6px;font-size:13.5px;color:var(--ink-2)}
+.insights .iv{height:96px;border-radius:14px;padding:10px;display:flex;flex-direction:column;justify-content:center;gap:6px;overflow:hidden}
+.insights .iv1{background:linear-gradient(160deg,#EAF0FF,#F6F8FF);align-items:flex-start}
+.iv1 em{font-style:normal;font-size:11.5px;font-weight:600;background:#fff;border-radius:99px;padding:4px 10px;color:#333;box-shadow:0 4px 10px -6px rgba(30,68,216,.4);white-space:nowrap;max-width:100%;overflow:hidden;text-overflow:ellipsis}
+.iv1 em.h{background:#1E44D8;color:#fff}
+.insights .iv2{background:linear-gradient(160deg,#EEF7EA,#F7FBF5);gap:4px;padding:16px 14px 10px}
+.mbars{display:flex;align-items:flex-end;gap:3px;height:58px}
+.mbars i{flex:1;background:#CFE6C2;border-radius:3px 3px 1px 1px;position:relative}
+.mbars i.now{background:#1F6B4A}
+.mbars i b{position:absolute;left:50%;bottom:100%;transform:translate(-50%,-3px);font-size:9.5px;font-weight:800;color:#1F6B4A}
+.mbars i:nth-last-child(-n+2) b{left:auto;right:-1px;transform:translateY(-3px)}
+.mbars i:nth-child(-n+2) b{left:-1px;transform:translateY(-3px)}
+.mlab{display:flex;gap:3px}.mlab em{flex:1;text-align:center;font-style:normal;font-size:9px;color:#8A9A82;font-weight:700}.mlab em.now{color:#1F6B4A}
+.insights .iv3{background:linear-gradient(160deg,#FFEDE6,#FFF7F3);align-items:flex-start}
+.iv3 .rs{color:#E0623A;letter-spacing:1px;font-size:13px}
+.iv3 q{font-family:"Fraunces",Georgia,serif;font-size:15px;line-height:1.1;color:#3A1A10;quotes:"\201C" "\201D"}
+.iv3 small{font-size:11px;color:#B2593A;font-weight:700}
 </style>
 </head>
 <body>
@@ -1336,15 +1388,15 @@ footer .in{align-items:center}
         <div class="gsearch rv dl2" aria-label="Example local searches">
           <div class="gbar"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg><span class="q" id="gq">end of tenancy cleaning leeds</span></div>
           <ul class="gsug">
-            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg><span>end of tenancy cleaning leeds</span><b class="hot"><i class="ico"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12.5 2.5s1 3.2-1.6 5.8C8.8 10.4 7 12.2 7 15a5 5 0 0 0 10 0c0-2.3-1.2-3.6-2-4.6.1 1.4-.6 2.6-1.6 2.6-1.2 0-1.6-1.2-1.3-2.6.5-2.4 1.9-4.7.4-7.9z"/></svg></i>Peak in June</b></li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg><span>end of tenancy cleaning leeds</span><b class="hot"><i class="ico"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12.5 2.5s1 3.2-1.6 5.8C8.8 10.4 7 12.2 7 15a5 5 0 0 0 10 0c0-2.3-1.2-3.6-2-4.6.1 1.4-.6 2.6-1.6 2.6-1.2 0-1.6-1.2-1.3-2.6.5-2.4 1.9-4.7.4-7.9z"/></svg></i>Top this month</b></li>
             <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg><span>cleaners near headingley</span><b class="up"><i class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 17l6-6 4 4 8-8"/><path d="M15 7h6v6"/></svg></i>Rising</b></li>
             <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg><span>oven cleaning leeds</span><b class="up"><i class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 17l6-6 4 4 8-8"/><path d="M15 7h6v6"/></svg></i>Rising</b></li>
           </ul>
         </div>
-        <div class="insights rv dl3">
-          <div><i><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 17l6-6 4 4 8-8"/><path d="M15 7h6v6"/></svg></i><b>What they search</b><span>The exact words</span></div>
-          <div><i><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><rect x="3.5" y="5" width="17" height="15.5" rx="3"/><path d="M3.5 10h17M8 3v4M16 3v4"/></svg></i><b>When they search</b><span>Your busy months</span></div>
-          <div><i><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><circle cx="12" cy="12" r="8.5"/><circle cx="12" cy="12" r="4.5"/><circle cx="12" cy="12" r="1" fill="currentColor"/></svg></i><b>Where rivals fail</b><span>From their reviews</span></div>
+        <div class="insights v2 rv dl3">
+          <div><div class="iv iv1"><em>oven cleaning</em><em>cleaners near me</em><em class="h">deep clean</em></div><b>What they search</b><span>The exact words people type</span></div>
+          <div><div class="iv iv2"><span class="mb">${""}</span></div><b>When they search</b><span>Your busy months, ahead of time</span></div>
+          <div><div class="iv iv3"><span class="rs">★★☆☆☆</span><q>Missed the skirting boards.</q><small>A rival's review</small></div><b>Where rivals fail</b><span>What their customers complain about</span></div>
         </div>
       </div>
       <div class="map rv dl2" aria-label="Example map of Leeds neighbourhoods with targeted posts">
@@ -1641,11 +1693,11 @@ function ed(kind, b, o) {
     <h4 class="mh">${o.h}</h4>
     <div class="mc"><div class="sb"><i class="ico">${ICON.search}</i>${esc(o.query)}</div><div class="rs"><span class="pinm"></span><div><b>${esc(b.name)}</b><small><span class="st">★★★★★</span> ${esc(o.rating || "4.9")} · ${esc(o.area)}</small><small class="op">Open · Book today</small></div></div></div></div>`;
   // ===== premium templates (free posts) =====
-  if (kind === "trendx") { const bars = o.bars || [], lab = bars.length === 7 ? "MTWTFSS" : "JFMAMJJASOND", mx = Math.max(...bars, 1);
+  if (kind === "trendx") { const bars = o.bars || [], lab = bars.length === 7 ? "MTWTFSS" : "JFMAMJJASOND", mx = Math.max(...bars, 1), hiI = Number.isInteger(o.hi) ? o.hi : bars.indexOf(mx);
     return `<div class="pp ed trendy" style="${vv(t)}"><span class="tph"><img src="${imgSrc(o.img)}" alt="" loading="lazy" style="object-position:${o.pos || "50% 30%"}"></span>
     <div class="xt">${logo(b, true)}<span class="tk">${esc(o.k)}</span></div>
-    <div class="tcard"><div class="tl"><span class="kk"><i class="ico">${ICON.chart}</i>Peak search time</span><b>${esc(o.peak)}</b><small>${esc(o.what)}</small></div>
-      <div class="tg">${bars.map((h, i) => `<span class="${h === mx ? "hi" : ""}"><i style="height:${Math.max(8, h)}%"></i><em>${lab[i] || ""}</em></span>`).join("")}</div></div>
+    <div class="tcard"><div class="tl"><span class="kk"><i class="ico">${ICON.chart}</i>${esc(o.kick || "Peak search time")}</span><b>${esc(o.peak)}</b><small>${esc(o.what)}</small></div>
+      <div class="tg">${bars.map((h, i) => `<span class="${i === hiI ? "hi" : ""}"><i style="height:${Math.max(8, h)}%"></i><em>${lab[i] || ""}</em></span>`).join("")}</div></div>
     <div class="tb"><h4><span class="l1">${o.l1}</span><span class="l2">${o.l2}</span></h4><span class="go">→</span></div></div>`; }
   if (kind === "reviewx") return `<div class="pp ed reviewx" style="${vv(t)}"><span class="rph"><img src="${imgSrc(o.img)}" alt="" loading="lazy" style="object-position:${o.pos || "50% 50%"}"></span>
     <div class="xt">${logo(b, true)}<span class="r5">5.0 ★</span></div>
@@ -1694,10 +1746,23 @@ function quizPeople(d, slot) {
   if (d.faceType === "model" && MODELS.some(x => x.id === d.model)) return modelShot(d.model, slot === "portrait" ? "8-portrait" : (MODEL_SHOT[d.mainService] || MODEL_SHOT.regular));
   return `/assets/localpost/people/${PEOPLE_FALLBACK[d.mainService] || "couple"}.jpg`;
 }
+/* Keep the trend post current: lead with this month or the next peak, never a peak that is months away */
+const MONTHS = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
+function trendNow(tr, svc, town) {
+  const bars = tr.bars || [];
+  if (bars.length !== 12) return { peak: tr.peak, what: tr.what, kick: "Busiest time" };
+  const m = new Date().getMonth(), mx = Math.max(...bars);
+  if (bars[m] >= mx * .85) return { peak: MONTHS[m], what: `peak month for \u201c${svc.short}\u201d searches`, kick: "Peak search time · now", hi: m };
+  for (let k = 1; k <= 3; k++) { const j = (m + k) % 12; if (bars[j] >= mx * .85) return { peak: MONTHS[j], what: `next peak for \u201c${svc.short}\u201d searches · book ahead`, kick: "Coming up", hi: j }; }
+  const xmas = m === 10 || m === 11;
+  return { peak: MONTHS[m], what: `\u201c${svc.short}\u201d searches in ${town} this month`, kick: "This month", hi: m,
+    l1: xmas ? "Before Christmas?" : null, l2h: xmas ? "Get it <em>sorted</em> this month." : null };
+}
 function quizPosts(d) {
   const b = quizBiz(d), key = d.mainService || "regular", svc = SERVICES[key] || SERVICES.regular, tr = TREND[key] || TREND.regular;
   const town = d.town || "your town", face = quizPeople(d), portrait = quizPeople(d, "portrait"), top = (d.praise || [])[0] || "thorough";
-  const p1 = ed("trendx", b, { img: face, pos: "50% 30%", k: "Search trend · " + town, peak: tr.peak, what: tr.what, bars: tr.bars, l1: esc(tr.l1(town)), l2: tr.l2h, cta: "Book via link in bio" });
+  const now = trendNow(tr, svc, town);
+  const p1 = ed("trendx", b, { img: face, pos: "50% 30%", k: "Search trend · " + town, peak: now.peak, what: now.what, kick: now.kick, hi: now.hi, bars: tr.bars, l1: esc(now.l1 || tr.l1(town)), l2: now.l2h || tr.l2h, cta: "Book via link in bio" });
   const [l1, l2] = splitHead(PRAISE[top]?.head || "Spotless, not just tidy.");
   const p2 = d.review
     ? ed("reviewx", b, { img: SVC_PHOTO[key] || "p-counter", q: quoteFrom(d.review, 150), who: "Verified customer", rating: d.rating, count: d.reviewCount, tag: "Words like these<br>never get old." })
@@ -1820,7 +1885,7 @@ const HX = {"1": "<div class=\"hxp a1 grain\"> <div class=\"hd\"><span>Field not
     if (!reduce && fan.animate) setInterval(step, 3200);
   }
   { const u = $("#ugrid"); if (u) { const ex = [
-      [{ name: "Sparkle & Co", town: "Leeds", theme: T.cobalt }, { img: "/assets/localpost/models/ava/3-tenancy.jpg", k: "Search trend · Leeds", peak: "June", what: "peak month for \u201cend of tenancy cleaning\u201d", bars: [30, 34, 40, 52, 66, 100, 86, 58, 92, 46, 38, 42], l1: "Moving out in Leeds?", l2: "Get your <em>deposit</em> back." }, "End of tenancy · Leeds · Ava"],
+      [{ name: "Sparkle & Co", town: "Leeds", theme: T.cobalt }, { img: "/assets/localpost/models/ava/1-regular.jpg", k: "Search trend · Leeds", peak: "January", kick: "Coming up", what: "next peak for \u201cweekly cleaner\u201d searches", bars: [100, 70, 58, 52, 50, 48, 46, 50, 60, 56, 52, 62], l1: "New year, clean home.", l2: "Your <em>weekends</em>, back." }, "Regular cleaning · Leeds · Ava"],
       [{ name: "Shine Squad", town: "Austin", theme: T.terra }, { img: "/assets/localpost/models/olivia/6-oven.jpg", k: "Search trend · Austin", peak: "December", what: "peak month for \u201coven cleaning\u201d searches", bars: [40, 36, 38, 40, 42, 44, 40, 42, 48, 60, 82, 100], l1: "Christmas dinner?", l2: "Start with a <em>clean oven</em>." }, "Oven cleaning · Austin · Olivia"],
       [{ name: "Fresh Nest", town: "Bristol", theme: T.sage }, { img: "/assets/localpost/models/emma/5-airbnb.jpg", k: "Search trend · Bristol", peak: "Friday", what: "busiest day for turnover cleans", bars: [40, 36, 38, 48, 100, 70, 94], l1: "Guest checking in?", l2: "Ready in <em>3 hours</em>." }, "Airbnb · Bristol · Emma"]];
     u.innerHTML = ex.map(([b, o, c]) => `<figure>${ed("trendx", b, o)}<figcaption>${c}</figcaption></figure>`).join(""); } }
@@ -1833,6 +1898,7 @@ const HX = {"1": "<div class=\"hxp a1 grain\"> <div class=\"hd\"><span>Field not
     if (!matchMedia("(prefers-reduced-motion: reduce)").matches) setInterval(() => { const q = qs[qi]; if (del) { ci--; if (ci <= 0) { del = false; qi = (qi + 1) % qs.length; } } else { ci++; if (ci >= qs[qi].length) { del = true; ci = qs[qi].length + 18; } } el.textContent = qs[qi].slice(0, Math.max(0, Math.min(ci, qs[qi].length))); }, 70); }
   $("#waFiles").innerHTML = P.deposit() + P.quote() + P.guests();
 
+  { const mb = document.querySelector(".iv2 .mb"); if (mb) { const m = new Date().getMonth(), h = [38, 34, 52, 60, 56, 70, 64, 50, 58, 62, 78, 96]; mb.outerHTML = `<span class="mbars">${h.map((v, i) => `<i class="${i === m ? "now" : ""}" style="height:${v}%"><b>${i === m ? "Now" : ""}</b></i>`).join("")}</span><span class="mlab">${"JFMAMJJASOND".split("").map((c, i) => `<em class="${i === m ? "now" : ""}">${c}</em>`).join("")}</span>`; } }
   // work grid
   const work = [
     ["1", "Save-worthy tip"], ["2", "Local search data"], ["13", "Behind the scenes"], ["3", "Saveable checklist"],
@@ -1894,7 +1960,7 @@ const steps = [
     check: () => "" },
   { title: "Who's the face of your posts?", hint: "Pick one of 3 free models for your posts, or use your team photo. With your monthly plan you choose from many realistic male and female models.", render: () => `
       <div class="opts four models-pick" id="faceOpts">
-        <button type="button" class="opt" aria-pressed="${S.faceType==="team"}" data-face="team"><span class="team-up"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"><path d="M4 8h3l1.8-2.5h6.4L17 8h3v11H4z"/><circle cx="12" cy="13.5" r="3.5"/></svg></span><b>My team photo</b><span>Recommended</span></button>
+        <button type="button" class="opt" aria-pressed="${S.faceType==="team"}" data-face="team"><span class="team-up tp"><img src="${S.photo || "/assets/localpost/photos/team-pose.jpg"}" alt=""><em><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"><path d="M4 8h3l1.8-2.5h6.4L17 8h3v11H4z"/><circle cx="12" cy="13.5" r="3.5"/></svg>${S.photo ? "Change" : "Upload"}</em></span><b>My team photo</b><span>Recommended</span></button>
         ${MODELS.map(m => `<button type="button" class="opt" aria-pressed="${S.faceType==="model" && S.model===m.id}" data-model="${m.id}"><img src="${m.img}" alt=""><b>${m.label} <span class="free">Free</span></b><span>${m.desc}</span></button>`).join("")}
       </div>
       <div class="field" id="photoField" ${S.faceType==="team" ? "" : "hidden"}><span class="flabel">Team photo</span><div class="upload"><div class="thumb" id="photoThumb">${S.photo ? `<img src="${S.photo}" alt="">` : "No photo"}</div><input type="file" id="f-photo" accept="image/png,image/jpeg,image/webp" aria-label="Upload team photo"></div></div>
@@ -2039,17 +2105,19 @@ function results() {
   $("#qBody").innerHTML = `<div class="results">
     <div class="rstage">
       <div class="rhead"><span class="rbadge"><i class="ico">${ICON.check}</i>Ready · made for ${esc(S.name)}</span><h2>Your 3 posts are ready</h2><p>Built for ${esc(S.town)}, in your colours, with your brand face.</p></div>
-      <div class="igrow" id="rp">${qp.map((x, i) => `<figure class="igp igp${i + 1}"><div class="igph"><div class="igsb"><b>9:41</b><span></span></div>
-        <div class="ignav"><span class="bk">‹</span><div><small>${esc((S.name || "yourbusiness").toLowerCase().replace(/[^a-z0-9]/g, ""))}</small><b>Posts</b></div><span></span></div>
-        <div class="ighd"><i class="av">${S.logo ? `<img src="${S.logo}" alt="">` : esc(initials(S.name || "Your Business"))}</i><div><b>${esc((S.name || "yourbusiness").toLowerCase().replace(/[^a-z0-9]/g, ""))}</b><small>${esc(S.town || "")}</small></div><span class="dots">•••</span></div>
-        <div class="igpost">${x.html}</div>
-        <div class="igact"><span>${ICON.heart}</span><span>${ICON.comment}</span><span>${ICON.send}</span><span class="sv">${ICON.save}</span></div>
-        <div class="iglk"><b>${[128, 214, 96][i]} likes</b></div>
-        <p class="igcp"><b>${esc((S.name || "yourbusiness").toLowerCase().replace(/[^a-z0-9]/g, ""))}</b> ${esc(x.cap.split("\n")[0])}</p><p class="igtm">Just now · See translation</p></div>
-        <figcaption><i class="ico">${[ICON.trend, ICON.spark, ICON.target][i]}</i>${esc(x.why)}</figcaption></figure>`).join("")}</div>
-      <p class="igfmt">Sent to your email or WhatsApp, sized for Instagram, Facebook (1080×1350) and Google Business Profile (1200×900).</p>
+      <div class="rfan" id="rp">${qp.map((x, i) => `<figure class="rf rf${i + 1}"><div class="rpost">${x.html}</div><figcaption><i class="ico">${[ICON.trend, ICON.spark, ICON.target][i]}</i>${esc(x.why)}</figcaption></figure>`).join("")}</div>
       <div class="ract"><button class="btn btn-green" type="button" data-unlock><i class="ico">${ICON.wa}</i>Unlock 30 posts on WhatsApp <span class="arr" aria-hidden="true">→</span></button><span>Yours to keep · no card needed</span></div>
     </div>
+    <section class="igfeed" aria-label="How your Instagram page will look">
+      <div class="igtx"><span class="eyebrow" style="color:var(--accent)">On your Instagram</span><h3>This is your page, every month.</h3>
+        <p>Your 3 free posts sit at the top of your grid. With your plan, 30 posts like these fill it every month, so your page always looks busy, local and trusted.</p>
+        <p class="igfmt2">Sent to your email or WhatsApp, sized for Instagram and Facebook (1080×1350) and Google Business Profile (1200×900).</p></div>
+      <div class="igph1"><div class="igsb"><b>9:41</b><span></span></div>
+        <div class="igpro"><i class="av">${S.logo ? `<img src="${S.logo}" alt="">` : esc(initials(S.name || "Your Business"))}</i><div class="ign"><b>${esc((S.name || "yourbusiness").toLowerCase().replace(/[^a-z0-9]/g, ""))}</b><small>${esc(S.name || "")}</small><span>Cleaning service · ${esc(S.town || "")}</span></div></div>
+        <div class="igtabs"><span class="on">▦</span><span>▶</span><span>☺</span></div>
+        <div class="iggrid">${qp.map(x => `<div class="gt">${x.html}</div>`).join("")}${["1", "2", "13", "6", "9", "3"].map(k => `<div class="gt lk">${HX[k] || ""}</div>`).join("")}
+          <button type="button" class="glassbtn" data-unlock><span class="lkic">${ICON.lock}</span>Unlock 27 more posts</button></div></div>
+    </section>
     <section class="rcaps2" aria-label="Captions for your 3 posts">
       <div class="rch"><h3>Ready-to-post captions</h3><p>Written for each post, with local hashtags. Copy and paste.</p></div>
       <div class="rcgrid">${qp.map((x, i) => { const parts = x.cap.split("\n\n"), tags = /^#/.test(parts[parts.length - 1]) ? parts.pop() : "";
