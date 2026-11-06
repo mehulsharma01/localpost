@@ -1085,10 +1085,13 @@ const STYLES = [
   { id: "premium", label: "Premium", desc: "Deep tones, refined" },
 ];
 const MODELS = [
-  { id: "sofia", label: "Sofia", desc: "Warm, natural", img: "/assets/localpost/models/sofia.jpg" },
-  { id: "mia", label: "Mia", desc: "Calm, confident", img: "/assets/localpost/models/mia.jpg" },
-  { id: "ava", label: "Ava", desc: "Bright, friendly", img: "/assets/localpost/models/ava.jpg" },
+  { id: "emma", label: "Emma", desc: "Warm, natural", img: "/assets/localpost/models/emma/8-portrait.jpg" },
+  { id: "ava", label: "Ava", desc: "Bright, friendly", img: "/assets/localpost/models/ava/8-portrait.jpg" },
+  { id: "olivia", label: "Olivia", desc: "Calm, confident", img: "/assets/localpost/models/olivia/8-portrait.jpg" },
 ];
+/* Each free model has one photo per service (free post 1) plus a brand portrait (free post 3), in /assets/localpost/models/<id>/ */
+const MODEL_SHOT = { regular: "1-regular", deep: "2-deep", tenancy: "3-tenancy", office: "4-office", airbnb: "5-airbnb", oven: "6-oven", carpet: "7-carpet" };
+const modelShot = (id, slot) => `/assets/localpost/models/${id}/${slot}.jpg`;
 
 /* ===== Helpers ===== */
 const ICON = {"pin": "<svg viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2.2\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><path d=\"M12 21s-7-6.2-7-11.5a7 7 0 1 1 14 0C19 14.8 12 21 12 21z\"/><circle cx=\"12\" cy=\"9.5\" r=\"2.5\"/></svg>", "check": "<svg viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2.6\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><path d=\"M5 12.5l4.5 4.5L19 7.5\"/></svg>", "heart": "<svg viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linejoin=\"round\"><path d=\"M12 20s-7.5-4.6-7.5-10.2A4.3 4.3 0 0 1 12 7a4.3 4.3 0 0 1 7.5 2.8C19.5 15.4 12 20 12 20z\"/></svg>", "comment": "<svg viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linejoin=\"round\"><path d=\"M20.5 11.5a8.5 8.5 0 0 1-12.4 7.6L3.5 20.5l1.4-4.4A8.5 8.5 0 1 1 20.5 11.5z\"/></svg>", "send": "<svg viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linejoin=\"round\"><path d=\"M21 3 10 14M21 3l-6.5 18-4-8-8-4z\"/></svg>", "save": "<svg viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linejoin=\"round\"><path d=\"M6 3.5h12v17l-6-4.5-6 4.5z\"/></svg>", "trend": "<svg viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2.2\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><path d=\"M3 17l6-6 4 4 8-8\"/><path d=\"M15 7h6v6\"/></svg>", "cal": "<svg viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2.2\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><rect x=\"3.5\" y=\"5\" width=\"17\" height=\"15.5\" rx=\"3\"/><path d=\"M3.5 10h17M8 3v4M16 3v4\"/></svg>", "target": "<svg viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2.2\" stroke-linecap=\"round\"><circle cx=\"12\" cy=\"12\" r=\"8.5\"/><circle cx=\"12\" cy=\"12\" r=\"4.5\"/><circle cx=\"12\" cy=\"12\" r=\"1\" fill=\"currentColor\"/></svg>", "flame": "<svg viewBox=\"0 0 24 24\" fill=\"currentColor\"><path d=\"M12.5 2.5s1 3.2-1.6 5.8C8.8 10.4 7 12.2 7 15a5 5 0 0 0 10 0c0-2.3-1.2-3.6-2-4.6.1 1.4-.6 2.6-1.6 2.6-1.2 0-1.6-1.2-1.3-2.6.5-2.4 1.9-4.7.4-7.9z\"/></svg>", "spark": "<svg viewBox=\"0 0 24 24\" fill=\"currentColor\"><path d=\"M12 2l1.9 6.1L20 10l-6.1 1.9L12 18l-1.9-6.1L4 10l6.1-1.9z\"/></svg>", "camera": "<svg viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linejoin=\"round\"><path d=\"M4 8h3l1.8-2.5h6.4L17 8h3v11H4z\"/><circle cx=\"12\" cy=\"13.5\" r=\"3.5\"/></svg>", "lock": "<svg viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linejoin=\"round\"><rect x=\"5\" y=\"10.5\" width=\"14\" height=\"10\" rx=\"2.5\"/><path d=\"M8 10.5V8a4 4 0 0 1 8 0v2.5\"/></svg>", "chart": "<svg viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2.4\" stroke-linecap=\"round\"><path d=\"M5 20V12M12 20V5M19 20v-5\"/></svg>", "search": "<svg viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2.2\" stroke-linecap=\"round\"><circle cx=\"11\" cy=\"11\" r=\"6.5\"/><path d=\"m20 20-4-4\"/></svg>", "mail": "<svg viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linejoin=\"round\"><rect x=\"3\" y=\"5\" width=\"18\" height=\"14\" rx=\"3\"/><path d=\"m4 7 8 6 8-6\"/></svg>", "ig": "<svg viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\"><rect x=\"3\" y=\"3\" width=\"18\" height=\"18\" rx=\"5.5\"/><circle cx=\"12\" cy=\"12\" r=\"4.2\"/><circle cx=\"17.4\" cy=\"6.6\" r=\"1.1\" fill=\"currentColor\" stroke=\"none\"/></svg>", "li": "<svg viewBox=\"0 0 24 24\" fill=\"currentColor\"><path d=\"M6.9 8.6H3.6V20h3.3zM5.2 3.5a1.9 1.9 0 1 0 0 3.8 1.9 1.9 0 0 0 0-3.8zM20.4 13.2c0-3.1-1.7-4.8-4.1-4.8a3.6 3.6 0 0 0-3.2 1.7V8.6H9.9V20h3.3v-5.8c0-1.5.5-2.8 2.1-2.8s1.8 1.4 1.8 2.9V20h3.3z\"/></svg>", "wa": "<svg viewBox=\"0 0 24 24\" fill=\"currentColor\"><path d=\"M12 2.5a9.4 9.4 0 0 0-8.1 14.2L2.6 21.5l4.9-1.3A9.4 9.4 0 1 0 12 2.5zm0 17.1a7.7 7.7 0 0 1-3.9-1.1l-.3-.2-2.9.8.8-2.8-.2-.3A7.7 7.7 0 1 1 12 19.6zm4.3-5.8c-.2-.1-1.4-.7-1.6-.8s-.4-.1-.5.1-.6.8-.8 1-.3.2-.5.1a6.3 6.3 0 0 1-3.1-2.7c-.2-.4.2-.4.7-1.2.1-.1 0-.3 0-.4l-.7-1.7c-.2-.5-.4-.4-.5-.4h-.5a.9.9 0 0 0-.7.3 2.8 2.8 0 0 0-.9 2.1 4.9 4.9 0 0 0 1 2.6 11.2 11.2 0 0 0 4.3 3.8c1.6.7 2.2.7 3 .6a2.6 2.6 0 0 0 1.7-1.2 2.1 2.1 0 0 0 .1-1.2c0-.1-.2-.2-.4-.3z\"/></svg>"};
@@ -1226,7 +1229,7 @@ function ed(kind, b, o) {
 function quizBiz(d) { return { name: d.name || "Your Business", town: d.town || "Your town", color: d.color, style: d.style, logo: d.logo }; }
 function quizPhoto(d, fallback) {
   if (d.faceType === "team" && d.photo) return d.photo;
-  if (d.faceType === "model") { const m = MODELS.find(x => x.id === d.model); if (m) return m.img; }
+  if (d.faceType === "model" && MODELS.some(x => x.id === d.model)) return modelShot(d.model, "8-portrait");
   return fallback || SVC_PHOTO[d.mainService] || "p-faucet";
 }
 function splitHead(h) { const i = h.indexOf(". "); return i > 0 ? [h.slice(0, i + 1), h.slice(i + 2)] : [h, ""]; }
@@ -1240,21 +1243,21 @@ const TREND = {
   carpet: { peak: "April", what: "peak month for \u201ccarpet cleaning\u201d searches", l2h: "fresh <em>start</em>.", stat: "\u201ccarpet cleaning\u201d searches rise in spring", bars: [44, 54, 92, 100, 72, 56, 50, 52, 58, 54, 48, 46], range: "Jan · · · · · · · · · · Dec", l1: () => "Fresh carpets,", l2: "fresh start." },
 };
 const PEOPLE_FALLBACK = { tenancy: "couple", regular: "sun-read", deep: "relax", office: "happy-laptop", airbnb: "window-read", oven: "sofa-smile", carpet: "relax" };
-function quizPeople(d) {
+function quizPeople(d, slot) {
   if (d.faceType === "team" && d.photo) return d.photo;
-  if (d.faceType === "model") { const m = MODELS.find(x => x.id === d.model); if (m) return m.img; }
+  if (d.faceType === "model" && MODELS.some(x => x.id === d.model)) return modelShot(d.model, slot === "portrait" ? "8-portrait" : (MODEL_SHOT[d.mainService] || MODEL_SHOT.regular));
   return `/assets/localpost/people/${PEOPLE_FALLBACK[d.mainService] || "couple"}.jpg`;
 }
 function quizPosts(d) {
   const b = quizBiz(d), key = d.mainService || "regular", svc = SERVICES[key] || SERVICES.regular, tr = TREND[key] || TREND.regular;
-  const town = d.town || "your town", face = quizPeople(d), top = (d.praise || [])[0] || "thorough";
+  const town = d.town || "your town", face = quizPeople(d), portrait = quizPeople(d, "portrait"), top = (d.praise || [])[0] || "thorough";
   const p1 = ed("trendx", b, { img: face, pos: "50% 30%", k: "Search trend · " + town, peak: tr.peak, what: tr.what, bars: tr.bars, l1: esc(tr.l1(town)), l2: tr.l2h, cta: "Book via link in bio" });
   const [l1, l2] = splitHead(PRAISE[top]?.head || "Spotless, not just tidy.");
   const p2 = d.review
     ? ed("reviewx", b, { img: SVC_PHOTO[key] || "p-counter", q: quoteFrom(d.review, 150), who: "Verified customer", rating: d.rating, count: d.reviewCount, tag: "Words like these<br>never get old." })
     : ed("reviewx", b, { img: SVC_PHOTO[key] || "p-counter", q: `${PRAISE[top]?.label || "Reliable"}, every single visit. Couldn't recommend them more.`, who: "Your next review", rating: d.rating, count: d.reviewCount, tag: "Your best reviews,<br>made into posts." });
   const chips = [d.rating ? `<b>${esc(d.rating)}★</b> Google` : null, d.reviewCount ? `${esc(d.reviewCount)} reviews` : "Fully insured", `Local to ${esc(town)}`].filter(Boolean);
-  const p3 = ed("promisex", b, { img: face, pos: "50% 25%", a: esc(l1), b: esc(l2 || "Every time."), chips });
+  const p3 = ed("promisex", b, { img: portrait, pos: "50% 25%", a: esc(l1), b: esc(l2 || "Every time."), chips });
   const tag = x => "#" + String(x).replace(/[^A-Za-z0-9]/g, "");
   return [
     { html: p1, why: "Built on a local search trend", cap: `${tr.l1(town)} ${tr.l2}\n\nWe're booking up fast this month, message us to grab a slot.\n\n${tag(town)} ${tag(svc.short)} ${tag(town + "Cleaner")}` },
@@ -1373,7 +1376,7 @@ if ($("#founderIni")) $("#founderIni").textContent = initials(CONFIG.founderName
 if ($("#contactLine")) $("#contactLine").textContent = [CONFIG.email, CONFIG.whatsapp && "WhatsApp +" + CONFIG.whatsapp].filter(Boolean).map(x => x + " · ").join("");
 
 /* ===== Quiz ===== */
-const S = { step: 0, name: "", town: "", country: "GB", mapsUrl: "", services: [], mainService: "", praise: [], review: "", rating: "", reviewCount: "", color: COLORS[0], style: "calm", logo: "", faceType: "model", model: "sofia", photo: "", contactName: "", email: "", whatsapp: "", instagram: "", consent: false, website: "" };
+const S = { step: 0, name: "", town: "", country: "GB", mapsUrl: "", services: [], mainService: "", praise: [], review: "", rating: "", reviewCount: "", color: COLORS[0], style: "calm", logo: "", faceType: "model", model: "emma", photo: "", contactName: "", email: "", whatsapp: "", instagram: "", consent: false, website: "" };
 function keep() { document.querySelectorAll("#qBody [data-k]").forEach(el => { S[el.dataset.k] = el.type === "checkbox" ? el.checked : el.value.trim(); }); }
 const steps = [
   { title: "Let's start with your business", render: () => `
