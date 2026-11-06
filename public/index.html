@@ -13,7 +13,7 @@
 <meta name="twitter:card" content="summary_large_image">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap">
 <style>
 /* Layout: simple and visual. Centred two-tone headline, a phone with posts fanned in a 3D arc, 3 picture-first steps, a work grid, one price card, a short FAQ and a centred CTA. */
 :root{
@@ -462,6 +462,76 @@ textarea{min-height:120px;resize:vertical}
   .card.r1{right:-22px;transform:rotateY(-24deg) rotate(4deg)}
 }
 
+/* ===== Editorial posts ===== */
+.pp.ed{background:var(--ep);color:var(--ei);font-family:"Plus Jakarta Sans",system-ui,sans-serif;isolation:isolate}
+.pp.ed::after{content:"";position:absolute;inset:0;z-index:9;pointer-events:none;opacity:.22;mix-blend-mode:multiply;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 .6 0'/%3E%3C/filter%3E%3Crect width='160' height='160' filter='url(%23n)'/%3E%3C/svg%3E")}
+.ed img{display:block;width:100%;height:100%;object-fit:cover}
+.ed .sf{font-family:"Instrument Serif",Georgia,serif;font-style:italic;font-weight:400;letter-spacing:-.025em}
+.ed .sn{font-weight:800;letter-spacing:-.055em}
+.ed h4{margin:0;line-height:.92}
+.ed .em{position:absolute;left:6cqw;right:6cqw;top:6cqw;z-index:5;display:flex;align-items:center;gap:2.2cqw;font-size:2.7cqw;font-weight:700;letter-spacing:.16em;text-transform:uppercase}
+.ed .em .rt{margin-left:auto;font-weight:600;letter-spacing:.12em}
+.ed .mono{width:7cqw;height:7cqw;border-radius:50%;display:grid;place-items:center;background:var(--ei);color:var(--ep);font-size:2.6cqw;letter-spacing:0;font-weight:800;flex:none;overflow:hidden}
+.ed .mono.img{background:#fff}.ed .mono.img img{object-fit:contain}
+.ed .kick{font-size:2.8cqw;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:var(--ea)}
+.ed .es{margin:0;font-size:3.6cqw;line-height:1.35;font-weight:500;opacity:.85}
+.ed .tiny{font-size:2.9cqw;font-weight:700;letter-spacing:.06em}
+.ed .ln{display:block;height:1px;background:currentColor;opacity:.35}
+/* cover */
+.ed.cover .bg{position:absolute;inset:0;z-index:0}
+.ed.cover .bg img{filter:saturate(.85) contrast(1.06)}
+.ed.cover .fade{position:absolute;inset:0;z-index:1;background:linear-gradient(180deg,rgba(0,0,0,.35) 0%,rgba(0,0,0,0) 26%,rgba(0,0,0,0) 40%,var(--ep) 92%)}
+.ed.cover .kick{color:#fff;opacity:.9}
+.ed.cover .eb{position:absolute;left:6cqw;right:6cqw;bottom:6cqw;z-index:5;display:flex;flex-direction:column;gap:2.6cqw}
+.ed.cover h4 .sf{font-size:15cqw;display:block}
+.ed.cover h4 .sn{font-size:12.5cqw;display:block;color:var(--eh)}
+.ed.cover .ef{display:flex;justify-content:space-between;align-items:center;border-top:1px solid rgba(255,255,255,.3);padding-top:3cqw;font-size:3cqw;font-weight:700;letter-spacing:.06em}
+.ed .arw{width:8cqw;height:8cqw;border-radius:50%;background:var(--eh);color:var(--ep);display:grid;place-items:center;font-size:4cqw}
+.ed.cover .em{color:#fff}.ed.cover .em .mono{background:#fff;color:#111}
+/* arch */
+.ed.arch .at{position:absolute;left:6cqw;right:6cqw;top:16cqw;z-index:3}
+.ed.arch .at .sf{font-size:14cqw}.ed.arch .at .sn{font-size:10.5cqw;color:var(--ea)}
+.ed.arch .archimg{position:absolute;right:6cqw;bottom:6cqw;width:50cqw;height:66cqw;border-radius:50cqw 50cqw 3cqw 3cqw;overflow:hidden;z-index:2;box-shadow:0 0 0 1.4cqw var(--ep),0 0 0 1.7cqw var(--ei)}
+.ed.arch .ac{position:absolute;left:6cqw;bottom:6cqw;width:30cqw;display:flex;flex-direction:column;gap:2.6cqw;z-index:3}
+.ed.arch .ac .es{font-size:3.2cqw}
+/* list */
+.ed.list .lh{position:absolute;left:6cqw;right:6cqw;top:16cqw;display:grid;grid-template-columns:auto 1fr;gap:3cqw;align-items:end}
+.ed.list .num{font-size:40cqw;line-height:.72;color:var(--ea)}
+.ed.list .lh h4{font-size:7cqw;line-height:1;padding-bottom:2cqw;padding-right:22cqw}
+.ed.list ol{position:absolute;left:6cqw;right:6cqw;bottom:6cqw;margin:0;padding:0;list-style:none;border-top:1px solid color-mix(in srgb,var(--ei) 30%,transparent)}
+.ed.list li{display:flex;gap:4cqw;align-items:baseline;padding:2.6cqw 0;border-bottom:1px solid color-mix(in srgb,var(--ei) 30%,transparent);font-size:4cqw;font-weight:600;letter-spacing:-.02em}
+.ed.list li span{font-size:2.8cqw;font-weight:700;letter-spacing:.12em;color:var(--ea)}
+.ed.list li.more{opacity:.55;border-bottom:0}
+.ed.list .thumb{position:absolute;right:6cqw;top:16cqw;width:19cqw;height:19cqw;border-radius:50%;overflow:hidden;box-shadow:0 0 0 1cqw var(--ep),0 0 0 1.25cqw var(--ei);z-index:2}
+/* stat */
+.ed.stat .kick{position:absolute;left:6cqw;right:30cqw;top:17cqw;color:var(--eh);line-height:1.4}
+.ed.stat .bigq{position:absolute;left:5cqw;right:5cqw;top:28cqw}
+.ed.stat .bigq .sf{font-size:30cqw;line-height:.82;display:block}
+.ed.stat .es{position:absolute;left:6cqw;right:40cqw;top:62cqw;font-size:3.8cqw}
+.ed.stat .strip{position:absolute;left:0;right:0;bottom:0;height:34%;overflow:hidden}
+.ed.stat .strip img{filter:grayscale(1) contrast(1.1)}
+.ed.stat .strip::after{content:"";position:absolute;inset:0;background:var(--ea);mix-blend-mode:multiply;opacity:.85}
+/* review */
+.ed.review .qm{position:absolute;left:4cqw;top:10cqw;font-size:44cqw;line-height:1;color:var(--ea);opacity:.9;z-index:1}
+.ed.review blockquote{position:absolute;left:6cqw;right:6cqw;top:30cqw;margin:0;line-height:1.08;z-index:2}
+.ed.review .rf{position:absolute;left:6cqw;right:34cqw;bottom:8cqw;display:flex;flex-direction:column;gap:2cqw;font-size:3cqw;font-weight:700;letter-spacing:.08em;text-transform:uppercase}
+.ed.review .rimg{position:absolute;right:6cqw;bottom:6cqw;width:24cqw;height:30cqw;border-radius:12cqw 12cqw 2cqw 2cqw;overflow:hidden}
+/* offer */
+.ed.offer{display:grid;grid-template-columns:44% 56%}
+.ed.offer .oimg{position:relative;overflow:hidden}
+.ed.offer .ob{position:relative;padding:6cqw;display:flex;flex-direction:column;justify-content:flex-end;gap:3cqw}
+.ed.offer .em{left:6cqw;right:6cqw}
+.ed.offer h4 .sf{font-size:13cqw}.ed.offer h4 .sn{font-size:8.6cqw}
+.ed.offer .pct{display:flex;align-items:baseline;gap:2cqw;border-top:1px solid color-mix(in srgb,var(--ei) 30%,transparent);border-bottom:1px solid color-mix(in srgb,var(--ei) 30%,transparent);padding:2cqw 0}
+.ed.offer .pct b{font-size:17cqw;font-weight:800;letter-spacing:-.06em;line-height:1;color:var(--eh)}
+.ed.offer .pct span{font-family:"Instrument Serif",Georgia,serif;font-style:italic;font-size:6cqw}
+/* hood */
+.ed.hood .map{position:absolute;inset:0;width:100%;height:100%;color:var(--ei);opacity:.6}
+.ed.hood .pin{position:absolute;left:14cqw;top:38cqw;width:7cqw;height:7cqw;border-radius:50%;background:var(--ea);box-shadow:0 0 0 2.2cqw color-mix(in srgb,var(--ea) 25%,transparent),0 0 0 5cqw color-mix(in srgb,var(--ea) 12%,transparent)}
+.ed.hood .hb{position:absolute;left:6cqw;right:6cqw;bottom:6cqw;display:flex;flex-direction:column;gap:3cqw;z-index:3}
+.ed.hood h4 .sf{font-size:16cqw}.ed.hood h4 .sn{font-size:8.4cqw;color:var(--ea)}
+.ed.hood .himg{position:absolute;right:6cqw;top:16cqw;width:34cqw;height:42cqw;border-radius:2cqw;overflow:hidden;transform:rotate(3deg);box-shadow:0 0 0 1.2cqw #fff,0 4cqw 8cqw rgba(0,0,0,.18);z-index:2}
+
 /* responsive */
 @media (max-width:1000px){
   .hero-grid,.pbox,.res-top,.unlock,.qgrid{grid-template-columns:1fr}
@@ -504,7 +574,7 @@ textarea{min-height:120px;resize:vertical}
     <nav class="nav rise" aria-label="Main">
       <a class="logo" href="#top"><i>✦</i>localpost</a>
       <div class="nav-links"><a href="#local">Local research</a><a href="#how">How it works</a><a href="#work">Our work</a><a href="#price">Pricing</a><a href="#faq">FAQ</a></div>
-      <button class="btn btn-main sm" type="button" data-open-quiz><span class="long">Get </span>3 free posts <span class="arr" aria-hidden="true">→</span></button>
+      <button class="btn btn-main sm" type="button" data-open-quiz><span><span class="long">Get </span>3 free posts</span> <span class="arr" aria-hidden="true">→</span></button>
     </nav>
     <div class="hero-top">
       <h1 class="rise d1"><span class="soft">Instagram posts for</span>your cleaning business</h1>
@@ -645,10 +715,10 @@ textarea{min-height:120px;resize:vertical}
 
 /* ===== Settings: edit these before launch ===== */
 const CONFIG = {
-  founderName: "Mehul",   // shown on the page and in the signature
-  stripeLink: "",         // Stripe Payment Link for $49/month, e.g. https://buy.stripe.com/xxx
-  whatsapp: "",           // international format, digits only, e.g. 447700900123
-  email: "",              // contact email shown in the footer
+  founderName: "Mayur Sevak",            // shown on the page and in messages
+  stripeLink: "",                         // empty: payment is arranged on WhatsApp for now
+  whatsapp: "971586133561",               // international format, digits only
+  email: "connect@localpost.adsnora.com", // contact email shown in the footer
 };
 
 /* ===== Content library ===== */
@@ -711,40 +781,86 @@ function brandRow(d, fg, badgeBg, badgeFg) {
   const badge = d.logo ? `<span class="badge" style="background:#fff"><img src="${d.logo}" alt=""></span>` : `<span class="badge" style="background:${badgeBg};color:${badgeFg}">${esc(initials(d.name))}</span>`;
   return `<div class="brand" style="color:${fg}">${badge}<div>${esc(d.name || "Your Business")}<small>${esc(d.town || "Your town")}</small></div></div>`;
 }
-function postReview(d, p) {
-  const ratingLine = d.rating ? `${d.rating}★${d.reviewCount ? ` from ${d.reviewCount} Google reviews` : " on Google"}` : "";
-  if (d.review) {
-    const q = quoteFrom(d.review);
-    const size = q.length > 120 ? 6.6 : q.length > 70 ? 7.6 : 9;
-    return `<div class="post p-review" style="background:${p.dark};color:${p.onDark}"><div class="pin">
-      <div class="stars" style="color:${p.star}">★★★★★</div>
-      <q style="font-size:${size}cqw">${esc(q)}</q>
-      <div><div class="src">Google review${ratingLine ? " · " + esc(ratingLine) : ""}</div>${brandRow(d, p.onDark, p.pop, p.popFg)}</div></div></div>`;
-  }
-  const svc = SERVICES[d.mainService] || SERVICES.regular;
-  return `<div class="post p-review" style="background:${p.dark};color:${p.onDark}"><div class="pin">
-    <div class="stars" style="color:${p.star}">${d.rating ? "★★★★★" : ""}</div>
-    <q style="font-size:9.4cqw;quotes:none">${esc(capital(svc.short))} in ${esc(d.town || "your town")}, done properly.</q>
-    <div><div class="src">${ratingLine ? esc(ratingLine) : esc((d.praise || []).map(k => PRAISE[k]?.label).filter(Boolean).join(" · ") || "Local · reliable · thorough")}</div>${brandRow(d, p.onDark, p.pop, p.popFg)}</div></div></div>`;
+/* ===== Editorial post system ===== */
+const THEMES = {
+  sage:  { p: "#ECEEE5", i: "#18271E", a: "#7FA27A", hi: "#D9E8B4" },
+  cobalt:{ p: "#F1EEE8", i: "#111C45", a: "#2E4FE0", hi: "#C9D4FF" },
+  terra: { p: "#F3ECE3", i: "#2B1711", a: "#C4573A", hi: "#F2C9A8" },
+  plum:  { p: "#F0EBF1", i: "#22142A", a: "#7B4FD8", hi: "#DCCBFA" },
+  noir:  { p: "#EDEBE5", i: "#111111", a: "#B9E35A", hi: "#E6F5B5" },
+};
+function themeFor(color, style) {
+  if (style === "premium") return THEMES.noir;
+  const [r, g, b] = hex(color || "#2E8B1E"), mx = Math.max(r, g, b), mn = Math.min(r, g, b);
+  if (mx - mn < 30) return THEMES.noir;
+  let h = 0; const d = mx - mn;
+  if (mx === r) h = ((g - b) / d) % 6; else if (mx === g) h = (b - r) / d + 2; else h = (r - g) / d + 4;
+  h = (h * 60 + 360) % 360;
+  if (h < 40 || h >= 330) return THEMES.terra;
+  if (h < 75) return THEMES.terra;
+  if (h < 170) return THEMES.sage;
+  if (h < 250) return THEMES.cobalt;
+  return THEMES.plum;
 }
-function postTip(d, p) {
-  const svc = SERVICES[d.mainService] || SERVICES.regular;
-  const model = d.faceType === "model" ? MODELS.find(m => m.id === d.model) : null;
-  const items = svc.tip.items.map(i => `<li>${esc(i)}</li>`).join("");
-  return `<div class="post p-tip ${model ? "has-ph" : ""}" style="background:${p.light};color:${p.dark}">${model ? `<img class="side" src="${model.img}" alt="">` : ""}<div class="pin">
-    <div class="t">${esc(svc.tip.title(d.town || "Local"))}</div><ul>${items}</ul>
-    <div class="foot">${brandRow(d, p.dark, p.dark, p.light)}<div class="cta">${esc(svc.tip.cta)}</div></div></div></div>`;
+const SVC_PHOTO = { tenancy: "svc-tenancy", regular: "svc-regular", deep: "svc-deep", office: "wipe-wall", airbnb: "svc-airbnb", oven: "mop", carpet: "team-room" };
+const PH = n => `/assets/localpost/photos/${n}.jpg`;
+const vars = (t, dark) => dark ? `--ep:${t.i};--ei:${t.p};--ea:${t.a};--eh:${t.hi}` : `--ep:${t.p};--ei:${t.i};--ea:${t.a};--eh:${t.hi}`;
+const mono = (b, logo) => logo ? `<span class="mono img"><img src="${logo}" alt=""></span>` : `<span class="mono">${esc(initials(b.name))}</span>`;
+const meta = (b, right, logo) => `<div class="em">${mono(b, logo)}<span class="nm">${esc(b.name)}</span><span class="rt">${right}</span></div>`;
+const imgSrc = s => s.startsWith("/") || s.startsWith("data:") ? s : PH(s);
+
+function ed(kind, b, o) {
+  const t = b.theme || themeFor(b.color, b.style);
+  const no = o.no || "Nº 01";
+  if (kind === "cover") return `<div class="pp ed cover" style="${vars(t, true)}"><span class="bg"><img src="${imgSrc(o.img)}" alt="" loading="lazy"></span><span class="fade"></span>
+    ${meta(b, esc(no), b.logo)}
+    <div class="eb"><span class="kick">${esc(o.kick)}</span><h4><span class="sf">${o.h1}</span> <span class="sn">${o.h2}</span></h4>${o.s ? `<p class="es">${esc(o.s)}</p>` : ""}<div class="ef"><span>${esc(o.cta || "Book via link in bio")}</span><span class="arw">→</span></div></div></div>`;
+  if (kind === "arch") return `<div class="pp ed arch" style="${vars(t)}">${meta(b, esc(no), b.logo)}
+    <h4 class="at"><span class="sf">${o.h1}</span><br><span class="sn">${o.h2}</span></h4>
+    <span class="archimg"><img src="${imgSrc(o.img)}" alt="" loading="lazy"></span>
+    <div class="ac"><span class="kick">${esc(o.kick)}</span><p class="es">${esc(o.s || "")}</p><span class="ln"></span><span class="tiny">${esc(o.cta || "Link in bio")} →</span></div></div>`;
+  if (kind === "list") return `<div class="pp ed list" style="${vars(t)}">${meta(b, "1 / 6", b.logo)}
+    <div class="lh"><span class="num sf">${esc(o.n || "5")}</span><h4 class="sn">${esc(o.title)}</h4></div>
+    <ol>${o.items.slice(0, 3).map((x, i) => `<li><span>0${i + 1}</span>${esc(x)}</li>`).join("")}<li class="more"><span>04</span>Swipe for the rest →</li></ol>
+    ${o.img ? `<span class="thumb"><img src="${imgSrc(o.img)}" alt="" loading="lazy"></span>` : ""}</div>`;
+  if (kind === "stat") return `<div class="pp ed stat" style="${vars(t, true)}">${meta(b, esc(no), b.logo)}
+    <span class="kick">${esc(o.kick)}</span><h4 class="bigq"><span class="sf">${o.h1}</span></h4><p class="es">${esc(o.s)}</p>
+    <span class="strip"><img src="${imgSrc(o.img)}" alt="" loading="lazy"></span></div>`;
+  if (kind === "review") return `<div class="pp ed review" style="${vars(t)}">${meta(b, "★★★★★", b.logo)}
+    <span class="qm sf">“</span><blockquote class="sf" style="font-size:${o.q.length > 110 ? 6.4 : o.q.length > 70 ? 7.4 : 8.6}cqw">${esc(o.q)}</blockquote>
+    <div class="rf"><span class="ln"></span><span>${esc(o.src || "Google review")}${o.place ? ` · ${esc(o.place)}` : ""}</span></div>
+    ${o.img ? `<span class="rimg"><img src="${imgSrc(o.img)}" alt="" loading="lazy"></span>` : ""}</div>`;
+  if (kind === "offer") return `<div class="pp ed offer" style="${vars(t, true)}"><span class="oimg"><img src="${imgSrc(o.img)}" alt="" loading="lazy"></span>
+    <div class="ob">${meta(b, esc(o.dates || ""), b.logo)}<h4><span class="sf">${o.h1}</span><br><span class="sn">${o.h2}</span></h4><div class="pct"><b>${esc(o.pct)}</b><span>${esc(o.pctSub || "off")}</span></div><span class="tiny">${esc(o.cta || "Book via link in bio")} →</span></div></div>`;
+  if (kind === "hood") return `<div class="pp ed hood" style="${vars(t)}"><svg class="map" viewBox="0 0 100 125" preserveAspectRatio="none" aria-hidden="true"><g fill="none" stroke="currentColor" stroke-width=".35"><path d="M-5 38 C 25 28, 45 58, 105 44"/><path d="M18 -5 C 28 40, 8 82, 28 130"/><path d="M62 -5 L 72 130"/><path d="M-5 96 C 40 86, 60 112, 105 92"/><path d="M40 -5 C 46 30, 50 70, 44 130"/><path d="M-5 66 L 105 72"/></g><path d="M-5 80 C 30 70, 55 92, 105 78" stroke="var(--ea)" stroke-width="3" fill="none" opacity=".25"/></svg>
+    ${meta(b, esc(o.no || "Nº 07"), b.logo)}<span class="pin"></span><span class="kick" style="position:absolute;left:24cqw;top:41cqw">${esc(o.kick)}</span>
+    <div class="hb"><h4><span class="sf">${esc(o.area)}</span><br><span class="sn">${o.h2}</span></h4><span class="tiny">${esc(o.cta || "Free quote via link in bio")} →</span></div>
+    <span class="himg"><img src="${imgSrc(o.img)}" alt="" loading="lazy"></span></div>`;
 }
-function postTrust(d, p) {
-  const praise = d.praise || [];
-  const top = praise[0] || "thorough";
-  const pills = [d.rating ? `${d.rating}★ on Google` : null, d.reviewCount ? `${d.reviewCount} reviews` : null, ...praise.slice(0, 2).map(k => PRAISE[k]?.label), d.town ? `Serving ${d.town}` : null].filter(Boolean).slice(0, 4);
-  const photo = d.faceType === "team" && d.photo ? `<div class="ph" style="color:${p.dark}"><img src="${d.photo}" alt=""></div>` : "";
-  return `<div class="post p-trust" style="background:${p.pop};color:${p.popFg}"><div class="pin">
-    ${photo}<div class="k">What our customers say</div>
-    <div class="t">${esc(PRAISE[top]?.head || "Spotless, not just tidy.")}</div>
-    <div><div class="pills">${pills.map(x => `<span style="background:${p.popFg};color:${p.pop}">${esc(x)}</span>`).join("")}</div>${brandRow(d, p.popFg, p.popFg, p.pop)}</div></div></div>`;
+
+/* Quiz results use the same system */
+function quizBiz(d) { return { name: d.name || "Your Business", town: d.town || "Your town", color: d.color, style: d.style, logo: d.logo }; }
+function quizPhoto(d) {
+  if (d.faceType === "team" && d.photo) return d.photo;
+  if (d.faceType === "model") { const m = MODELS.find(x => x.id === d.model); if (m) return m.img; }
+  return SVC_PHOTO[d.mainService] || "svc-regular";
 }
+function splitHead(h) { const i = h.indexOf(". "); return i > 0 ? [h.slice(0, i + 1), h.slice(i + 2)] : [h, ""]; }
+function postReview(d) {
+  const b = quizBiz(d), svc = SERVICES[d.mainService] || SERVICES.regular;
+  if (d.review) return ed("review", b, { q: quoteFrom(d.review, 150), src: "Google review", place: d.town, img: SVC_PHOTO[d.mainService] || "svc-regular" });
+  return ed("cover", b, { img: SVC_PHOTO[d.mainService] || "svc-regular", kick: `${d.town || "Local"} · ${svc.short}`, h1: `${esc(capital(svc.short))},`, h2: "done properly.", s: d.rating ? `${d.rating}★ on Google${d.reviewCount ? ` · ${d.reviewCount} reviews` : ""}` : "", no: "Nº 01" });
+}
+function postTip(d) {
+  const b = quizBiz(d), svc = SERVICES[d.mainService] || SERVICES.regular;
+  return ed("list", b, { n: "5", title: svc.tip.title(d.town || "Local").replace(/^5\s+/, ""), items: svc.tip.items, img: quizPhoto(d) });
+}
+function postTrust(d) {
+  const b = quizBiz(d), top = (d.praise || [])[0] || "thorough";
+  const [h1, h2] = splitHead(PRAISE[top]?.head || "Spotless, not just tidy.");
+  return ed("arch", b, { img: quizPhoto(d), kick: `${d.town || "Local"} · ${PRAISE[top]?.label || "Trusted"}`, h1: esc(h1), h2: esc(h2), s: d.rating ? `${d.rating}★ from ${d.reviewCount || "our"} Google reviews.` : "What our customers say, every week.", no: "Nº 03" });
+}
+
 function captions(d) {
   const svc = SERVICES[d.mainService] || SERVICES.regular;
   const tag = s => "#" + String(s).replace(/[^A-Za-z0-9]/g, "");
@@ -766,35 +882,25 @@ function igPhone(d, posts, opts = {}) {
 
 /* ===== Page visuals ===== */
 document.documentElement.classList.add("js");
-const PH = n => `/assets/localpost/photos/${n}.jpg`;
+const T = THEMES;
 const BIZ = {
-  bw: { name: "Brightway Cleaning", town: "Leeds", color: "#2E8B1E" },
-  sq: { name: "Shine Squad", town: "Austin", color: "#E4572E" },
-  fn: { name: "Fresh Nest", town: "Bristol", color: "#7A4EE3" },
-  ok: { name: "Oakline Office Care", town: "Manchester", color: "#0E120D" },
-  sp: { name: "Sparkle & Co", town: "Denver", color: "#1F5FD1" },
+  bw: { name: "Brightway Cleaning", town: "Leeds", theme: T.sage },
+  sq: { name: "Shine Squad", town: "Austin", theme: T.terra },
+  fn: { name: "Fresh Nest", town: "Bristol", theme: T.plum },
+  ok: { name: "Oakline Office Care", town: "Manchester", theme: T.noir },
+  sp: { name: "Sparkle & Co", town: "Denver", theme: T.cobalt },
 };
-const lp = b => `<span class="logo-pill"><i style="background:${b.color}">${esc(initials(b.name))}</i>${esc(b.name)}</span>`;
-const tintOf = (c, a1, a2) => { const [r, g, bl] = hex(c); return `linear-gradient(180deg,rgba(${r},${g},${bl},${a1}) 0%,rgba(0,0,0,0) 30%,rgba(0,0,0,.15) 50%,rgba(${Math.round(r * .35)},${Math.round(g * .35)},${Math.round(bl * .35)},${a2}) 100%)`; };
-function pp(t, b, o) {
-  if (t === "hero") return `<div class="pp"><img src="${PH(o.img)}" alt="" loading="lazy"><span class="tint" style="background:${tintOf(b.color, .35, .92)}"></span><div class="lay"><div class="top">${lp(b)}<span class="save">SAVE</span></div><div style="display:flex;flex-direction:column;gap:3cqw">${o.loc ? `<span class="loc">📍 ${esc(o.loc)}</span>` : ""}<div class="h">${o.h}</div>${o.s ? `<div class="s">${esc(o.s)}</div>` : ""}<div class="row"><span class="cta">${esc(o.cta || "Book now")}<b>→</b></span><span class="tiny">${esc(b.town)}</span></div></div></div></div>`;
-  if (t === "carousel") return `<div class="pp"><img src="${PH(o.img)}" alt="" loading="lazy"><span class="tint" style="background:${tintOf(b.color, .2, .85)}"></span><div class="lay"><div class="top">${lp(b)}<span class="swipe-ind">1/6</span></div><div style="display:flex;flex-direction:column;gap:3.4cqw"><div class="h" style="font-size:10.4cqw">${o.h}</div><div class="listcard">${o.items.map((x, i) => `<span><i>${i + 1}</i>${esc(x)}</span>`).join("")}<em>Swipe for all 5 →</em></div></div></div></div>`;
-  if (t === "split") { const bg = o.bg || b.color, fg = lum(bg) > .45 ? "#0E120D" : "#fff"; return `<div class="pp split" style="background:${bg};color:${fg}"><img src="${PH(o.img)}" alt="" loading="lazy">${o.burst ? `<span class="burst"><span><b>${esc(o.burst)}</b><small>${esc(o.burstSub || "OFF")}</small></span></span>` : ""}<div class="lower"><div class="h">${o.h}</div><div class="row"><span class="cta" style="background:${fg};color:${bg}">${esc(o.cta)}<b>→</b></span><span class="tiny">${esc(b.name)}</span></div></div></div>`; }
-  if (t === "stat") { const bg = o.bg || "#B6F07A", fg = lum(bg) > .45 ? "#0E120D" : "#fff"; return `<div class="pp stat" style="background:${bg};color:${fg}"><span class="circ"><img src="${PH(o.img)}" alt="" loading="lazy"></span><div class="sin"><div class="s" style="max-width:50%;font-size:4cqw">${esc(o.k)}</div><div><div class="big">${o.big}</div><div class="s" style="margin-top:3cqw;font-size:4.4cqw">${esc(o.s)}</div></div><div class="bb"><i style="background:${b.color}">${esc(initials(b.name))}</i>${esc(b.name)} · ${esc(b.town)}</div></div></div>`; }
-  if (t === "quote") return `<div class="pp"><img src="${PH(o.img)}" alt="" loading="lazy"><span class="tint" style="background:${tintOf(b.color, .45, .55)}"></span><div class="lay"><div class="top">${lp(b)}<span class="save">5★</span></div><div class="qcard"><span class="st">★★★★★</span><q>${esc(o.q)}</q><small>Google review · ${esc(b.town)}</small></div></div></div>`;
-  if (t === "hood") return `<div class="pp hood"><svg class="maplines" viewBox="0 0 100 125" preserveAspectRatio="none" aria-hidden="true"><path d="M-5 40 C 25 30, 40 60, 105 45" stroke="#3A4A36" stroke-width="5" fill="none"/><path d="M20 -5 C 30 40, 10 80, 30 130" stroke="#2A3527" stroke-width="3" fill="none"/><path d="M60 -5 L 70 130" stroke="#2A3527" stroke-width="2" fill="none"/><path d="M-5 95 C 40 85, 60 110, 105 90" stroke="#2A3527" stroke-width="3" fill="none"/></svg><span class="pin"></span><span class="ph"><img src="${PH(o.img)}" alt="" loading="lazy"></span><div class="lay"><div class="top">${lp(b)}</div><div style="display:flex;flex-direction:column;gap:3cqw"><span class="loc">📍 ${esc(o.loc)}</span><div class="h" style="font-size:10.5cqw">${o.h}</div><div class="row"><span class="cta">${esc(o.cta || "Get a quote")}<b>→</b></span></div></div></div></div>`;
-}
 const P = {
-  deposit: () => pp("hero", BIZ.bw, { img: "svc-tenancy", loc: "Leeds · June move-outs", h: "Get your <em>deposit</em> back", s: "End of tenancy cleans landlords sign off first time.", cta: "Book your clean" }),
-  guests: () => pp("carousel", BIZ.fn, { img: "window", h: "5 things guests notice first", items: ["Hair in the bathroom", "Smell on arrival", "Dusty TV stand"] }),
-  ontime: () => pp("stat", BIZ.ok, { img: "team-pose", k: "What Manchester offices complain about most", big: "On<br>time.", s: "So that's what we promise." }),
-  spring: () => pp("split", BIZ.sp, { img: "svc-deep", h: "Spring deep clean is back", cta: "Book this week", bg: "#1F5FD1", burst: "15%" }),
-  quote: () => pp("quote", BIZ.sq, { img: "team-room", q: "Same team every fortnight for a year. Always on time, always spotless." }),
-  home: () => pp("hero", BIZ.sp, { img: "mop", loc: "Denver · ski season", h: "Come home to <em>clean</em>", s: "Weekly cleans, same trusted cleaner.", cta: "See times" }),
-  office: () => pp("split", BIZ.ok, { img: "wipe-wall", h: "Your office, spotless by 8am", cta: "Get a quote", bg: "#0E120D", burst: "1st", burstSub: "MONTH FREE" }),
-  deep: () => pp("carousel", BIZ.bw, { img: "svc-regular", h: "How often should you deep clean?", items: ["Kitchen: every 3 months", "Bathroom: monthly", "Carpets: twice a year"] }),
-  hood: () => pp("hood", BIZ.bw, { img: "svc-regular", loc: "Headingley", h: "Moving out of <em>Headingley</em>?", cta: "Free quote" }),
-  hood2: () => pp("hood", BIZ.fn, { img: "svc-airbnb", loc: "Clifton", h: "Clifton hosts, <em>guest-ready</em> in 3 hours", cta: "Book a turnover" }),
+  deposit: () => ed("cover", BIZ.bw, { img: "svc-tenancy", kick: "Leeds · June move-outs", h1: "Get your deposit", h2: "back.", s: "End of tenancy cleans landlords sign off first time.", no: "Nº 01" }),
+  guests: () => ed("list", BIZ.fn, { n: "5", title: "things guests notice first", items: ["Hair in the bathroom", "Smell on arrival", "Dust on the TV stand"], img: "window" }),
+  ontime: () => ed("stat", BIZ.ok, { kick: "What Manchester offices complain about most", h1: "Late.", s: "So we're the cleaners who are never late.", img: "team-pose", no: "Nº 04" }),
+  spring: () => ed("offer", BIZ.sp, { img: "svc-deep", h1: "Spring", h2: "deep clean", pct: "15%", pctSub: "off this week", dates: "1–14 Mar" }),
+  quote: () => ed("review", BIZ.sq, { q: "Same team every fortnight for a year. Always on time, always spotless.", src: "Google review", place: "Austin", img: "team-room" }),
+  home: () => ed("arch", BIZ.sp, { img: "mop", kick: "Denver · ski season", h1: "Come home", h2: "to clean.", s: "Weekly cleans, same trusted cleaner.", no: "Nº 02" }),
+  office: () => ed("cover", BIZ.ok, { img: "wipe-wall", kick: "Manchester · offices", h1: "Spotless", h2: "by 8am.", s: "Early cleans, zero disruption.", cta: "Get a quote via link in bio", no: "Nº 05" }),
+  deep: () => ed("list", BIZ.bw, { n: "3", title: "rooms to deep clean first", items: ["Kitchen, every 3 months", "Bathroom, monthly", "Carpets, twice a year"], img: "svc-regular" }),
+  hood: () => ed("hood", BIZ.bw, { area: "Headingley", h2: "moving out this summer?", kick: "Leeds · LS6", img: "svc-regular" }),
+  hood2: () => ed("hood", BIZ.fn, { area: "Clifton", h2: "guest-ready in 3 hours.", kick: "Bristol · BS8", img: "svc-airbnb", cta: "Book a turnover via link in bio" }),
 };
 (() => {
   // hero phone slideshow
@@ -1009,7 +1115,7 @@ function results() {
     <div class="res-top">
       <div class="head"><div class="eyebrow">Made for ${esc(S.name)} · ${esc(S.town)}</div><h2>Here's how your page could look.</h2>
         <p class="lede">These 3 posts are yours to keep. Unlock the other 27 this month, and every month after.</p>
-        <div class="cta-row"><button class="btn btn-main" type="button" data-unlock>Unlock my full month →</button><a class="btn btn-ghost" href="#rp">See my 3 posts</a></div></div>
+        <div class="cta-row"><button class="btn btn-main" type="button" data-unlock>Unlock my full month on WhatsApp →</button><a class="btn btn-ghost" href="#rp">See my 3 posts</a></div></div>
       <div style="display:flex;justify-content:center"><div class="phone">${igPhone(d, [...three, ...lock], { posts: 3, followers: "—", following: "—" })}</div></div>
     </div>
     <div class="rposts" id="rp">${three.map((h, i) => `<figure>${h}<figcaption>${["Review post", "Tip post", "Trust post"][i]}</figcaption><div class="cap">${esc(caps[i])}</div></figure>`).join("")}</div>
@@ -1022,13 +1128,14 @@ function results() {
       <div><div class="eyebrow">Unlock your full month</div><h2>30 posts like these, every month.</h2>
         <ul><li>30 designed posts in your brand</li><li>Local research for ${esc(S.town)}</li><li>Every new review turned into a post</li><li>Google Business Profile versions</li><li>Captions, hashtags and a calendar</li><li>Checked by a person, every time</li></ul></div>
       <div class="p"><span class="was">Worth $549/month</span><div class="amt">$49<small>/month</small></div>
-        <button class="btn btn-sun" type="button" data-unlock>Unlock my monthly posts</button>
+        <button class="btn btn-sun" type="button" data-unlock>Unlock on WhatsApp</button>
         <span class="msg" id="unlockMsg">Cancel anytime · full refund if the first month isn't right</span></div>
     </div></div>`;
   document.querySelectorAll("[data-unlock]").forEach(b => b.onclick = () => {
     if (CONFIG.stripeLink) { location.href = CONFIG.stripeLink + (CONFIG.stripeLink.includes("?") ? "&" : "?") + "client_reference_id=" + encodeURIComponent(S.leadId || ""); return; }
-    $("#unlock").scrollIntoView({ behavior: "smooth", block: "center" });
-    $("#unlockMsg").textContent = "You're on the list. We'll send your payment link with your researched set.";
+    const msg = `Hi ${CONFIG.founderName.split(" ")[0]}, I just got my 3 free posts for ${S.name || "my business"} in ${S.town || "my town"}. I'd like to unlock my full month (30 posts, $49/month). Ref: ${S.leadId || "-"}`;
+    window.open(`https://wa.me/${CONFIG.whatsapp}?text=${encodeURIComponent(msg)}`, "_blank", "noopener");
+    $("#unlockMsg").textContent = "Opening WhatsApp… If nothing opens, message +" + CONFIG.whatsapp;
   });
 }
 function openQuiz() { $("#quiz").hidden = false; document.body.style.overflow = "hidden"; if (!$("#qBody").innerHTML) drawStep(); }
