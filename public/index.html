@@ -814,11 +814,11 @@ footer .in{align-items:center}
 .ed.planx .pf p small{display:block;font-size:2.5cqw;font-weight:600;opacity:.75;margin-top:.6cqw}
 /* reviewx */
 .ed.reviewx{background:var(--s)}
-.ed.reviewx .rph{position:absolute;left:0;right:0;top:0;height:44%;overflow:hidden;border-radius:0 0 10cqw 10cqw}
+.ed.reviewx .rph{position:absolute;left:0;right:0;top:0;height:64%;overflow:hidden;border-radius:0 0 10cqw 10cqw}
 .ed.reviewx .rph::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(0,0,0,.35),rgba(0,0,0,0) 40%)}
 .ed.reviewx .r5{background:#fff;color:#111;border-radius:99px;padding:1.4cqw 3cqw;font-size:3cqw;font-weight:800}
 .ed.reviewx .r5{color:#F2A900}
-.ed.reviewx .rcard{position:absolute;left:7cqw;right:7cqw;top:28%;z-index:5;background:#fff;border-radius:5cqw;padding:5cqw 5.4cqw;box-shadow:0 4cqw 10cqw -3cqw rgba(0,0,0,.35)}
+.ed.reviewx .rcard{position:absolute;left:7cqw;right:7cqw;bottom:22cqw;z-index:5;background:#fff;border-radius:5cqw;padding:5cqw 5.4cqw;box-shadow:0 4cqw 10cqw -3cqw rgba(0,0,0,.35)}
 .ed.reviewx .rtop{display:flex;align-items:center;gap:2.6cqw}
 .ed.reviewx .av{width:8.4cqw;height:8.4cqw;border-radius:50%;background:var(--a);color:#fff;display:grid;place-items:center;font-weight:800;font-size:3.8cqw}
 .ed.reviewx .rtop b{display:block;font-size:3.5cqw;color:#111}.ed.reviewx .rtop small{font-size:2.6cqw;color:#777}
@@ -1886,7 +1886,7 @@ function quizPosts(d) {
   const chips = [d.rating ? `<b>${esc(d.rating)}★</b> Google` : null, d.reviewCount ? `${esc(d.reviewCount)} reviews` : "Fully insured", `Local to ${esc(town)}`].filter(Boolean);
   const tenancy = key === "tenancy";
   const altImg = quizPeople(d, "alt"), altRoom = SHOT_ROOM[(altImg.match(/([^/]+)\.jpg$/) || [])[1]];
-  const p3 = ed("planx", b, { img: altImg, pos: "45% 22%", rooms: ROOMS[key] || ROOMS.regular, photoRoom: (ROOMS[key] || ROOMS.regular).some(x => x.split(" ")[0] === altRoom) ? altRoom : null,
+  const p3 = ed("planx", b, { img: tenancy ? face : altImg, pos: tenancy ? "45% 20%" : "45% 22%", rooms: ROOMS[key] || ROOMS.regular, photoRoom: tenancy ? "Bedroom" : (ROOMS[key] || ROOMS.regular).some(x => x.split(" ")[0] === altRoom) ? altRoom : null,
     a: esc(tenancy ? "Moving out?" : l1), b: esc(tenancy ? "Every room, deposit-ready." : (l2 || "Every time.")), icon: tenancy ? ICON.key : ICON.home,
     foot: tenancy ? "Keys back on time. You just pack." : (PRAISE[top]?.label || "Thorough, spotless") + ", in every room.",
     sub: [d.rating ? `${esc(d.rating)}★ on Google` : null, d.reviewCount ? `${esc(d.reviewCount)} reviews` : null, `Local to ${esc(town)}`].filter(Boolean).join(" · ") });
