@@ -953,11 +953,12 @@ footer .in{align-items:center}
 /* free post 3: magazine cover */
 .ed.magx{background:#111;color:#fff}
 .ed.magx .bgi{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
-.ed.magx .sh{position:absolute;inset:0;z-index:1;background:linear-gradient(180deg,rgba(0,0,0,.45) 0%,rgba(0,0,0,0) 30%,rgba(0,0,0,0) 48%,rgba(0,0,0,.85) 100%)}
-.ed.magx .mast{position:absolute;left:6cqw;right:6cqw;top:6cqw;z-index:2;font-family:"Instrument Serif",Georgia,serif;font-size:17cqw;line-height:.82;letter-spacing:-.02em;text-shadow:0 1cqw 5cqw rgba(0,0,0,.3)}
+.ed.magx .sh{position:absolute;inset:0;z-index:1;background:linear-gradient(180deg,rgba(0,0,0,.35) 0%,rgba(0,0,0,0) 20%,rgba(0,0,0,0) 42%,rgba(0,0,0,.88) 100%)}
+.ed.magx .mast{font-family:"Instrument Serif",Georgia,serif;font-size:15cqw;line-height:.82;letter-spacing:-.02em;text-shadow:0 1cqw 5cqw rgba(0,0,0,.3)}
 .ed.magx .mast small{display:block;font-family:"Plus Jakarta Sans",sans-serif;font-size:2.5cqw;font-weight:800;letter-spacing:.28em;text-transform:uppercase;margin-top:2.4cqw;opacity:.92}
-.ed.magx .mb{position:absolute;left:6cqw;right:6cqw;bottom:6cqw;z-index:2;display:flex;flex-direction:column;gap:3cqw}
-.ed.magx h4{margin:0;font-size:8.4cqw;font-weight:800;letter-spacing:-.05em;line-height:.98}
+.ed.magx .mb{position:absolute;left:6cqw;right:6cqw;bottom:6cqw;z-index:2;display:flex;flex-direction:column;gap:2.6cqw}
+.ed.magx .xt{z-index:3}
+.ed.magx h4{margin:0;font-size:6.6cqw;font-weight:800;letter-spacing:-.05em;line-height:.98}
 .ed.magx h4 em{font-family:"Instrument Serif",Georgia,serif;font-style:italic;font-weight:400;color:#FFD23F;letter-spacing:-.01em}
 .ed.magx .strip{display:flex;justify-content:space-between;gap:2cqw;border-top:1px solid rgba(255,255,255,.45);padding-top:2.4cqw;font-size:2.7cqw;font-weight:600}
 .ed.magx .strip span{white-space:nowrap}.ed.magx .strip b{color:#FFD23F}
@@ -1239,6 +1240,29 @@ footer .in{align-items:center}
 @media (max-width:1000px){.ulist{grid-template-columns:repeat(3,minmax(0,1fr))}}
 @media (max-width:640px){.ulist{grid-template-columns:1fr 1fr}}
 @media (max-width:420px){.ulist{grid-template-columns:1fr}}
+
+/* offer list v2 */
+.pbox ul.offer{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:14px}
+.pbox ul.offer li{display:grid;grid-template-columns:30px 1fr;gap:12px;align-items:start}
+.pbox ul.offer li i{font-style:normal;width:30px;height:30px;border-radius:50%;background:var(--lime);display:grid;place-items:center;font-weight:800;font-size:14px;color:var(--ink)}
+.pbox ul.offer li b{display:block;font-size:17px;letter-spacing:-.01em}
+.pbox ul.offer li span{display:block;font-size:14.5px;color:var(--ink-2);line-height:1.4;margin-top:2px}
+.pbox ul.offer li.star{background:linear-gradient(135deg,#EAF8DD,#F7FBF2);border:1px solid #CFEAB8;border-radius:16px;padding:12px 14px;margin:-4px -8px 4px}
+.pbox ul.offer li.star b::after{content:"Only on LocalPost";display:inline-block;white-space:nowrap;margin-left:8px;font-size:11px;font-weight:800;letter-spacing:.06em;text-transform:uppercase;background:var(--ink);color:var(--lime);border-radius:99px;padding:3px 8px;vertical-align:2px}
+/* not-a-template: swipe slider on phones */
+@media (max-width:900px){.ugrid{display:flex;max-width:none;overflow-x:auto;scroll-snap-type:x mandatory;gap:14px;margin-inline:calc(-1 * max(16px,env(safe-area-inset-left,0px)));padding:6px max(16px,env(safe-area-inset-left,0px)) 14px;scrollbar-width:none}
+.ugrid::-webkit-scrollbar{display:none}
+.ugrid figure{flex:0 0 74%;scroll-snap-align:center}}
+.uhint{display:none;text-align:center;font-size:13px;color:var(--muted);font-weight:600;margin-top:4px}
+@media (max-width:900px){.uhint{display:block}}
+/* map tidy */
+.map .cap i{white-space:nowrap;flex:none}
+@media (max-width:600px){.map .mpin.cc{left:50%!important;top:40%!important}}
+/* our work: show more */
+.wgrid figure.more{display:none}.wgrid.open figure.more{display:flex}
+.wmore{display:flex;justify-content:center;margin-top:26px}
+.wmore button{font:inherit;font-weight:700;font-size:16px;border:1.5px solid var(--line);background:var(--card,#fff);color:var(--ink);border-radius:99px;padding:12px 22px;cursor:pointer}
+.wmore button:focus-visible{outline:3px solid var(--accent);outline-offset:2px}
 </style>
 </head>
 <body>
@@ -1301,9 +1325,8 @@ footer .in{align-items:center}
           <ellipse cx="470" cy="140" rx="90" ry="60" fill="#D3EDC2"/><ellipse cx="120" cy="520" rx="110" ry="60" fill="#D3EDC2"/>
           <g stroke="#fff" stroke-linecap="round" fill="none"><path d="M0 200 L 600 260" stroke-width="14"/><path d="M250 0 L 300 600" stroke-width="14"/><path d="M80 0 C 140 200, 60 400, 160 600" stroke-width="9"/><path d="M600 80 C 420 200, 420 420, 520 600" stroke-width="9"/><path d="M0 470 L 600 500" stroke-width="7"/><path d="M380 0 L 420 260" stroke-width="7"/></g>
         </svg>
-        <span class="ex">Example · Leeds</span>
         <div class="mpin" style="left:30%;top:26%"><span class="lbl">Headingley <em class="ico"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12.5 2.5s1 3.2-1.6 5.8C8.8 10.4 7 12.2 7 15a5 5 0 0 0 10 0c0-2.3-1.2-3.6-2-4.6.1 1.4-.6 2.6-1.6 2.6-1.2 0-1.6-1.2-1.3-2.6.5-2.4 1.9-4.7.4-7.9z"/></svg></em></span><span class="dot"></span></div>
-        <div class="mpin" style="left:58%;top:47%"><span class="lbl">City Centre</span><span class="dot"></span></div>
+        <div class="mpin cc" style="left:58%;top:47%"><span class="lbl">City Centre</span><span class="dot"></span></div>
         <div class="mpin" style="left:78%;top:20%"><span class="lbl">Roundhay</span><span class="dot"></span></div>
         <div class="mpin" style="left:47%;top:80%"><span class="lbl">Hyde Park <em class="ico"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12.5 2.5s1 3.2-1.6 5.8C8.8 10.4 7 12.2 7 15a5 5 0 0 0 10 0c0-2.3-1.2-3.6-2-4.6.1 1.4-.6 2.6-1.6 2.6-1.2 0-1.6-1.2-1.3-2.6.5-2.4 1.9-4.7.4-7.9z"/></svg></em></span><span class="dot"></span></div>
         <div class="mpost" style="left:4%;top:30%;transform:rotate(-5deg)"><div id="mp1"></div></div>
@@ -1330,6 +1353,7 @@ footer .in{align-items:center}
     <div class="in">
       <div class="head center rv"><span class="eyebrow" style="color:var(--accent)">Our work</span><h2>Posts people stop scrolling for</h2></div>
       <div class="wgrid" id="wgrid"></div>
+      <div class="wmore"><button type="button" id="wmore" aria-expanded="false">Show 4 more posts ↓</button></div>
       <p class="note" style="text-align:center;margin-top:22px">Examples for sample businesses. Your posts use your brand and photos.</p>
       <div class="center-cta rv"><button class="btn btn-green" type="button" data-open-quiz>Get 3 posts like these, free <span class="arr" aria-hidden="true">→</span></button></div>
     </div>
@@ -1340,6 +1364,7 @@ footer .in{align-items:center}
     <div class="in">
       <div class="head center rv"><span class="eyebrow" style="color:var(--accent)">Not a template</span><h2>Same idea. Three different businesses.</h2><p class="lede">Every post is rebuilt from your own data, so no two cleaning businesses get the same post.</p></div>
       <div class="ugrid rv dl2" id="ugrid"></div>
+      <p class="uhint">Swipe to compare →</p>
       <ul class="ulist rv dl2">
         <li><div class="uv uv1"><span class="usb"><i></i>end of tenancy cleaning leeds</span><span class="ubars"><i style="height:30%"></i><i style="height:45%"></i><i style="height:62%"></i><i class="hi" style="height:100%"></i><i style="height:78%"></i><i style="height:55%"></i><i style="height:84%"></i></span></div><b>Your town's searches</b><span>What people near you search for, and the month it peaks.</span></li>
         <li><div class="uv uv2"><span class="ust">★★★★★</span><q>Always on time, always spotless.</q><small>Google review</small></div><b>Your reviews</b><span>Quoted word for word from your Google profile.</span></li>
@@ -1389,7 +1414,13 @@ footer .in{align-items:center}
       <div class="head center rv"><span class="eyebrow" style="color:var(--accent)">Simple pricing</span><h2>One plan. Everything included.</h2></div>
       <div class="pbox rv">
         <div class="l"><h3>Every month you get</h3>
-          <ul><li><i>✓</i>30 designed posts in your brand</li><li><i>✓</i>A local market report for your town</li><li><i>✓</i>Your best reviews turned into posts</li><li><i>✓</i>Versions for Instagram, Facebook and Google</li><li><i>✓</i>Captions, hashtags and a posting calendar</li></ul></div>
+          <ul class="offer">
+            <li class="star"><i>✓</i><div><b>Your own realistic brand model</b><span>A human face for your business that no other cleaner uses, in fresh scenes every month</span></div></li>
+            <li><i>✓</i><div><b>30 designed posts in your brand</b><span>Your colours, logo and name, ready to post</span></div></li>
+            <li><i>✓</i><div><b>A local market report for your town</b><span>What people near you search for, and when it peaks</span></div></li>
+            <li><i>✓</i><div><b>Your best reviews turned into posts</b><span>Quoted word for word from your Google profile</span></div></li>
+            <li><i>✓</i><div><b>Versions for Instagram, Facebook and Google</b><span>Plus captions, hashtags and a posting calendar</span></div></li>
+          </ul></div>
         <div class="r"><span class="eyebrow">Founding price · first 10 businesses</span><div class="amt">$<span data-count="49">49</span><small>/month</small></div><div class="was">Worth <s>$549</s> a month</div>
           <button class="btn btn-main" type="button" data-open-quiz>Start with 3 free posts <span class="arr" aria-hidden="true">→</span></button>
           <div class="g"><span>No card to start</span><span>Cancel anytime</span><span>Love month 1 or it's free</span></div></div>
@@ -1405,6 +1436,7 @@ footer .in{align-items:center}
         <details><summary>What is "local market data"?</summary><p>Search demand for cleaning in your area, seasonal peaks, your competitors' public reviews, your own reviews and local events. It decides what your posts say each month.</p></details>
         <details><summary>Do you post for me?</summary><p>No, on purpose. You keep control of your accounts. Posting takes about 2 minutes a week.</p></details>
         <details><summary>Whose photos do you use?</summary><p>Yours wherever possible. For lifestyle scenes we use licensed or custom photos, never presented as your staff or customers.</p></details>
+        <details><summary>Who is the model in my posts?</summary><p>A realistic human model made for your business. Your model's face is only used for you, never for another cleaning business, and appears in fresh scenes every month: at home, on moving day, hosting guests and more. You can pick one of 3 free models for your sample posts, choose from many male and female models on the plan, or use your own team photo instead. Models are shown as customers and everyday people, never as your staff.</p></details>
         <details><summary>Will my posts look the same as other cleaners'?</summary><p>No. Each post is rebuilt from your own data: the searches in your town, your reviews word for word, your services, your colours and logo, and your chosen face. Two businesses in the same city still get different posts.</p></details>
         <details><summary>Will this get me more customers?</summary><p>Nobody can honestly promise bookings. We promise a page that looks active, local and trusted, built on what your town is looking for.</p></details>
       </div>
@@ -1594,8 +1626,8 @@ function ed(kind, b, o) {
     <div class="rbar"><span class="sf">${o.tag || "Thank you for the kind words."}</span><span class="rate">${o.rating ? `<b>${esc(o.rating)}</b> ★${o.count ? ` · ${esc(o.count)} reviews` : ""}` : "Google reviews"}</span></div></div>`;
   if (kind === "promisex") { const words = String(o.a).replace(/<[^>]+>/g, "").trim().split(/\s+/), mast = words.shift().replace(/[,.!?]$/, ""), rest = words.join(" ");
     return `<div class="pp ed magx" style="${vv(t)}"><img class="bgi" src="${imgSrc(o.img)}" alt="" loading="lazy" style="object-position:${o.pos || "50% 25%"}"><span class="sh"></span>
-    <div class="mast">${esc(mast)}<small>${esc(b.name)} · ${esc(b.town)}</small></div>
-    <div class="mb"><h4>${rest ? esc(rest[0].toUpperCase() + rest.slice(1)) + " " : ""}<em>${o.b}</em></h4>
+    <div class="xt">${logo(b, true)}</div>
+    <div class="mb"><div class="mast">${esc(mast)}<small>${esc(b.town)} · ${esc(b.name)}</small></div><h4>${rest ? esc(rest[0].toUpperCase() + rest.slice(1)) + " " : ""}<em>${o.b}</em></h4>
       <div class="strip">${(o.chips || []).map(c => `<span>${c}</span>`).join("")}</div></div></div>`; }
   // 11. people + local insight card
   if (kind === "insight") return `<div class="pp ed insight" style="${vv(t)}">${bg}<span class="sh"></span>
@@ -1777,9 +1809,11 @@ const HX = {"1": "<div class=\"hxp a1 grain\"> <div class=\"hd\"><span>Field not
   const work = [
     ["1", "Save-worthy tip"], ["2", "Local search data"], ["13", "Behind the scenes"], ["3", "Saveable checklist"],
     ["4", "Customer thank-you"], ["6", "Deep-clean guide"], ["5", "Airbnb story"], ["8", "Spring data"],
+    ["12", "Reliability story"], ["14", "Office clients"], ["9", "Full-photo service post"], ["10", "Monthly offer"],
   ];
-  $("#wgrid").innerHTML = work.map(([k, why], i) => `<figure class="rv${i % 4 ? " dl" + Math.min(3, i % 4 + 1) : ""}"><div>${HX[k]}</div><figcaption><b>${why}</b></figcaption></figure>`).join("");
+  $("#wgrid").innerHTML = work.map(([k, why], i) => `<figure class="rv${i % 4 ? " dl" + Math.min(3, i % 4 + 1) : ""}${i >= 8 ? " more" : ""}"><div>${HX[k]}</div><figcaption><b>${why}</b></figcaption></figure>`).join("");
 
+  { const wb = $("#wmore"); if (wb) wb.onclick = () => { const g = $("#wgrid"), o = g.classList.toggle("open"); g.querySelectorAll(".more").forEach(f => f.classList.add("on")); wb.setAttribute("aria-expanded", o); wb.textContent = o ? "Show fewer ↑" : "Show 4 more posts ↓"; }; }
   // reveal + count-up
   const counted = new WeakSet();
   const countUp = el => { if (counted.has(el)) return; counted.add(el); const to = +el.dataset.count, t0 = performance.now(); const tick = t => { const k = Math.min(1, (t - t0) / 1300); el.textContent = Math.round(to * (1 - Math.pow(1 - k, 3))); if (k < 1) requestAnimationFrame(tick); }; requestAnimationFrame(tick); };
