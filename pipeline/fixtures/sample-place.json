@@ -1,0 +1,28 @@
+{
+  "isSample": true,
+  "_note": "MADE-UP sample business and reviews, in the shape of the Apify Google Maps Scraper output. For testing only. Never show these as real reviews.",
+  "title": "Brightway Cleaning",
+  "categoryName": "House cleaning service",
+  "address": "12 Example Street, Leeds LS6 1AA, United Kingdom",
+  "city": "Leeds",
+  "countryCode": "GB",
+  "phone": "0113 000 0000",
+  "website": "https://example.com",
+  "totalScore": 4.9,
+  "reviewsCount": 47,
+  "url": "https://www.google.com/maps/place/example",
+  "reviews": [
+    { "stars": 5, "text": "Moved out of our Headingley flat and got the full deposit back. The oven looked brand new and the landlord said it was the cleanest handover he'd seen. Would book again.", "publishedAtDate": "2026-09-14" },
+    { "stars": 5, "text": "Jo has cleaned for us every fortnight for a year. Always on time, always thorough, and we trust her completely with our keys.", "publishedAtDate": "2026-08-30" },
+    { "stars": 5, "text": "Reliable and friendly. They fitted us in at short notice before our inventory check.", "publishedAtDate": "2026-08-02" },
+    { "stars": 5, "text": "Spotless. Attention to detail is amazing, even the skirting boards and window tracks.", "publishedAtDate": "2026-07-19" },
+    { "stars": 5, "text": "End of tenancy clean was perfect, letting agent had no complaints at all.", "publishedAtDate": "2026-07-03" },
+    { "stars": 4, "text": "Good clean, fair price. Arrived a little late but called ahead.", "publishedAtDate": "2026-06-21" },
+    { "stars": 5, "text": "Great!", "publishedAtDate": "2026-06-10" },
+    { "stars": 5, "text": "We come home to a spotless house every week. Honest, reliable people.", "publishedAtDate": "2026-05-28" },
+    { "stars": 5, "text": "Best oven clean I've ever had. Racks, glass, the lot.", "publishedAtDate": "2026-05-02" },
+    { "stars": 3, "text": "Okay job but missed the bathroom extractor.", "publishedAtDate": "2026-04-15" },
+    { "stars": 5, "text": "Thorough deep clean before we moved in. Lovely team, really helpful.", "publishedAtDate": "2026-03-30" },
+    { "stars": 5, "text": "Quick to respond and always reliable. Highly recommend to anyone moving out in Leeds.", "publishedAtDate": "2026-03-12" }
+  ]
+}

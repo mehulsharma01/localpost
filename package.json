@@ -1,0 +1,8 @@
+{
+  "name": "localpost",
+  "version": "1.0.0",
+  "private": true,
+  "description": "LocalPost: Instagram posts for cleaning businesses, built on local market data. Landing page, quiz and lead API.",
+  "scripts": { "start": "node server.js", "posts": "node pipeline/run.js" },
+  "engines": { "node": ">=18" }
+}
