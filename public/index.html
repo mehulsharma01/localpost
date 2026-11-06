@@ -462,75 +462,100 @@ textarea{min-height:120px;resize:vertical}
   .card.r1{right:-22px;transform:rotateY(-24deg) rotate(4deg)}
 }
 
-/* ===== Editorial posts ===== */
-.pp.ed{background:var(--ep);color:var(--ei);font-family:"Plus Jakarta Sans",system-ui,sans-serif;isolation:isolate}
-.pp.ed::after{content:"";position:absolute;inset:0;z-index:9;pointer-events:none;opacity:.22;mix-blend-mode:multiply;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 .6 0'/%3E%3C/filter%3E%3Crect width='160' height='160' filter='url(%23n)'/%3E%3C/svg%3E")}
+/* ===== Posts ===== */
+.pp.ed{background:var(--s);color:#111;font-family:"Plus Jakarta Sans",system-ui,sans-serif;isolation:isolate}
 .ed img{display:block;width:100%;height:100%;object-fit:cover}
-.ed .sf{font-family:"Instrument Serif",Georgia,serif;font-style:italic;font-weight:400;letter-spacing:-.025em}
-.ed .sn{font-weight:800;letter-spacing:-.055em}
-.ed h4{margin:0;line-height:.92}
-.ed .em{position:absolute;left:6cqw;right:6cqw;top:6cqw;z-index:5;display:flex;align-items:center;gap:2.2cqw;font-size:2.7cqw;font-weight:700;letter-spacing:.16em;text-transform:uppercase}
-.ed .em .rt{margin-left:auto;font-weight:600;letter-spacing:.12em}
-.ed .mono{width:7cqw;height:7cqw;border-radius:50%;display:grid;place-items:center;background:var(--ei);color:var(--ep);font-size:2.6cqw;letter-spacing:0;font-weight:800;flex:none;overflow:hidden}
-.ed .mono.img{background:#fff}.ed .mono.img img{object-fit:contain}
-.ed .kick{font-size:2.8cqw;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:var(--ea)}
-.ed .es{margin:0;font-size:3.6cqw;line-height:1.35;font-weight:500;opacity:.85}
-.ed .tiny{font-size:2.9cqw;font-weight:700;letter-spacing:.06em}
-.ed .ln{display:block;height:1px;background:currentColor;opacity:.35}
-/* cover */
-.ed.cover .bg{position:absolute;inset:0;z-index:0}
-.ed.cover .bg img{filter:saturate(.85) contrast(1.06)}
-.ed.cover .fade{position:absolute;inset:0;z-index:1;background:linear-gradient(180deg,rgba(0,0,0,.35) 0%,rgba(0,0,0,0) 26%,rgba(0,0,0,0) 40%,var(--ep) 92%)}
-.ed.cover .kick{color:#fff;opacity:.9}
-.ed.cover .eb{position:absolute;left:6cqw;right:6cqw;bottom:6cqw;z-index:5;display:flex;flex-direction:column;gap:2.6cqw}
-.ed.cover h4 .sf{font-size:15cqw;display:block}
-.ed.cover h4 .sn{font-size:12.5cqw;display:block;color:var(--eh)}
-.ed.cover .ef{display:flex;justify-content:space-between;align-items:center;border-top:1px solid rgba(255,255,255,.3);padding-top:3cqw;font-size:3cqw;font-weight:700;letter-spacing:.06em}
-.ed .arw{width:8cqw;height:8cqw;border-radius:50%;background:var(--eh);color:var(--ep);display:grid;place-items:center;font-size:4cqw}
-.ed.cover .em{color:#fff}.ed.cover .em .mono{background:#fff;color:#111}
-/* arch */
-.ed.arch .at{position:absolute;left:6cqw;right:6cqw;top:16cqw;z-index:3}
-.ed.arch .at .sf{font-size:14cqw}.ed.arch .at .sn{font-size:10.5cqw;color:var(--ea)}
-.ed.arch .archimg{position:absolute;right:6cqw;bottom:6cqw;width:50cqw;height:66cqw;border-radius:50cqw 50cqw 3cqw 3cqw;overflow:hidden;z-index:2;box-shadow:0 0 0 1.4cqw var(--ep),0 0 0 1.7cqw var(--ei)}
-.ed.arch .ac{position:absolute;left:6cqw;bottom:6cqw;width:30cqw;display:flex;flex-direction:column;gap:2.6cqw;z-index:3}
-.ed.arch .ac .es{font-size:3.2cqw}
-/* list */
-.ed.list .lh{position:absolute;left:6cqw;right:6cqw;top:16cqw;display:grid;grid-template-columns:auto 1fr;gap:3cqw;align-items:end}
-.ed.list .num{font-size:40cqw;line-height:.72;color:var(--ea)}
-.ed.list .lh h4{font-size:7cqw;line-height:1;padding-bottom:2cqw;padding-right:22cqw}
-.ed.list ol{position:absolute;left:6cqw;right:6cqw;bottom:6cqw;margin:0;padding:0;list-style:none;border-top:1px solid color-mix(in srgb,var(--ei) 30%,transparent)}
-.ed.list li{display:flex;gap:4cqw;align-items:baseline;padding:2.6cqw 0;border-bottom:1px solid color-mix(in srgb,var(--ei) 30%,transparent);font-size:4cqw;font-weight:600;letter-spacing:-.02em}
-.ed.list li span{font-size:2.8cqw;font-weight:700;letter-spacing:.12em;color:var(--ea)}
-.ed.list li.more{opacity:.55;border-bottom:0}
-.ed.list .thumb{position:absolute;right:6cqw;top:16cqw;width:19cqw;height:19cqw;border-radius:50%;overflow:hidden;box-shadow:0 0 0 1cqw var(--ep),0 0 0 1.25cqw var(--ei);z-index:2}
-/* stat */
-.ed.stat .kick{position:absolute;left:6cqw;right:30cqw;top:17cqw;color:var(--eh);line-height:1.4}
-.ed.stat .bigq{position:absolute;left:5cqw;right:5cqw;top:28cqw}
-.ed.stat .bigq .sf{font-size:30cqw;line-height:.82;display:block}
-.ed.stat .es{position:absolute;left:6cqw;right:40cqw;top:62cqw;font-size:3.8cqw}
-.ed.stat .strip{position:absolute;left:0;right:0;bottom:0;height:34%;overflow:hidden}
-.ed.stat .strip img{filter:grayscale(1) contrast(1.1)}
-.ed.stat .strip::after{content:"";position:absolute;inset:0;background:var(--ea);mix-blend-mode:multiply;opacity:.85}
-/* review */
-.ed.review .qm{position:absolute;left:4cqw;top:10cqw;font-size:44cqw;line-height:1;color:var(--ea);opacity:.9;z-index:1}
-.ed.review blockquote{position:absolute;left:6cqw;right:6cqw;top:30cqw;margin:0;line-height:1.08;z-index:2}
-.ed.review .rf{position:absolute;left:6cqw;right:34cqw;bottom:8cqw;display:flex;flex-direction:column;gap:2cqw;font-size:3cqw;font-weight:700;letter-spacing:.08em;text-transform:uppercase}
-.ed.review .rimg{position:absolute;right:6cqw;bottom:6cqw;width:24cqw;height:30cqw;border-radius:12cqw 12cqw 2cqw 2cqw;overflow:hidden}
-/* offer */
-.ed.offer{display:grid;grid-template-columns:44% 56%}
-.ed.offer .oimg{position:relative;overflow:hidden}
-.ed.offer .ob{position:relative;padding:6cqw;display:flex;flex-direction:column;justify-content:flex-end;gap:3cqw}
-.ed.offer .em{left:6cqw;right:6cqw}
-.ed.offer h4 .sf{font-size:13cqw}.ed.offer h4 .sn{font-size:8.6cqw}
-.ed.offer .pct{display:flex;align-items:baseline;gap:2cqw;border-top:1px solid color-mix(in srgb,var(--ei) 30%,transparent);border-bottom:1px solid color-mix(in srgb,var(--ei) 30%,transparent);padding:2cqw 0}
-.ed.offer .pct b{font-size:17cqw;font-weight:800;letter-spacing:-.06em;line-height:1;color:var(--eh)}
-.ed.offer .pct span{font-family:"Instrument Serif",Georgia,serif;font-style:italic;font-size:6cqw}
-/* hood */
-.ed.hood .map{position:absolute;inset:0;width:100%;height:100%;color:var(--ei);opacity:.6}
-.ed.hood .pin{position:absolute;left:14cqw;top:38cqw;width:7cqw;height:7cqw;border-radius:50%;background:var(--ea);box-shadow:0 0 0 2.2cqw color-mix(in srgb,var(--ea) 25%,transparent),0 0 0 5cqw color-mix(in srgb,var(--ea) 12%,transparent)}
-.ed.hood .hb{position:absolute;left:6cqw;right:6cqw;bottom:6cqw;display:flex;flex-direction:column;gap:3cqw;z-index:3}
-.ed.hood h4 .sf{font-size:16cqw}.ed.hood h4 .sn{font-size:8.4cqw;color:var(--ea)}
-.ed.hood .himg{position:absolute;right:6cqw;top:16cqw;width:34cqw;height:42cqw;border-radius:2cqw;overflow:hidden;transform:rotate(3deg);box-shadow:0 0 0 1.2cqw #fff,0 4cqw 8cqw rgba(0,0,0,.18);z-index:2}
+.ed .bg{position:absolute;inset:0;z-index:0}
+.ed .sh{position:absolute;inset:0;z-index:1;pointer-events:none}
+.ed .sf{font-family:"Instrument Serif",Georgia,serif;font-weight:400}
+.ed h4{margin:0}
+.ed .lg{display:inline-flex;align-items:center;gap:1.8cqw;font-size:3.2cqw;font-weight:700;letter-spacing:-.01em;color:#111}
+.ed .lg i{font-style:normal;width:6.6cqw;height:6.6cqw;border-radius:1.8cqw;display:grid;place-items:center;background:var(--a);color:#fff;font-size:2.7cqw;font-weight:800}
+.ed .lg img{width:6.6cqw;height:6.6cqw;border-radius:1.8cqw;background:#fff;object-fit:contain}
+.ed .lg.l{color:#fff}.ed .lg.l i{background:#fff;color:var(--a)}
+.ed .top{position:absolute;left:0;right:0;top:6cqw;z-index:4;display:flex;justify-content:center}
+.ed .ft{position:absolute;left:6cqw;right:6cqw;bottom:5.5cqw;z-index:4;display:flex;justify-content:space-between;align-items:center;font-size:3cqw;font-weight:600}
+.ed .ft.c{justify-content:center}
+.ed .cpill{display:inline-flex;align-items:center;gap:1.6cqw;background:#fff;color:#111;border-radius:99px;padding:2.2cqw 4.4cqw;font-size:3.2cqw;font-weight:700;box-shadow:0 1.5cqw 4cqw rgba(0,0,0,.18)}
+/* 1 ad */
+.ed.ad .sh{background:linear-gradient(180deg,rgba(255,255,255,.55) 0%,rgba(255,255,255,0) 38%,rgba(0,0,0,0) 70%,rgba(0,0,0,.25) 100%)}
+.ed.ad.dk .sh{background:linear-gradient(180deg,rgba(0,0,0,.55) 0%,rgba(0,0,0,0) 42%,rgba(0,0,0,0) 70%,rgba(0,0,0,.35) 100%)}
+.ed.ad h4{position:absolute;left:6cqw;right:6cqw;top:15cqw;z-index:3;text-align:center;display:flex;flex-direction:column;gap:.6cqw}
+.ed.ad .l1{font-size:6.4cqw;font-weight:500;letter-spacing:-.03em;color:#111}
+.ed.ad .l2{font-size:11.5cqw;font-weight:800;letter-spacing:-.055em;line-height:.95;color:var(--a)}
+.ed.ad.dk .l1{color:#fff}.ed.ad.dk .l2{color:#fff}
+.ed.ad .pillrow{position:absolute;left:0;right:0;bottom:6cqw;z-index:3;display:flex;justify-content:center}
+/* 2 spot */
+.ed.spot .sh{background:linear-gradient(180deg,rgba(0,0,0,.35) 0%,rgba(0,0,0,0) 30%,rgba(0,0,0,0) 50%,rgba(0,0,0,.7) 100%)}
+.ed.spot .bt{position:absolute;left:7cqw;right:7cqw;bottom:7cqw;z-index:3;color:#fff;display:flex;flex-direction:column;align-items:center;text-align:center}
+.ed.spot h4{font-size:19cqw;line-height:.85;font-style:italic;letter-spacing:-.03em}
+.ed.spot .sub{font-family:"Instrument Serif",Georgia,serif;font-size:6.6cqw;margin-top:1cqw}
+.ed.spot .url{margin-top:4cqw;font-size:2.7cqw;letter-spacing:.24em;text-transform:uppercase;opacity:.8}
+/* 3 slots */
+.ed.slots .sh{background:radial-gradient(70% 55% at 50% 45%,rgba(30,20,10,.55) 0%,rgba(30,20,10,.2) 70%,rgba(0,0,0,.35) 100%)}
+.ed.slots .mid{position:absolute;inset:0;z-index:3;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:5cqw;color:#fff;text-align:center}
+.ed.slots h4{font-size:15cqw;line-height:.9;letter-spacing:-.02em}
+.ed.slots h4 em{font-style:italic}
+.ed .wk{display:flex;gap:2.6cqw}
+.ed .wk span{display:flex;flex-direction:column;align-items:center;gap:1.6cqw;font-size:3cqw;font-weight:600;letter-spacing:.06em}
+.ed .wk i{width:6.6cqw;height:6.6cqw;border-radius:50%;border:.5cqw solid #fff}
+.ed .wk .on i{background:#fff}
+/* 4 toggles */
+.ed.toggles .bg img{filter:brightness(1.04)}
+.ed.toggles h4{position:absolute;left:7cqw;top:9cqw;z-index:3;font-size:10.5cqw;font-weight:800;letter-spacing:-.05em}
+.ed.toggles .tg{position:absolute;left:7cqw;top:25cqw;z-index:3;width:56cqw;display:flex;flex-direction:column;gap:3cqw}
+.ed.toggles .tg div{display:flex;justify-content:space-between;align-items:center;background:rgba(255,255,255,.82);backdrop-filter:blur(6px);border-radius:3.6cqw;padding:2.8cqw 3.4cqw;font-size:4.1cqw;font-weight:600}
+.ed.toggles .tg i{width:10cqw;height:6cqw;border-radius:99px;background:#34C759;position:relative;flex:none}
+.ed.toggles .tg i::after{content:"";position:absolute;right:.6cqw;top:.6cqw;width:4.8cqw;height:4.8cqw;border-radius:50%;background:#fff;box-shadow:0 .4cqw 1cqw rgba(0,0,0,.25)}
+/* 5 alert */
+.ed.alert .sh{background:rgba(0,0,0,.18)}
+.ed.alert .al{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);z-index:3;width:70cqw;background:rgba(245,245,245,.88);backdrop-filter:blur(14px);border-radius:5cqw;text-align:center;overflow:hidden;box-shadow:0 4cqw 10cqw rgba(0,0,0,.25)}
+.ed.alert .al b{display:block;padding:5cqw 5cqw 1.2cqw;font-size:4.4cqw;font-weight:700}
+.ed.alert .al p{margin:0;padding:0 6cqw 4.6cqw;font-size:3.6cqw;line-height:1.35;color:#333}
+.ed.alert .btns{display:grid;grid-template-columns:1fr 1fr;border-top:1px solid rgba(0,0,0,.15)}
+.ed.alert .btns span{padding:3.4cqw;font-size:4cqw;color:#0A7AFF}
+.ed.alert .btns .go{border-left:1px solid rgba(0,0,0,.15);font-weight:700}
+.ed.alert .ft{justify-content:center}
+/* 6 ask */
+.ed.ask .sh{background:linear-gradient(180deg,rgba(255,255,255,.8) 0%,rgba(255,255,255,0) 40%,rgba(255,255,255,0) 62%,rgba(255,255,255,.85) 100%)}
+.ed.ask .q{position:absolute;left:6cqw;right:6cqw;top:9cqw;z-index:3;text-align:center;font-family:"Instrument Serif",Georgia,serif;font-weight:400;font-size:8.4cqw;line-height:1;text-transform:uppercase;letter-spacing:.01em;color:var(--d)}
+.ed.ask .an{position:absolute;left:0;right:0;bottom:15cqw;z-index:3;display:flex;flex-direction:column;align-items:center;gap:1cqw;color:var(--d)}
+.ed.ask .a1{font-family:"Instrument Serif",Georgia,serif;font-size:7cqw;text-transform:uppercase;letter-spacing:.04em}
+.ed.ask .a2{font-size:3cqw;font-weight:600;letter-spacing:.16em;text-transform:uppercase;opacity:.7}
+/* 7 check */
+.ed.check .note{position:absolute;left:50%;top:47%;transform:translate(-50%,-50%) rotate(-3deg);z-index:3;width:66cqw;background:#FFFDF7;border-radius:1.4cqw;padding:7cqw 6cqw 5cqw;display:flex;flex-direction:column;gap:2.6cqw;box-shadow:0 3cqw 8cqw rgba(0,0,0,.3)}
+.ed.check .note .pin{position:absolute;left:50%;top:-2.6cqw;margin-left:-2.6cqw;width:5.2cqw;height:5.2cqw;border-radius:50%;background:var(--a);box-shadow:0 .8cqw 1.6cqw rgba(0,0,0,.3)}
+.ed.check .note b{font-size:7.2cqw;line-height:1;margin-bottom:1.4cqw;color:var(--d)}
+.ed.check .it{display:flex;gap:2.6cqw;align-items:center;font-size:3.8cqw;font-weight:600;color:#222}
+.ed.check .it i{width:4.4cqw;height:4.4cqw;border:.5cqw solid var(--a);border-radius:1cqw;flex:none;position:relative}
+.ed.check .it i::after{content:"";position:absolute;left:1.1cqw;top:.1cqw;width:1.3cqw;height:2.4cqw;border:solid var(--a);border-width:0 .55cqw .55cqw 0;transform:rotate(45deg)}
+.ed.check .sig{font-family:"Instrument Serif",Georgia,serif;font-style:italic;font-size:4.6cqw;color:var(--a);margin-top:1.4cqw}
+/* 8 google review */
+.ed.greview .sh{background:linear-gradient(180deg,rgba(0,0,0,.4) 0%,rgba(0,0,0,0) 30%,rgba(0,0,0,0) 55%,rgba(0,0,0,.55) 100%)}
+.ed.greview .gc{position:absolute;left:7cqw;right:7cqw;top:24cqw;z-index:3;background:#fff;border-radius:4.4cqw;padding:5cqw;box-shadow:0 3cqw 8cqw rgba(0,0,0,.25)}
+.ed.greview .gh{display:flex;align-items:center;gap:2.6cqw;margin-bottom:3cqw}
+.ed.greview .gl{width:8cqw;height:8cqw;border-radius:50%;display:grid;place-items:center;font-weight:800;font-size:4.4cqw;color:#fff;background:conic-gradient(#EA4335 0 25%,#FBBC05 0 50%,#34A853 0 75%,#4285F4 0)}
+.ed.greview .gh b{display:block;font-size:3.6cqw}.ed.greview .gh small{font-size:2.8cqw;color:#666}
+.ed.greview .st{margin-left:auto;color:#FBBC05;font-size:3.8cqw;letter-spacing:.3cqw}
+.ed.greview .gc p{margin:0;font-size:4.6cqw;line-height:1.35;font-weight:500;color:#1b1b1b}
+.ed.greview .gcap{position:absolute;left:7cqw;right:7cqw;bottom:7cqw;z-index:3;color:#fff;font-family:"Instrument Serif",Georgia,serif;font-weight:400;font-size:8cqw;line-height:1}
+/* 9 maps */
+.ed.maps .sh{background:linear-gradient(180deg,rgba(0,0,0,.45) 0%,rgba(0,0,0,0) 40%,rgba(0,0,0,0) 60%,rgba(0,0,0,.35) 100%)}
+.ed.maps .mh{position:absolute;left:7cqw;right:7cqw;top:8cqw;z-index:3;color:#fff;font-size:9.6cqw;font-weight:800;letter-spacing:-.05em;line-height:.98}
+.ed.maps .mc{position:absolute;left:7cqw;right:7cqw;bottom:7cqw;z-index:3;background:#fff;border-radius:4.4cqw;overflow:hidden;box-shadow:0 3cqw 8cqw rgba(0,0,0,.3)}
+.ed.maps .sb{padding:3.2cqw 4cqw;font-size:3.6cqw;color:#444;border-bottom:1px solid #eee}
+.ed.maps .rs{display:flex;gap:3cqw;padding:3.6cqw 4cqw;align-items:center}
+.ed.maps .pinm{width:7cqw;height:7cqw;border-radius:50% 50% 50% 0;transform:rotate(-45deg);background:#EA4335;flex:none}
+.ed.maps .rs b{display:block;font-size:4.2cqw;color:#1a0dab}
+.ed.maps .rs small{display:block;font-size:3.2cqw;color:#555}
+.ed.maps .rs .st{color:#FBBC05}.ed.maps .rs .op{color:#188038;font-weight:600}
+/* 10 offer */
+.ed.offer .sh{background:linear-gradient(180deg,rgba(0,0,0,.25) 0%,rgba(0,0,0,0) 30%,rgba(0,0,0,.1) 55%,rgba(0,0,0,.6) 100%)}
+.ed.offer .ob{position:absolute;left:6cqw;right:6cqw;bottom:7cqw;z-index:3;display:flex;flex-direction:column;align-items:flex-start;gap:2cqw;color:#fff}
+.ed.offer .kk{font-size:3cqw;font-weight:700;letter-spacing:.2em;text-transform:uppercase}
+.ed.offer .big{font-size:28cqw;font-weight:800;letter-spacing:-.07em;line-height:.82;display:flex;align-items:flex-start}
+.ed.offer .big small{font-size:6cqw;letter-spacing:0;margin:2.4cqw 0 0 2cqw;font-weight:800}
+.ed.offer .ln{font-family:"Instrument Serif",Georgia,serif;font-size:7.6cqw;line-height:1;margin-bottom:2cqw}
 
 /* responsive */
 @media (max-width:1000px){
@@ -781,84 +806,103 @@ function brandRow(d, fg, badgeBg, badgeFg) {
   const badge = d.logo ? `<span class="badge" style="background:#fff"><img src="${d.logo}" alt=""></span>` : `<span class="badge" style="background:${badgeBg};color:${badgeFg}">${esc(initials(d.name))}</span>`;
   return `<div class="brand" style="color:${fg}">${badge}<div>${esc(d.name || "Your Business")}<small>${esc(d.town || "Your town")}</small></div></div>`;
 }
-/* ===== Editorial post system ===== */
+/* ===== Post system (structures studied from top Pinterest cleaning posts) ===== */
 const THEMES = {
-  sage:  { p: "#ECEEE5", i: "#18271E", a: "#7FA27A", hi: "#D9E8B4" },
-  cobalt:{ p: "#F1EEE8", i: "#111C45", a: "#2E4FE0", hi: "#C9D4FF" },
-  terra: { p: "#F3ECE3", i: "#2B1711", a: "#C4573A", hi: "#F2C9A8" },
-  plum:  { p: "#F0EBF1", i: "#22142A", a: "#7B4FD8", hi: "#DCCBFA" },
-  noir:  { p: "#EDEBE5", i: "#111111", a: "#B9E35A", hi: "#E6F5B5" },
+  sage:  { a: "#1F6B4A", s: "#E8F1EA", d: "#0F2A1E" },
+  cobalt:{ a: "#1E4FD8", s: "#E7EEFF", d: "#0A1A4A" },
+  terra: { a: "#D2552E", s: "#FBEDE6", d: "#3A140A" },
+  plum:  { a: "#6D3FD6", s: "#EFE8FF", d: "#22114A" },
+  noir:  { a: "#111111", s: "#EFEFEC", d: "#0B0B0B" },
 };
 function themeFor(color, style) {
   if (style === "premium") return THEMES.noir;
-  const [r, g, b] = hex(color || "#2E8B1E"), mx = Math.max(r, g, b), mn = Math.min(r, g, b);
+  const [r, g, b] = hex(color || "#1F6B4A"), mx = Math.max(r, g, b), mn = Math.min(r, g, b);
   if (mx - mn < 30) return THEMES.noir;
   let h = 0; const d = mx - mn;
   if (mx === r) h = ((g - b) / d) % 6; else if (mx === g) h = (b - r) / d + 2; else h = (r - g) / d + 4;
   h = (h * 60 + 360) % 360;
-  if (h < 40 || h >= 330) return THEMES.terra;
-  if (h < 75) return THEMES.terra;
+  if (h < 75 || h >= 330) return THEMES.terra;
   if (h < 170) return THEMES.sage;
   if (h < 250) return THEMES.cobalt;
   return THEMES.plum;
 }
-const SVC_PHOTO = { tenancy: "svc-tenancy", regular: "svc-regular", deep: "svc-deep", office: "wipe-wall", airbnb: "svc-airbnb", oven: "mop", carpet: "team-room" };
+const SVC_PHOTO = { tenancy: "p-counter", regular: "p-faucet", deep: "p-sink", office: "p-spray-grey", airbnb: "p-room", oven: "p-gloves-grey", carpet: "p-room2" };
 const PH = n => `/assets/localpost/photos/${n}.jpg`;
-const vars = (t, dark) => dark ? `--ep:${t.i};--ei:${t.p};--ea:${t.a};--eh:${t.hi}` : `--ep:${t.p};--ei:${t.i};--ea:${t.a};--eh:${t.hi}`;
-const mono = (b, logo) => logo ? `<span class="mono img"><img src="${logo}" alt=""></span>` : `<span class="mono">${esc(initials(b.name))}</span>`;
-const meta = (b, right, logo) => `<div class="em">${mono(b, logo)}<span class="nm">${esc(b.name)}</span><span class="rt">${right}</span></div>`;
 const imgSrc = s => s.startsWith("/") || s.startsWith("data:") ? s : PH(s);
+const vv = t => `--a:${t.a};--s:${t.s};--d:${t.d}`;
+const logo = (b, light) => `<span class="lg ${light ? "l" : ""}">${b.logo ? `<img src="${b.logo}" alt="">` : `<i>${esc(initials(b.name))}</i>`}<b>${esc(b.name)}</b></span>`;
+const days = (on) => `<div class="wk">${["S","M","T","W","T","F","S"].map((x, i) => `<span class="${on.includes(i) ? "on" : ""}"><i></i>${x}</span>`).join("")}</div>`;
 
 function ed(kind, b, o) {
   const t = b.theme || themeFor(b.color, b.style);
-  const no = o.no || "Nº 01";
-  if (kind === "cover") return `<div class="pp ed cover" style="${vars(t, true)}"><span class="bg"><img src="${imgSrc(o.img)}" alt="" loading="lazy"></span><span class="fade"></span>
-    ${meta(b, esc(no), b.logo)}
-    <div class="eb"><span class="kick">${esc(o.kick)}</span><h4><span class="sf">${o.h1}</span> <span class="sn">${o.h2}</span></h4>${o.s ? `<p class="es">${esc(o.s)}</p>` : ""}<div class="ef"><span>${esc(o.cta || "Book via link in bio")}</span><span class="arw">→</span></div></div></div>`;
-  if (kind === "arch") return `<div class="pp ed arch" style="${vars(t)}">${meta(b, esc(no), b.logo)}
-    <h4 class="at"><span class="sf">${o.h1}</span><br><span class="sn">${o.h2}</span></h4>
-    <span class="archimg"><img src="${imgSrc(o.img)}" alt="" loading="lazy"></span>
-    <div class="ac"><span class="kick">${esc(o.kick)}</span><p class="es">${esc(o.s || "")}</p><span class="ln"></span><span class="tiny">${esc(o.cta || "Link in bio")} →</span></div></div>`;
-  if (kind === "list") return `<div class="pp ed list" style="${vars(t)}">${meta(b, "1 / 6", b.logo)}
-    <div class="lh"><span class="num sf">${esc(o.n || "5")}</span><h4 class="sn">${esc(o.title)}</h4></div>
-    <ol>${o.items.slice(0, 3).map((x, i) => `<li><span>0${i + 1}</span>${esc(x)}</li>`).join("")}<li class="more"><span>04</span>Swipe for the rest →</li></ol>
-    ${o.img ? `<span class="thumb"><img src="${imgSrc(o.img)}" alt="" loading="lazy"></span>` : ""}</div>`;
-  if (kind === "stat") return `<div class="pp ed stat" style="${vars(t, true)}">${meta(b, esc(no), b.logo)}
-    <span class="kick">${esc(o.kick)}</span><h4 class="bigq"><span class="sf">${o.h1}</span></h4><p class="es">${esc(o.s)}</p>
-    <span class="strip"><img src="${imgSrc(o.img)}" alt="" loading="lazy"></span></div>`;
-  if (kind === "review") return `<div class="pp ed review" style="${vars(t)}">${meta(b, "★★★★★", b.logo)}
-    <span class="qm sf">“</span><blockquote class="sf" style="font-size:${o.q.length > 110 ? 6.4 : o.q.length > 70 ? 7.4 : 8.6}cqw">${esc(o.q)}</blockquote>
-    <div class="rf"><span class="ln"></span><span>${esc(o.src || "Google review")}${o.place ? ` · ${esc(o.place)}` : ""}</span></div>
-    ${o.img ? `<span class="rimg"><img src="${imgSrc(o.img)}" alt="" loading="lazy"></span>` : ""}</div>`;
-  if (kind === "offer") return `<div class="pp ed offer" style="${vars(t, true)}"><span class="oimg"><img src="${imgSrc(o.img)}" alt="" loading="lazy"></span>
-    <div class="ob">${meta(b, esc(o.dates || ""), b.logo)}<h4><span class="sf">${o.h1}</span><br><span class="sn">${o.h2}</span></h4><div class="pct"><b>${esc(o.pct)}</b><span>${esc(o.pctSub || "off")}</span></div><span class="tiny">${esc(o.cta || "Book via link in bio")} →</span></div></div>`;
-  if (kind === "hood") return `<div class="pp ed hood" style="${vars(t)}"><svg class="map" viewBox="0 0 100 125" preserveAspectRatio="none" aria-hidden="true"><g fill="none" stroke="currentColor" stroke-width=".35"><path d="M-5 38 C 25 28, 45 58, 105 44"/><path d="M18 -5 C 28 40, 8 82, 28 130"/><path d="M62 -5 L 72 130"/><path d="M-5 96 C 40 86, 60 112, 105 92"/><path d="M40 -5 C 46 30, 50 70, 44 130"/><path d="M-5 66 L 105 72"/></g><path d="M-5 80 C 30 70, 55 92, 105 78" stroke="var(--ea)" stroke-width="3" fill="none" opacity=".25"/></svg>
-    ${meta(b, esc(o.no || "Nº 07"), b.logo)}<span class="pin"></span><span class="kick" style="position:absolute;left:24cqw;top:41cqw">${esc(o.kick)}</span>
-    <div class="hb"><h4><span class="sf">${esc(o.area)}</span><br><span class="sn">${o.h2}</span></h4><span class="tiny">${esc(o.cta || "Free quote via link in bio")} →</span></div>
-    <span class="himg"><img src="${imgSrc(o.img)}" alt="" loading="lazy"></span></div>`;
+  const bg = `<span class="bg"><img src="${imgSrc(o.img || "p-faucet")}" alt="" loading="lazy" style="object-position:${o.pos || "50% 50%"}"></span>`;
+  // 1. product-ad: big photo, centred 2-line headline, contact pill
+  if (kind === "ad") return `<div class="pp ed ad ${o.dark ? "dk" : ""}" style="${vv(t)}">${bg}<span class="sh"></span>
+    <div class="top">${logo(b, o.dark)}</div>
+    <h4><span class="l1">${o.l1}</span><span class="l2">${o.l2}</span></h4>
+    <div class="pillrow"><span class="cpill">${esc(o.cta || "Book via link in bio")}</span></div></div>`;
+  // 2. moody serif sign-off
+  if (kind === "spot") return `<div class="pp ed spot" style="${vv(t)}">${bg}<span class="sh"></span>
+    <div class="top">${logo(b, true)}</div>
+    <div class="bt"><h4 class="sf">${o.h}</h4><span class="sub">${esc(o.sub)}</span><span class="url">${esc(o.url || b.town)}</span></div></div>`;
+  // 3. new slots, week dots
+  if (kind === "slots") return `<div class="pp ed slots" style="${vv(t)}">${bg}<span class="sh"></span>
+    <div class="mid"><h4 class="sf">New slots<br><em>available</em></h4>${days(o.on || [1, 3, 5])}<span class="cpill">Book today</span></div>
+    <div class="ft">${logo(b, true)}<span>${esc(o.note || b.town)}</span></div></div>`;
+  // 4. iOS toggles
+  if (kind === "toggles") return `<div class="pp ed toggles" style="${vv(t)}">${bg}
+    <h4>${esc(o.h || "We clean at")}</h4>
+    <div class="tg">${(o.items || ["Homes", "Offices", "Airbnbs", "Move-outs"]).map(x => `<div><span>${esc(x)}</span><i></i></div>`).join("")}</div>
+    <div class="ft">${logo(b)}<span>${esc(b.town)}</span></div></div>`;
+  // 5. iOS alert reminder
+  if (kind === "alert") return `<div class="pp ed alert" style="${vv(t)}">${bg}<span class="sh"></span>
+    <div class="al"><b>${esc(o.title)}</b><p>${esc(o.body)}</p><div class="btns"><span>Later</span><span class="go">${esc(o.go || "Book us")}</span></div></div>
+    <div class="ft">${logo(b, true)}</div></div>`;
+  // 6. serif question / answer
+  if (kind === "ask") return `<div class="pp ed ask" style="${vv(t)}">${bg}<span class="sh"></span>
+    <h4 class="q">${o.q}</h4><div class="an"><span class="a1">${esc(o.a)}</span><span class="a2">${esc(o.a2 || "")}</span></div>
+    <div class="ft c">${logo(b)}</div></div>`;
+  // 7. paper checklist on colour
+  if (kind === "check") return `<div class="pp ed check" style="${vv(t)}">${bg}
+    <div class="note"><span class="pin"></span><b class="sf">${esc(o.title)}</b>${o.items.slice(0, 5).map(x => `<span class="it"><i></i>${esc(x)}</span>`).join("")}<span class="sig">${esc(o.sig || "Save this for later")}</span></div>
+    <div class="ft">${logo(b, true)}<span>${esc(b.town)}</span></div></div>`;
+  // 8. Google review card
+  if (kind === "greview") return `<div class="pp ed greview" style="${vv(t)}">${bg}<span class="sh"></span>
+    <div class="top">${logo(b, true)}</div>
+    <div class="gc"><div class="gh"><span class="gl">G</span><div><b>${esc(o.who || "Google review")}</b><small>${esc(o.when || "Verified customer")}</small></div><span class="st">★★★★★</span></div><p>${esc(o.q)}</p></div>
+    <h4 class="gcap">${o.h || "Words like these<br>never get old."}</h4></div>`;
+  // 9. Maps result card
+  if (kind === "maps") return `<div class="pp ed maps" style="${vv(t)}">${bg}<span class="sh"></span>
+    <h4 class="mh">${o.h}</h4>
+    <div class="mc"><div class="sb">🔍 ${esc(o.query)}</div><div class="rs"><span class="pinm"></span><div><b>${esc(b.name)}</b><small><span class="st">★★★★★</span> ${esc(o.rating || "4.9")} · ${esc(o.area)}</small><small class="op">Open · Book today</small></div></div></div></div>`;
+  // 10. bold offer
+  if (kind === "offer") return `<div class="pp ed offer" style="${vv(t)}">${bg}<span class="sh"></span>
+    <div class="top">${logo(b, true)}</div>
+    <div class="ob"><span class="kk">${esc(o.kick)}</span><b class="big">${esc(o.pct)}<small>${esc(o.pctSub || "OFF")}</small></b><span class="ln">${esc(o.line)}</span><span class="cpill">${esc(o.cta || "Claim via link in bio")}</span></div></div>`;
+  return "";
 }
 
 /* Quiz results use the same system */
 function quizBiz(d) { return { name: d.name || "Your Business", town: d.town || "Your town", color: d.color, style: d.style, logo: d.logo }; }
-function quizPhoto(d) {
+function quizPhoto(d, fallback) {
   if (d.faceType === "team" && d.photo) return d.photo;
   if (d.faceType === "model") { const m = MODELS.find(x => x.id === d.model); if (m) return m.img; }
-  return SVC_PHOTO[d.mainService] || "svc-regular";
+  return fallback || SVC_PHOTO[d.mainService] || "p-faucet";
 }
 function splitHead(h) { const i = h.indexOf(". "); return i > 0 ? [h.slice(0, i + 1), h.slice(i + 2)] : [h, ""]; }
 function postReview(d) {
   const b = quizBiz(d), svc = SERVICES[d.mainService] || SERVICES.regular;
-  if (d.review) return ed("review", b, { q: quoteFrom(d.review, 150), src: "Google review", place: d.town, img: SVC_PHOTO[d.mainService] || "svc-regular" });
-  return ed("cover", b, { img: SVC_PHOTO[d.mainService] || "svc-regular", kick: `${d.town || "Local"} · ${svc.short}`, h1: `${esc(capital(svc.short))},`, h2: "done properly.", s: d.rating ? `${d.rating}★ on Google${d.reviewCount ? ` · ${d.reviewCount} reviews` : ""}` : "", no: "Nº 01" });
+  if (d.review) return ed("greview", b, { img: SVC_PHOTO[d.mainService] || "p-counter", q: quoteFrom(d.review, 150), who: "Google review", when: `${d.rating ? d.rating + "★ · " : ""}${d.town || ""}` });
+  return ed("ask", b, { img: SVC_PHOTO[d.mainService] || "p-faucet", q: `Need ${esc(svc.short)}<br>in ${esc(d.town || "your town")}?`, a: "Leave it with us", a2: "Message to book" });
 }
 function postTip(d) {
   const b = quizBiz(d), svc = SERVICES[d.mainService] || SERVICES.regular;
-  return ed("list", b, { n: "5", title: svc.tip.title(d.town || "Local").replace(/^5\s+/, ""), items: svc.tip.items, img: quizPhoto(d) });
+  return ed("check", b, { img: "p-gloves-blue", title: svc.tip.title(d.town || "Local"), items: svc.tip.items });
 }
 function postTrust(d) {
   const b = quizBiz(d), top = (d.praise || [])[0] || "thorough";
-  const [h1, h2] = splitHead(PRAISE[top]?.head || "Spotless, not just tidy.");
-  return ed("arch", b, { img: quizPhoto(d), kick: `${d.town || "Local"} · ${PRAISE[top]?.label || "Trusted"}`, h1: esc(h1), h2: esc(h2), s: d.rating ? `${d.rating}★ from ${d.reviewCount || "our"} Google reviews.` : "What our customers say, every week.", no: "Nº 03" });
+  const [l1, l2] = splitHead(PRAISE[top]?.head || "Spotless, not just tidy.");
+  return ed("ad", b, { dark: true, img: quizPhoto(d, "p-mirror"), l1: esc(l1), l2: esc(l2 || ""), cta: d.rating ? `${d.rating}★ on Google · Book via link in bio` : "Book via link in bio" });
 }
 
 function captions(d) {
@@ -887,24 +931,25 @@ const BIZ = {
   bw: { name: "Brightway Cleaning", town: "Leeds", theme: T.sage },
   sq: { name: "Shine Squad", town: "Austin", theme: T.terra },
   fn: { name: "Fresh Nest", town: "Bristol", theme: T.plum },
-  ok: { name: "Oakline Office Care", town: "Manchester", theme: T.noir },
+  ok: { name: "Oakline", town: "Manchester", theme: T.noir },
   sp: { name: "Sparkle & Co", town: "Denver", theme: T.cobalt },
 };
 const P = {
-  deposit: () => ed("cover", BIZ.bw, { img: "svc-tenancy", kick: "Leeds · June move-outs", h1: "Get your deposit", h2: "back.", s: "End of tenancy cleans landlords sign off first time.", no: "Nº 01" }),
-  guests: () => ed("list", BIZ.fn, { n: "5", title: "things guests notice first", items: ["Hair in the bathroom", "Smell on arrival", "Dust on the TV stand"], img: "window" }),
-  ontime: () => ed("stat", BIZ.ok, { kick: "What Manchester offices complain about most", h1: "Late.", s: "So we're the cleaners who are never late.", img: "team-pose", no: "Nº 04" }),
-  spring: () => ed("offer", BIZ.sp, { img: "svc-deep", h1: "Spring", h2: "deep clean", pct: "15%", pctSub: "off this week", dates: "1–14 Mar" }),
-  quote: () => ed("review", BIZ.sq, { q: "Same team every fortnight for a year. Always on time, always spotless.", src: "Google review", place: "Austin", img: "team-room" }),
-  home: () => ed("arch", BIZ.sp, { img: "mop", kick: "Denver · ski season", h1: "Come home", h2: "to clean.", s: "Weekly cleans, same trusted cleaner.", no: "Nº 02" }),
-  office: () => ed("cover", BIZ.ok, { img: "wipe-wall", kick: "Manchester · offices", h1: "Spotless", h2: "by 8am.", s: "Early cleans, zero disruption.", cta: "Get a quote via link in bio", no: "Nº 05" }),
-  deep: () => ed("list", BIZ.bw, { n: "3", title: "rooms to deep clean first", items: ["Kitchen, every 3 months", "Bathroom, monthly", "Carpets, twice a year"], img: "svc-regular" }),
-  hood: () => ed("hood", BIZ.bw, { area: "Headingley", h2: "moving out this summer?", kick: "Leeds · LS6", img: "svc-regular" }),
-  hood2: () => ed("hood", BIZ.fn, { area: "Clifton", h2: "guest-ready in 3 hours.", kick: "Bristol · BS8", img: "svc-airbnb", cta: "Book a turnover via link in bio" }),
+  deposit: () => ed("ad", BIZ.bw, { img: "p-counter", pos: "60% 50%", l1: "Moving out in Leeds?", l2: "Get your deposit back.", cta: "Book your end of tenancy clean" }),
+  guests: () => ed("alert", BIZ.fn, { img: "p-room", title: "Guest arriving in 3 hours", body: "Fresh linen, spotless bathroom, restocked. We'll handle the turnover.", go: "Book us" }),
+  ontime: () => ed("toggles", BIZ.ok, { img: "p-spray-grey", pos: "80% 50%", h: "We clean at", items: ["Offices", "Clinics", "Gyms", "Shops"] }),
+  spring: () => ed("offer", BIZ.sp, { img: "p-pink", kick: "Spring deep clean · this week", pct: "15%", line: "off your first deep clean" }),
+  quote: () => ed("greview", BIZ.sq, { img: "p-mirror", q: "Same team every fortnight for a year. Always on time, always spotless.", who: "Megan R.", when: "Google review · Austin" }),
+  home: () => ed("spot", BIZ.sp, { img: "p-sink", h: "Spotless.", sub: "Every time.", url: "Denver · weekly cleans" }),
+  office: () => ed("slots", BIZ.bw, { img: "p-caddy", on: [1, 2, 4], note: "Headingley & Hyde Park" }),
+  deep: () => ed("check", BIZ.bw, { img: "p-gloves-blue", title: "Move-out checklist", items: ["Inside the oven", "Limescale on taps", "Skirting boards", "Behind the fridge", "Window tracks"] }),
+  hood: () => ed("maps", BIZ.bw, { img: "p-room2", h: "Cleaners near<br>Headingley?", query: "cleaners near headingley", area: "Headingley, Leeds" }),
+  hood2: () => ed("ask", BIZ.fn, { img: "p-faucet", q: "No time to clean<br>regularly?", a: "Leave it with us", a2: "Weekly · fortnightly · Bristol" }),
+  care: () => ed("ad", BIZ.sp, { img: "p-gloves-grey", l1: "We don't just clean.", l2: "We care.", cta: "Book via link in bio" }),
 };
 (() => {
   // hero phone slideshow
-  const slides = [P.deposit, P.spring, P.quote, P.ontime];
+  const slides = [P.care, P.quote, P.spring, P.home];
   $("#slides").innerHTML = slides.map((f, i) => `<div class="${i ? "" : "on"}">${f()}</div>`).join("");
   $("#dots").innerHTML = slides.map((_, i) => `<i class="${i ? "" : "on"}"></i>`).join("");
   let cur = 0;
@@ -925,8 +970,9 @@ const P = {
 
   // work grid
   const work = [
-    [P.deposit, "Local search"], [P.spring, "Seasonal offer"], [P.quote, "Real review"], [P.guests, "Tips carousel"],
-    [P.hood, "Neighbourhood"], [P.ontime, "Competitor gap"], [P.office, "Offer"], [P.hood2, "Neighbourhood"],
+    [P.deposit, "Local search"], [P.care, "Brand ad"], [P.quote, "Real review"], [P.office, "New slots"],
+    [P.hood, "Neighbourhood"], [P.home, "Signature"], [P.deep, "Save-worthy tip"], [P.spring, "Seasonal offer"],
+    [P.guests, "Airbnb hosts"], [P.ontime, "Who we clean for"], [P.hood2, "Question hook"], [() => ed("ad", BIZ.sq, { img: "p-sink", dark: true, l1: "Fresh home.", l2: "Free weekend.", cta: "Book your Saturday clean" }), "Lifestyle ad"],
   ];
   $("#wgrid").innerHTML = work.map(([f, why], i) => `<figure class="rv${i % 4 ? " dl" + Math.min(3, i % 4 + 1) : ""}"><div>${f()}</div><figcaption><b>${why}</b></figcaption></figure>`).join("");
 
