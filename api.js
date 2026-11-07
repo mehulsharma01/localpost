@@ -113,9 +113,14 @@ async function createLead(req, res) {
 
   const hook = process.env.LOCALPOST_WEBHOOK_URL;
   if (hook) {
-    const slim = { ...lead, brand: { ...lead.brand, logo: !!lead.brand.logo }, face: { ...lead.face, photo: !!lead.face.photo } };
-    fetch(hook, { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify(slim) })
-      .catch((e) => console.error("localpost webhook failed:", e.message));
+    // Backup copy (e.g. a Google Sheet). Never let it break the visitor's submit.
+    try {
+      const slim = { ...lead, brand: { ...lead.brand, logo: !!lead.brand.logo }, face: { ...lead.face, photo: !!lead.face.photo } };
+      if (typeof fetch === "function") {
+        fetch(hook, { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify(slim) })
+          .catch((e) => console.error("localpost webhook failed:", e.message));
+      }
+    } catch (e) { console.error("localpost webhook failed:", e.message); }
   }
   send(res, 200, { ok: true, id: lead.id });
 }
