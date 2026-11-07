@@ -10,7 +10,7 @@ Everything else (landing page, quiz, outreach, delivery) follows this.
 **LocalPost** makes a month of Instagram, Facebook and Google Business posts for cleaning businesses.
 The posts are built from the business's **real Google reviews** and **research on their own town**.
 
-- **For now, a service:** the customer answers a quiz, sees 3 free posts, and pays $49/month for 30.
+- **For now, a service:** the customer answers a quiz, sees 3 free posts, and pays $49/month for 30 posts + 15 stories.
 - **Later, a product:** once 3–10 clients are paying, the same pipeline becomes self-serve.
 
 ## 2. Who (ICP)
@@ -64,6 +64,7 @@ Cleaning is a trust business: people are letting a stranger into their home.
 | Included every month | Value |
 |---|---|
 | 30 designed posts in their brand (logo, colours, photos) | $300 |
+| 15 Instagram stories that match the posts | included |
 | Local market research: searches, demand peaks, competitor complaints | $99 |
 | Every new 5★ review turned into a ready post | $50 |
 | Google Business Profile versions | $50 |

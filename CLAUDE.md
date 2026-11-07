@@ -2,7 +2,7 @@
 
 **What it is:** done-for-you Instagram, Facebook and Google Business posts for small cleaning businesses in the UK and US, built on local market data (local searches, seasonal demand, competitor reviews, the business's own reviews).
 
-- **Offer:** 3 free posts, then 30 posts a month at $49 (founding price for the first 10, worth $549). Cancel anytime.
+- **Offer:** 3 free posts, then 30 posts + 15 Instagram stories a month at $49 (founding price for the first 10, worth $549). Cancel anytime.
 - **Live at:** the LocalPost subdomain (`localpost.adsnora.com`), deployed on Railway from `main`.
 - **Customers come from:** Instagram posts, DMs and Instagram ads, not Google.
 

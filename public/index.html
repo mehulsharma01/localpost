@@ -1525,7 +1525,7 @@ footer .in{align-items:center}
       <div class="head center rv"><span class="eyebrow" style="color:var(--accent)">How it works</span><h2>3 steps. 2 minutes of yours.</h2></div>
       <div class="flow">
         <div class="fstep fs1 rv"><span class="n">01</span><div class="vis"><div class="mchart"><span class="pin"><i class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21s-7-6.2-7-11.5a7 7 0 1 1 14 0C19 14.8 12 21 12 21z"/><circle cx="12" cy="9.5" r="2.5"/></svg></i>Leeds · "end of tenancy"</span><div class="bars"><i style="height:30%"></i><i style="height:38%"></i><i style="height:45%"></i><i class="hi" style="height:100%"></i><i style="height:60%"></i><i class="hi" style="height:88%"></i><i style="height:42%"></i></div><div class="lbl"><span>Mar</span><span>Jun</span><span>Sep</span></div></div></div><h3>We study your town</h3><p>Searches, seasons, competitors.</p></div>
-        <div class="fstep fs2 rv dl2"><span class="n">02</span><div class="vis"><div class="stack3" id="stack3"></div></div><h3>We design 30 posts</h3><p>Your brand, your photos.</p></div>
+        <div class="fstep fs2 rv dl2"><span class="n">02</span><div class="vis"><div class="stack3" id="stack3"></div></div><h3>We design 30 posts + 15 stories</h3><p>Your brand, your photos.</p></div>
         <div class="fstep fs3 rv dl3"><span class="n">03</span><div class="vis"><div class="wa"><span class="m">Your March posts are ready</span><div class="files" id="waFiles"></div><span class="ok">✓✓ Posted in 2 minutes</span></div></div><h3>You just post</h3><p>Sent to your WhatsApp.</p></div>
       </div>
     </div>
@@ -1600,9 +1600,10 @@ footer .in{align-items:center}
           <ul class="offer">
             <li class="star"><i>✓</i><div><b>Your own realistic brand model</b><span>A human face for your business that no other cleaner uses, in fresh scenes every month</span></div></li>
             <li><i>✓</i><div><b>30 posts based on your local market</b><span>We study what people in your town search for, and when, so every post answers what your next customers want. No random posting.</span></div></li>
+            <li><i>✓</i><div><b>15 Instagram stories</b><span>Stories that match your posts, so your page stays active between posts</span></div></li>
             <li><i>✓</i><div><b>A local market report for your town</b><span>What people near you search for, and when it peaks</span></div></li>
             <li><i>✓</i><div><b>Your best reviews turned into posts</b><span>Quoted word for word from your Google profile</span></div></li>
-            <li><i>✓</i><div><b>Ready for Instagram, Facebook and Google</b><span>Sent to your email or WhatsApp in the right size for each: Instagram and Facebook 1080×1350, Google Business Profile 1200×900. Plus captions, hashtags and a posting calendar.</span></div></li>
+            <li><i>✓</i><div><b>Ready for Instagram, Facebook and Google</b><span>Sent to your email or WhatsApp in the right size for each: Instagram and Facebook 1080×1350, stories 1080×1920, Google Business Profile 1200×900. Plus captions, hashtags and a posting calendar.</span></div></li>
           </ul></div>
         <div class="r"><span class="eyebrow">Founding price · first 10 businesses</span><div class="amt">$<span data-count="49">49</span><small>/month</small></div><div class="was">Worth <s>$549</s> a month</div>
           <button class="btn btn-main" type="button" data-open-quiz>Start with 3 free posts <span class="arr" aria-hidden="true">→</span></button>
@@ -2301,7 +2302,7 @@ function results() {
     </div>
     <section class="igfeed" aria-label="How your Instagram page will look">
       <div class="igtx"><span class="eyebrow" style="color:var(--accent)">On your Instagram</span><h3>This is your page, every month.</h3>
-        <p>Your 3 free posts sit at the top of your grid. With your plan, 30 posts like these fill it every month, so your page always looks busy, local and trusted.</p>
+        <p>Your 3 free posts sit at the top of your grid. With your plan, 30 posts and 15 stories like these arrive every month, so your page always looks busy, local and trusted.</p>
         <p class="igfmt2">Sent to your email or WhatsApp, sized for Instagram and Facebook (1080×1350) and Google Business Profile (1200×900).</p></div>
       <div class="igph1" style="${vv(themeFor(S.color, S.style))}"><div class="igsb"><b>9:41</b><span></span></div>
         <div class="igpro"><i class="av" style="background:${themeFor(S.color, S.style).a}">${S.logo ? `<img src="${S.logo}" alt="">` : esc(initials(S.name || "Your Business"))}</i><div class="ign"><b>${esc((S.name || "yourbusiness").toLowerCase().replace(/[^a-z0-9]/g, ""))}</b><div class="stt"><span><b>3</b>posts</span><span><b>—</b>followers</span><span><b>—</b>following</span></div></div></div>
@@ -2320,8 +2321,8 @@ function results() {
           <div class="cbtns"><button type="button" class="cdl" data-dl="${i}" disabled><i class="ico">${ICON.dl}</i><span>Download</span></button><button type="button" class="copy" data-cap="${i}"><i class="ico">${ICON.check}</i><span>Copy caption</span></button></div></article>`; }).join("")}</div>
     </section>
     <div class="unlock" id="unlock">
-      <div><div class="eyebrow">Unlock your full month</div><h2>30 posts like these, every month.</h2>
-        <ul><li>Your own realistic brand model</li><li>30 posts based on what ${esc(S.town)} searches for</li><li>A local market report, in plain words</li><li>Every new review turned into a post</li><li>Captions, hashtags and a calendar</li><li>Checked by a person, every time</li></ul></div>
+      <div><div class="eyebrow">Unlock your full month</div><h2>30 posts + 15 stories, every month.</h2>
+        <ul><li>Your own realistic brand model</li><li>30 posts based on what ${esc(S.town)} searches for</li><li>15 stories to match</li><li>A local market report, in plain words</li><li>Every new review turned into a post</li><li>Captions, hashtags and a calendar</li><li>Checked by a person, every time</li></ul></div>
       <div class="p"><span class="was">Worth $549/month</span><div class="amt">$49<small>/month</small></div>
         <button class="btn btn-sun" type="button" data-unlock><i class="ico">${ICON.wa}</i>Unlock on WhatsApp</button>
         <span class="msg" id="unlockMsg">Cancel anytime · full refund if the first month isn't right</span></div>
@@ -2334,7 +2335,7 @@ function results() {
   });
   document.querySelectorAll("[data-unlock]").forEach(b => b.onclick = () => {
     if (CONFIG.stripeLink) { location.href = CONFIG.stripeLink + (CONFIG.stripeLink.includes("?") ? "&" : "?") + "client_reference_id=" + encodeURIComponent(S.leadId || ""); return; }
-    const msg = `Hi ${CONFIG.founderName.split(" ")[0]}, I just got my 3 free posts for ${S.name || "my business"} in ${S.town || "my town"}. I'd like to unlock my full month (30 posts, $49/month). Ref: ${S.leadId || "-"}`;
+    const msg = `Hi ${CONFIG.founderName.split(" ")[0]}, I just got my 3 free posts for ${S.name || "my business"} in ${S.town || "my town"}. I'd like to unlock my full month (30 posts + 15 stories, $49/month). Ref: ${S.leadId || "-"}`;
     window.open(`https://wa.me/${CONFIG.whatsapp}?text=${encodeURIComponent(msg)}`, "_blank", "noopener");
     $("#unlockMsg").textContent = "Opening WhatsApp… If nothing opens, message +" + CONFIG.whatsapp;
   });
