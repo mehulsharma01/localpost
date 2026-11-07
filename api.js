@@ -5,8 +5,8 @@
  *   GET  /api/localpost/leads?token=…   all leads as JSON (needs LOCALPOST_ADMIN_TOKEN)
  *
  * Storage: one JSON line per lead in $LOCALPOST_DATA_DIR/localpost-leads.jsonl
- * (defaults to ./ingest). On Railway, mount a volume and point the variable at it,
- * or leads are lost on redeploy. Optional LOCALPOST_WEBHOOK_URL gets each lead
+ * (defaults to ~/localpost-data, outside the app folder, so redeploys on Hostinger
+ * never wipe it). Optional LOCALPOST_WEBHOOK_URL gets each lead
  * (without images) as JSON, e.g. a Zapier/Make hook that pings your phone.
  *
  * Zero dependencies.
@@ -15,8 +15,35 @@ const fs = require("fs");
 const path = require("path");
 const crypto = require("crypto");
 
-const DATA_DIR = process.env.LOCALPOST_DATA_DIR || path.join(__dirname, "data");
+const os = require("os");
+
+// Leads live OUTSIDE the app folder by default (~/localpost-data), so a
+// redeploy that replaces the app folder never wipes them.
+const OLD_DIR = path.join(__dirname, "data");
+function pickDataDir() {
+  const tries = [process.env.LOCALPOST_DATA_DIR, path.join(os.homedir(), "localpost-data"), OLD_DIR].filter(Boolean);
+  for (const dir of tries) {
+    try { fs.mkdirSync(dir, { recursive: true }); fs.accessSync(dir, fs.constants.W_OK); return dir; } catch {}
+  }
+  return OLD_DIR;
+}
+const DATA_DIR = pickDataDir();
 const FILE = path.join(DATA_DIR, "localpost-leads.jsonl");
+
+// One-time rescue: copy leads saved in the old in-app folder into the new file.
+(function migrateOldLeads() {
+  const oldFile = path.join(OLD_DIR, "localpost-leads.jsonl");
+  if (path.resolve(oldFile) === path.resolve(FILE) || !fs.existsSync(oldFile)) return;
+  try {
+    const ids = (f) => new Set((fs.existsSync(f) ? fs.readFileSync(f, "utf8") : "").split("\n").filter(Boolean)
+      .map((l) => { try { return JSON.parse(l).id; } catch { return null; } }).filter(Boolean));
+    const have = ids(FILE);
+    const add = fs.readFileSync(oldFile, "utf8").split("\n").filter(Boolean)
+      .filter((l) => { try { return !have.has(JSON.parse(l).id); } catch { return false; } });
+    if (add.length) fs.appendFileSync(FILE, add.join("\n") + "\n");
+    console.log(`localpost: leads stored in ${DATA_DIR} (moved ${add.length} from old folder)`);
+  } catch (e) { console.error("localpost: lead migration failed", e.message); }
+})();
 const MAX_BODY = 3 * 1024 * 1024; // images are downscaled in the browser first
 const hits = new Map(); // ip -> [timestamps], simple abuse guard
 
