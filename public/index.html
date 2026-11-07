@@ -784,6 +784,7 @@ footer .in{align-items:center}
 .ed.datex .ch.gold{background:#E8C77A;border-color:#E8C77A;color:#1A1300}
 .ed.datex .mb{display:flex;align-items:flex-end;gap:.35cqw;width:9cqw;height:3cqw}
 .ed.datex .mb i{flex:1;background:#E8C77A;opacity:.4;border-radius:.3cqw .3cqw 0 0}.ed.datex .mb i.hi{opacity:1}
+.sendnote{margin:10px 0 0;text-align:center;font-size:14px;color:var(--ink-2,#4B5249);display:flex;justify-content:center;align-items:center;gap:6px;flex-wrap:wrap}.sendnote .ico{width:16px;height:16px;color:var(--accent)}.sendnote a{color:inherit;font-weight:700}
 /* calx: full-photo calendar trend post */
 .ed.calx{background:var(--d)}
 .ed.calx .cimg{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
@@ -1452,7 +1453,7 @@ footer .in{align-items:center}
   <span class="aur a1" aria-hidden="true"></span><span class="aur a2" aria-hidden="true"></span><span class="aur a3" aria-hidden="true"></span><span class="spark" aria-hidden="true" style="left:8%;bottom:20%;animation-delay:0s;font-size:18px">✦</span><span class="spark" aria-hidden="true" style="left:18%;bottom:45%;animation-delay:-2s;font-size:26px">✦</span><span class="spark" aria-hidden="true" style="left:30%;bottom:10%;animation-delay:-4s;font-size:14px">✦</span><span class="spark" aria-hidden="true" style="left:70%;bottom:15%;animation-delay:-1s;font-size:22px">✦</span><span class="spark" aria-hidden="true" style="left:82%;bottom:40%;animation-delay:-3s;font-size:16px">✦</span><span class="spark" aria-hidden="true" style="left:92%;bottom:12%;animation-delay:-5s;font-size:24px">✦</span><span class="spark" aria-hidden="true" style="left:50%;bottom:5%;animation-delay:-2.5s;font-size:14px">✦</span><span class="spark" aria-hidden="true" style="left:60%;bottom:55%;animation-delay:-4.5s;font-size:18px">✦</span>
   <div class="in">
     <nav class="nav rise" aria-label="Main">
-      <a class="logo" href="#top"><img class="lmark" src="/assets/localpost/logo-mark.png" alt="" width="34" height="34">localpost</a>
+      <a class="logo" href="#top"><img class="lmark" src="/assets/localpost/logo-mark-blue.png" alt="" width="34" height="34">localpost</a>
       <div class="nav-links"><a href="#local">Local research</a><a href="#how">How it works</a><a href="#work">Our work</a><a href="#face">Brand face</a><a href="#price">Pricing</a><a href="#faq">FAQ</a></div>
       <button class="btn btn-main sm" type="button" data-open-quiz><span><span class="long">Get </span>3 free posts</span> <span class="arr" aria-hidden="true">→</span></button>
     </nav>
@@ -1633,7 +1634,7 @@ footer .in{align-items:center}
 <!-- QUIZ -->
 <div class="quiz" id="quiz" hidden role="dialog" aria-modal="true" aria-labelledby="qTitle">
   <div class="qbar">
-    <div class="in"><span class="logo"><img class="lmark" src="/assets/localpost/logo-mark.png" alt="" width="34" height="34">localpost</span><span class="note" id="qCount">Step 1 of 7</span><button class="qclose" type="button" id="qClose">Close ✕</button></div>
+    <div class="in"><span class="logo"><img class="lmark" src="/assets/localpost/logo-mark-blue.png" alt="" width="34" height="34">localpost</span><span class="note" id="qCount">Step 1 of 7</span><button class="qclose" type="button" id="qClose">Close ✕</button></div>
     <div class="prog"><i id="qProg" style="width:12%"></i></div>
   </div>
   <div class="qwrap"><div class="in" id="qBody"></div></div>
@@ -1913,21 +1914,26 @@ function quizPosts(d) {
   const sub = wkT ? `Every ${WD[pkD]}` : isXmas ? "December" : (calM === today.getMonth() ? `${MONTHS[calM]} · peak month` : `${MONTHS[calM]} · coming up`);
   const chip = wkT ? `Busiest day in ${town}` : isXmas && calM !== 11 ? `This month in ${town}` : `Peak month in ${town}`;
   const gold = isXmas ? `${toXmas} days to go` : wkT ? "Book your slot" : calM === today.getMonth() ? "Booking now" : "Book ahead";
-  const p1 = ed("datex", b, { img: face, spot: BIG_SPOT[(face.match(/models\/([^/]+\/[^/]+)\.jpg$/) || [])[1]] || "", pos: "50% 22%", k: "Search trend · " + town, big, sub, wide: big.length > 2, chip, gold, hi: now.hi, bars: tr.bars, l1: esc(now.l1 || tr.l1(town)), l2: now.l2h || tr.l2h });
+  /* no photo repeats across the 3 posts */
+  const tenancy = key === "tenancy", altImg = quizPeople(d, "alt"), p3Img = tenancy ? face : altImg;
+  const extra = d.faceType === "model" && MODELS.some(x => x.id === d.model) ? ["1-regular", "2-deep", "5-airbnb", "4-office", "7-carpet"].map(x => modelShot(d.model, x)) : [];
+  const pool = [face, altImg, ...extra, PH("p-caddy"), PH("p-room"), PH("p-room2"), PH("p-faucet"), PH("p-sink"), "/assets/localpost/people/relax.jpg", "/assets/localpost/people/sun-read.jpg"];
+  const p1Img = pool.find(x => x !== p3Img);
+  const p2Img = [imgSrc(SVC_PHOTO[key] || "p-counter"), PH("p-counter"), PH("p-faucet"), PH("p-sink"), PH("p-gloves-blue"), PH("p-mirror")].find(x => x !== p1Img && x !== p3Img);
+  const p1 = ed("datex", b, { img: p1Img, spot: BIG_SPOT[(p1Img.match(/models\/([^/]+\/[^/]+)\.jpg$/) || [])[1]] || "", pos: "50% 22%", k: "Search trend · " + town, big, sub, wide: big.length > 2, chip, gold, hi: now.hi, bars: tr.bars, l1: esc(now.l1 || tr.l1(town)), l2: now.l2h || tr.l2h });
   const [l1, l2] = splitHead(PRAISE[top]?.head || "Spotless, not just tidy.");
   const p2 = d.review
-    ? ed("reviewx", b, { img: SVC_PHOTO[key] || "p-counter", q: quoteFrom(d.review, 150), who: "Verified customer", rating: d.rating, count: d.reviewCount, tag: "Words like these<br>never get old." })
-    : ed("reviewx", b, { img: SVC_PHOTO[key] || "p-counter", q: `${PRAISE[top]?.label || "Reliable"}, every single visit. Couldn't recommend them more.`, who: "Your next review", rating: d.rating, count: d.reviewCount, tag: "Your best reviews,<br>made into posts." });
+    ? ed("reviewx", b, { img: p2Img, q: quoteFrom(d.review, 150), who: "Verified customer", rating: d.rating, count: d.reviewCount, tag: "Words like these<br>never get old." })
+    : ed("reviewx", b, { img: p2Img, q: `${PRAISE[top]?.label || "Reliable"}, every single visit. Couldn't recommend them more.`, who: "Your next review", rating: d.rating, count: d.reviewCount, tag: "Your best reviews,<br>made into posts." });
   const chips = [d.rating ? `<b>${esc(d.rating)}★</b> Google` : null, d.reviewCount ? `${esc(d.reviewCount)} reviews` : "Fully insured", `Local to ${esc(town)}`].filter(Boolean);
-  const tenancy = key === "tenancy";
-  const altImg = quizPeople(d, "alt"), altRoom = SHOT_ROOM[(altImg.match(/([^/]+)\.jpg$/) || [])[1]];
-  const p3 = ed("planx", b, { img: tenancy ? face : altImg, pos: tenancy ? "45% 20%" : "45% 22%", rooms: ROOMS[key] || ROOMS.regular, photoRoom: tenancy ? "Bedroom" : (ROOMS[key] || ROOMS.regular).some(x => x.split(" ")[0] === altRoom) ? altRoom : null,
+  const altRoom = SHOT_ROOM[(altImg.match(/([^/]+)\.jpg$/) || [])[1]];
+  const p3 = ed("planx", b, { img: p3Img, pos: tenancy ? "45% 20%" : "45% 22%", rooms: ROOMS[key] || ROOMS.regular, photoRoom: tenancy ? "Bedroom" : (ROOMS[key] || ROOMS.regular).some(x => x.split(" ")[0] === altRoom) ? altRoom : null,
     a: esc(tenancy ? "Moving out?" : l1), b: esc(tenancy ? "Every room, deposit-ready." : (l2 || "Every time.")), icon: tenancy ? ICON.key : ICON.home,
     foot: tenancy ? "Keys back on time. You just pack." : (PRAISE[top]?.label || "Thorough, spotless") + ", in every room.",
     sub: [d.rating ? `${esc(d.rating)}★ on Google` : null, d.reviewCount ? `${esc(d.reviewCount)} reviews` : null, `Local to ${esc(town)}`].filter(Boolean).join(" · ") });
   const tag = x => "#" + String(x).replace(/[^A-Za-z0-9]/g, "");
   return [
-    { html: p1, why: "Built on a local search trend", cap: `${tr.l1(town)} ${tr.l2}\n\nWe're booking up fast this month, message us to grab a slot.\n\n${tag(town)} ${tag(svc.short)} ${tag(town + "Cleaner")}` },
+    { html: p1, why: "Built on a local search trend", cap: `${now.l1 || tr.l1(town)} ${(now.l2h || tr.l2h).replace(/<[^>]+>/g, "")}\n\nWe're booking up fast this month, message us to grab a slot.\n\n${tag(town)} ${tag(svc.short)} ${tag(town + "Cleaner")}` },
     { html: p2, why: d.review ? "Your real Google review" : "Built on your top praise", cap: d.review ? `This is why we do it. Thank you for the kind words 🧡\n\nMessage us to book.\n\n${tag(town)} #CleaningService` : `${PRAISE[top]?.label || "Reliable"}. That's the standard we hold ourselves to, every single visit.\n\nMessage us to book your clean.\n\n${tag(town)} #CleaningService` },
     { html: p3, why: "Your brand promise", cap: `${PRAISE[top]?.head || "Spotless, not just tidy."}\n\n${d.rating ? d.rating + "★ on Google. " : ""}Book via the link in bio.\n\n${tag(town)} #LocalBusiness` },
   ];
@@ -2269,6 +2275,32 @@ async function postToImage(html) {
     return await wait(window.htmlToImage.toPng(node, { pixelRatio: 1, width: 1080, height: 1350, cacheBust: false }), 15000) || null;
   } catch (e) { return null; } finally { host.remove(); }
 }
+/* Save the 3 posts on our server (share link + email), and offer WhatsApp sharing */
+function toJpeg(png) { return new Promise(res => { const im = new Image(); im.onload = () => { const c = document.createElement("canvas"); c.width = 1080; c.height = 1350;
+  const x = c.getContext("2d"); x.fillStyle = "#fff"; x.fillRect(0, 0, 1080, 1350); x.drawImage(im, 0, 0, 1080, 1350); res(c.toDataURL("image/jpeg", .9)); }; im.onerror = () => res(null); im.src = png; }); }
+async function sendPosts(urls, qp) {
+  const note = $("#sendNote"), wa = $("#waShare"), slug = (S.name || "post").toLowerCase().replace(/[^a-z0-9]+/g, "-");
+  const jpgs = (await Promise.all(urls.map(toJpeg))); if (!jpgs.every(Boolean)) return;
+  let link = "";
+  if (S.leadId && S.leadId !== "x") {
+    try {
+      const r = await fetch("/api/localpost/posts", { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify({ lead: S.leadId, images: jpgs, caps: qp.map(x => x.cap) }) });
+      const j = await r.json().catch(() => ({}));
+      if (r.ok && j.link) { link = j.link;
+        if (note) note.innerHTML = j.emailed ? `<i class="ico">${ICON.mail}</i>Sent to <b>${esc(j.email)}</b>. Your page: <a href="${esc(link)}" target="_blank" rel="noopener">open link</a>` : `<i class="ico">${ICON.check}</i>Saved for you: <a href="${esc(link)}" target="_blank" rel="noopener">${esc(link.replace(/^https?:\/\//, ""))}</a>`; }
+    } catch (e) {}
+  }
+  if (!wa) return;
+  wa.hidden = false;
+  wa.onclick = async () => {
+    const text = `My 3 free posts for ${S.name || "my business"}${link ? ": " + link : ""}`;
+    try {
+      const files = await Promise.all(jpgs.map((d, i) => fetch(d).then(r => r.blob()).then(b => new File([b], `${slug}-post-${i + 1}.jpg`, { type: "image/jpeg" }))));
+      if (navigator.canShare && navigator.canShare({ files })) { await navigator.share({ files, text }); return; }
+    } catch (e) { if (e && e.name === "AbortError") return; }
+    window.open(`https://wa.me/?text=${encodeURIComponent(text)}`, "_blank", "noopener");
+  };
+}
 async function rasterizeResults(qp) {
   const urls = [];
   for (let i = 0; i < qp.length; i++) urls.push(await postToImage(qp[i].html));
@@ -2277,6 +2309,7 @@ async function rasterizeResults(qp) {
     const img = `<img class="pimg" src="${u}" alt="Free post ${i + 1}">`;
     document.querySelectorAll(`.rf${i + 1} .rpost, .iggrid .gt:nth-child(${i + 1}), .rcaps2 .cap:nth-child(${i + 1}) .cpost`).forEach(el => { el.innerHTML = img; });
   });
+  if (urls.every(Boolean)) sendPosts(urls, qp);
   const dl = $("#dlPosts");
   if (dl && urls.every(Boolean)) { dl.hidden = false; dl.onclick = () => urls.forEach((u, i) => { const a = document.createElement("a"); a.href = u; a.download = `${(S.name || "post").toLowerCase().replace(/[^a-z0-9]+/g, "-")}-post-${i + 1}.png`; document.body.appendChild(a); a.click(); a.remove(); }); }
 }
@@ -2287,7 +2320,7 @@ function results() {
     <div class="rstage">
       <div class="rhead"><span class="rbadge"><i class="ico">${ICON.check}</i>Ready · made for ${esc(S.name)}</span><h2>Your 3 posts are ready</h2><p>Built for ${esc(S.town)}, in your colours, with your brand face.</p></div>
       <div class="rfan" id="rp">${qp.map((x, i) => `<figure class="rf rf${i + 1}"><div class="rpost">${x.html}</div><figcaption><i class="ico">${[ICON.trend, ICON.spark, ICON.target][i]}</i>${esc(x.why)}</figcaption></figure>`).join("")}</div>
-      <div class="ract"><button class="btn btn-ghost dlbtn" type="button" id="dlPosts" hidden>Download my 3 posts</button><button class="btn btn-green" type="button" data-unlock><i class="ico">${ICON.wa}</i>Unlock 30 posts on WhatsApp <span class="arr" aria-hidden="true">→</span></button><span>Yours to keep · no card needed</span></div>
+      <div class="ract"><button class="btn btn-ghost dlbtn" type="button" id="dlPosts" hidden>Download my 3 posts</button><button class="btn btn-ghost dlbtn" type="button" id="waShare" hidden><i class="ico">${ICON.wa}</i>Send to WhatsApp</button><button class="btn btn-green" type="button" data-unlock><i class="ico">${ICON.wa}</i>Unlock 30 posts on WhatsApp <span class="arr" aria-hidden="true">→</span></button><span>Yours to keep · no card needed</span></div><p class="sendnote" id="sendNote" aria-live="polite"></p>
     </div>
     <section class="igfeed" aria-label="How your Instagram page will look">
       <div class="igtx"><span class="eyebrow" style="color:var(--accent)">On your Instagram</span><h3>This is your page, every month.</h3>

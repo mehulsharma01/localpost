@@ -3,6 +3,7 @@
  *   GET  /                        landing page + quiz (public/index.html)
  *   POST /api/localpost/lead      save quiz answers
  *   GET  /api/localpost/leads     list leads (needs LOCALPOST_ADMIN_TOKEN)
+ *   POST /api/localpost/posts     save the 3 free posts, email them; GET /s/<token> share page
  * Zero dependencies. Binds 0.0.0.0 on $PORT (Railway).
  */
 const http = require("http");
@@ -22,7 +23,7 @@ process.on("unhandledRejection", e => console.error("unhandledRejection:", e && 
 http.createServer((req, res) => {
   const raw = req.url || "/", q = raw.indexOf("?");
   const url = q >= 0 ? raw.slice(0, q) : raw, query = new URLSearchParams(q >= 0 ? raw.slice(q) : "");
-  if (url.startsWith("/api/localpost/") && api.handle(req, res, url, query)) return;
+  if ((url.startsWith("/api/localpost/") || url.startsWith("/s/")) && api.handle(req, res, url, query)) return;
   if (req.method !== "GET" && req.method !== "HEAD") { res.writeHead(405).end(); return; }
   let p;
   try { p = decodeURIComponent(url); } catch { res.writeHead(400).end("Bad request"); return; }
