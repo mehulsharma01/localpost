@@ -1608,7 +1608,7 @@ footer .in{align-items:center}
 .xo .tag{display:inline-block;background:#FFF2E0;color:#B45309;border:1.5px solid #FBD38D;border-radius:99px;padding:6px 14px;font-size:13px;font-weight:800}
 .xo h3{margin:12px 0 6px;font-size:clamp(26px,6vw,34px);letter-spacing:-.04em;line-height:1.05}
 .xo p{margin:0 0 16px;color:var(--ink-2);font-size:15.5px}
-.xo .offer{display:block;width:100%;max-width:420px;height:auto;margin:6px auto 14px;border-radius:18px}
+.xo .ps{display:flex;justify-content:center;gap:8px;margin:0 0 18px}
 .xo .ps img{width:30%;max-width:132px;height:auto;aspect-ratio:4/5;object-fit:cover;border-radius:14px;box-shadow:0 14px 26px -16px rgba(0,0,0,.5)}
 .xo .ps img:nth-child(1){transform:rotate(-4deg)}.xo .ps img:nth-child(3){transform:rotate(4deg)}
 .xo .go{width:100%;justify-content:center}
@@ -1820,8 +1820,10 @@ footer .in{align-items:center}
 <div class="xo" id="xo" role="dialog" aria-modal="true" aria-labelledby="xoT" aria-hidden="true">
   <div class="box">
     <button class="x" type="button" id="xoClose" aria-label="Close">✕</button>
-    <h3 id="xoT">Wait, before you go!</h3>
-    <img class="offer" src="/assets/localpost/exit/offer.jpg" alt="Start with 3 free posts. $49 a month founding price: 30 posts for your town, 15 Instagram stories, your own brand face." loading="lazy" decoding="async" width="560" height="630">
+    <span class="tag">Only 10 founding spots</span>
+    <h3 id="xoT">Before you go: get 3 free posts</h3>
+    <p>Made for your cleaning business and your town. Takes about a minute.</p>
+    <div class="ps"><img src="/assets/localpost/exit/post-1.jpg" alt="" loading="lazy" decoding="async" width="308" height="385"><img src="/assets/localpost/exit/post-2.jpg" alt="" loading="lazy" decoding="async" width="308" height="385"><img src="/assets/localpost/exit/post-3.jpg" alt="" loading="lazy" decoding="async" width="308" height="385"></div>
     <button class="btn btn-main go" type="button" id="xoGo">Get my 3 free posts <span class="arr" aria-hidden="true">→</span></button>
     <div class="ok"><span>✓ No card</span><span>✓ Yours to keep</span><span>✓ Cancel anytime</span></div>
     <a class="wa" id="xoWa" href="#" target="_blank" rel="noopener">Questions? Ask us on WhatsApp</a>
