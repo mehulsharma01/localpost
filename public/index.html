@@ -12,9 +12,159 @@
 <meta property="og:type" content="website">
 <meta name="twitter:card" content="summary_large_image">
 <script src="/vendor/html-to-image.js" defer></script>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" crossorigin="anonymous" href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Fraunces:ital,opsz,wght@0,9..144,300..800;1,9..144,300..700&family=Inter+Tight:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;600&family=Caveat:wght@600;700&family=Anton&display=swap">
+<link rel="preload" href="/fonts/PlusJakartaSans-fdb05b.woff2" as="font" type="font/woff2" crossorigin>
+<style>@font-face {
+  font-family: 'Anton';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url(/fonts/Anton-a6f395.woff2) format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+@font-face {
+  font-family: 'Caveat';
+  font-style: normal;
+  font-weight: 600;
+  font-display: swap;
+  src: url(/fonts/Caveat-14ecf1.woff2) format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+@font-face {
+  font-family: 'Caveat';
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url(/fonts/Caveat-14ecf1.woff2) format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+@font-face {
+  font-family: 'Fraunces';
+  font-style: italic;
+  font-weight: 300 700;
+  font-display: swap;
+  src: url(/fonts/Fraunces-feced2.woff2) format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+@font-face {
+  font-family: 'Fraunces';
+  font-style: normal;
+  font-weight: 300 800;
+  font-display: swap;
+  src: url(/fonts/Fraunces-39ce20.woff2) format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+@font-face {
+  font-family: 'Instrument Serif';
+  font-style: italic;
+  font-weight: 400;
+  font-display: swap;
+  src: url(/fonts/InstrumentSerif-52a6c2.woff2) format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+@font-face {
+  font-family: 'Instrument Serif';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url(/fonts/InstrumentSerif-2d243d.woff2) format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+@font-face {
+  font-family: 'Inter Tight';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url(/fonts/InterTight-1bf6b3.woff2) format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+@font-face {
+  font-family: 'Inter Tight';
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+  src: url(/fonts/InterTight-1bf6b3.woff2) format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+@font-face {
+  font-family: 'Inter Tight';
+  font-style: normal;
+  font-weight: 600;
+  font-display: swap;
+  src: url(/fonts/InterTight-1bf6b3.woff2) format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+@font-face {
+  font-family: 'Inter Tight';
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url(/fonts/InterTight-1bf6b3.woff2) format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+@font-face {
+  font-family: 'Inter Tight';
+  font-style: normal;
+  font-weight: 800;
+  font-display: swap;
+  src: url(/fonts/InterTight-1bf6b3.woff2) format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+@font-face {
+  font-family: 'JetBrains Mono';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url(/fonts/JetBrainsMono-480c06.woff2) format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+@font-face {
+  font-family: 'JetBrains Mono';
+  font-style: normal;
+  font-weight: 600;
+  font-display: swap;
+  src: url(/fonts/JetBrainsMono-480c06.woff2) format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+@font-face {
+  font-family: 'Plus Jakarta Sans';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url(/fonts/PlusJakartaSans-fdb05b.woff2) format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+@font-face {
+  font-family: 'Plus Jakarta Sans';
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+  src: url(/fonts/PlusJakartaSans-fdb05b.woff2) format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+@font-face {
+  font-family: 'Plus Jakarta Sans';
+  font-style: normal;
+  font-weight: 600;
+  font-display: swap;
+  src: url(/fonts/PlusJakartaSans-fdb05b.woff2) format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+@font-face {
+  font-family: 'Plus Jakarta Sans';
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url(/fonts/PlusJakartaSans-fdb05b.woff2) format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+@font-face {
+  font-family: 'Plus Jakarta Sans';
+  font-style: normal;
+  font-weight: 800;
+  font-display: swap;
+  src: url(/fonts/PlusJakartaSans-fdb05b.woff2) format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}</style>
 <style>
 /* Layout: simple and visual. Centred two-tone headline, a phone with posts fanned in a 3D arc, 3 picture-first steps, a work grid, one price card, a short FAQ and a centred CTA. */
 :root{
@@ -63,6 +213,8 @@ section{padding-block:100px;position:relative}
 @keyframes drift{0%,100%{transform:translate(0,0) rotate(0)}50%{transform:translate(20px,-14px) rotate(4deg)}}
 @keyframes pop{0%{transform:scale(.7);opacity:0}100%{transform:scale(1);opacity:1}}
 .rise{animation:rise .9s cubic-bezier(.2,.8,.2,1) both}
+@keyframes riseT{from{transform:translateY(18px)}to{transform:none}}
+.hero h1.rise{animation-name:riseT;animation-delay:0s}
 .d1{animation-delay:.08s}.d2{animation-delay:.18s}.d3{animation-delay:.3s}.d4{animation-delay:.44s}
 .bob{animation:bob 5.5s ease-in-out infinite}
 .js .rv{opacity:0;transform:translateY(30px);transition:opacity .8s ease,transform .8s cubic-bezier(.2,.8,.2,1)}
@@ -1446,11 +1598,27 @@ footer .in{align-items:center}
 .rf .pimg{border-radius:18px}.iggrid .pimg{border-radius:0}.rcaps2 .cpost .pimg{border-radius:8px}
 .dlbtn{background:#fff;color:var(--ink);border:1.5px solid var(--line)}
 .ract{flex-wrap:wrap;justify-content:center}
+
+/* exit-intent offer */
+.xo{position:fixed;inset:0;z-index:300;display:grid;place-items:center;padding:16px;background:rgba(14,18,13,.55);backdrop-filter:blur(6px);opacity:0;pointer-events:none;transition:opacity .25s}
+.xo.on{opacity:1;pointer-events:auto}
+.xo .box{position:relative;width:min(520px,100%);max-height:calc(100vh - 32px);overflow:auto;background:#fff;border-radius:28px;padding:28px 24px 22px;text-align:center;box-shadow:0 40px 80px -30px rgba(0,0,0,.5);transform:translateY(16px) scale(.97);transition:transform .3s cubic-bezier(.2,.8,.2,1)}
+.xo.on .box{transform:none}
+.xo .x{position:absolute;right:12px;top:12px;width:40px;height:40px;border-radius:50%;border:0;background:var(--soft);font-size:20px;cursor:pointer;color:var(--ink)}
+.xo .tag{display:inline-block;background:#FFF2E0;color:#B45309;border:1.5px solid #FBD38D;border-radius:99px;padding:6px 14px;font-size:13px;font-weight:800}
+.xo h3{margin:12px 0 6px;font-size:clamp(26px,6vw,34px);letter-spacing:-.04em;line-height:1.05}
+.xo p{margin:0 0 16px;color:var(--ink-2);font-size:15.5px}
+.xo .ps{display:flex;justify-content:center;gap:8px;margin:0 0 18px}
+.xo .ps img{width:30%;max-width:132px;height:auto;aspect-ratio:4/5;object-fit:cover;border-radius:14px;box-shadow:0 14px 26px -16px rgba(0,0,0,.5)}
+.xo .ps img:nth-child(1){transform:rotate(-4deg)}.xo .ps img:nth-child(3){transform:rotate(4deg)}
+.xo .go{width:100%;justify-content:center}
+.xo .ok{display:flex;justify-content:center;gap:14px;flex-wrap:wrap;margin-top:12px;font-size:13px;color:var(--muted);font-weight:600}
+.xo .wa{display:inline-block;margin-top:10px;font-size:14px;font-weight:700;color:var(--ink);text-decoration:underline}
 </style>
 </head>
 <body>
 <header class="hero" id="top">
-  <div class="sky" aria-hidden="true"><img src="/assets/localpost/photos/sky.jpg" alt="" width="2400" height="1669"></div>
+  <div class="sky" aria-hidden="true"><img fetchpriority="low" decoding="async" src="/assets/localpost/photos/sky.jpg" alt="" width="2400" height="1669"></div>
   <span class="aur a1" aria-hidden="true"></span><span class="aur a2" aria-hidden="true"></span><span class="aur a3" aria-hidden="true"></span><span class="spark" aria-hidden="true" style="left:8%;bottom:20%;animation-delay:0s;font-size:18px">✦</span><span class="spark" aria-hidden="true" style="left:18%;bottom:45%;animation-delay:-2s;font-size:26px">✦</span><span class="spark" aria-hidden="true" style="left:30%;bottom:10%;animation-delay:-4s;font-size:14px">✦</span><span class="spark" aria-hidden="true" style="left:70%;bottom:15%;animation-delay:-1s;font-size:22px">✦</span><span class="spark" aria-hidden="true" style="left:82%;bottom:40%;animation-delay:-3s;font-size:16px">✦</span><span class="spark" aria-hidden="true" style="left:92%;bottom:12%;animation-delay:-5s;font-size:24px">✦</span><span class="spark" aria-hidden="true" style="left:50%;bottom:5%;animation-delay:-2.5s;font-size:14px">✦</span><span class="spark" aria-hidden="true" style="left:60%;bottom:55%;animation-delay:-4.5s;font-size:18px">✦</span>
   <div class="in">
     <nav class="nav rise" aria-label="Main">
@@ -1553,7 +1721,7 @@ footer .in{align-items:center}
         <li><div class="uv uv2"><span class="ust">★★★★★</span><q>Always on time, always spotless.</q><small>Google review</small></div><b>Your reviews</b><span>Quoted word for word from your Google profile.</span></li>
         <li><div class="uv uv3"><em class="on">End of tenancy</em><em>Oven</em><em class="on">Airbnb</em><em>Deep clean</em><em>Carpet</em></div><b>Your services</b><span>Posts built around the jobs you want more of.</span></li>
         <li><div class="uv uv4"><span class="ulogo">SC</span><span class="usw"><i style="background:#1438C8"></i><i style="background:#FFD84A"></i><i style="background:#F4EFE4"></i><i style="background:#14130F"></i></span></div><b>Your brand</b><span>Your colours, logo and name on every post.</span></li>
-        <li><div class="uv uv5"><span class="uav"><img src="/assets/localpost/models/emma/8-portrait.jpg" alt=""><img src="/assets/localpost/models/ava/8-portrait.jpg" alt=""><img src="/assets/localpost/models/olivia/8-portrait.jpg" alt=""><i>+</i></span><small>or your team photo</small></div><b>Your face</b><span>Your own team photo, or the model you pick.</span></li>
+        <li><div class="uv uv5"><span class="uav"><img loading="lazy" decoding="async" src="/assets/localpost/models/emma/8-portrait.jpg" alt=""><img loading="lazy" decoding="async" src="/assets/localpost/models/ava/8-portrait.jpg" alt=""><img loading="lazy" decoding="async" src="/assets/localpost/models/olivia/8-portrait.jpg" alt=""><i>+</i></span><small>or your team photo</small></div><b>Your face</b><span>Your own team photo, or the model you pick.</span></li>
       </ul>
     </div>
   </section>
@@ -1575,7 +1743,7 @@ footer .in{align-items:center}
   <section class="partner2" id="partner">
     <div class="in">
       <div class="pbox2 rv">
-        <div class="ph"><img src="/assets/localpost/founder.jpg" alt="Mayur Sevak, your LocalPost creative partner" loading="lazy" width="720" height="900"><span class="tagp">Your creative partner</span></div>
+        <div class="ph"><img decoding="async" src="/assets/localpost/founder.jpg" alt="Mayur Sevak, your LocalPost creative partner" loading="lazy" width="720" height="900"><span class="tagp">Your creative partner</span></div>
         <div class="tx">
                     <p>I research your town, pick the angles and check every post myself before it reaches you. If you ever want a change, message me on WhatsApp and you'll get a real reply.</p>
           <div class="sig" id="founderName">Mayur Sevak<small>Creative partner</small></div>
@@ -1636,7 +1804,7 @@ footer .in{align-items:center}
 <!-- QUIZ -->
 <div class="quiz" id="quiz" hidden role="dialog" aria-modal="true" aria-labelledby="qTitle">
   <div class="qbar">
-    <div class="in"><span class="logo"><img class="lmark" src="/assets/localpost/logo-localpost.png" alt="" width="34" height="34">localpost</span><span class="note" id="qCount">Step 1 of 7</span><button class="qclose" type="button" id="qClose">Close ✕</button></div>
+    <div class="in"><span class="logo"><img loading="lazy" decoding="async" class="lmark" src="/assets/localpost/logo-localpost.png" alt="" width="34" height="34">localpost</span><span class="note" id="qCount">Step 1 of 7</span><button class="qclose" type="button" id="qClose">Close ✕</button></div>
     <div class="prog"><i id="qProg" style="width:12%"></i></div>
   </div>
   <div class="qwrap"><div class="in" id="qBody"></div></div>
@@ -1649,7 +1817,22 @@ footer .in{align-items:center}
   </div>
 </div>
 
+<div class="xo" id="xo" role="dialog" aria-modal="true" aria-labelledby="xoT" aria-hidden="true">
+  <div class="box">
+    <button class="x" type="button" id="xoClose" aria-label="Close">✕</button>
+    <span class="tag">Only 10 founding spots</span>
+    <h3 id="xoT">Before you go: get 3 free posts</h3>
+    <p>Made for your cleaning business and your town. Takes about a minute.</p>
+    <div class="ps"><img src="/assets/localpost/exit/post-1.jpg" alt="" loading="lazy" decoding="async" width="420" height="525"><img src="/assets/localpost/exit/post-2.jpg" alt="" loading="lazy" decoding="async" width="420" height="525"><img src="/assets/localpost/exit/post-3.jpg" alt="" loading="lazy" decoding="async" width="420" height="525"></div>
+    <button class="btn btn-main go" type="button" id="xoGo">Get my 3 free posts <span class="arr" aria-hidden="true">→</span></button>
+    <div class="ok"><span>✓ No card</span><span>✓ Yours to keep</span><span>✓ Cancel anytime</span></div>
+    <a class="wa" id="xoWa" href="#" target="_blank" rel="noopener">Questions? Ask us on WhatsApp</a>
+  </div>
+</div>
 <script>
+/* Runs right after the first paint so the hero shows instantly */
+requestAnimationFrame(() => setTimeout(function lpMain() {
+
 
 
 /* ===== Settings: edit these before launch ===== */
@@ -1881,7 +2064,7 @@ const TREND = {
   carpet: { peak: "April", what: "peak month for \u201ccarpet cleaning\u201d searches", l2h: "fresh <em>start</em>.", stat: "\u201ccarpet cleaning\u201d searches rise in spring", bars: [44, 54, 92, 100, 72, 56, 50, 52, 58, 54, 48, 46], range: "Jan · · · · · · · · · · Dec", l1: () => "Fresh carpets,", l2: "fresh start." },
 };
 const ROOMS = { tenancy: ["Kitchen + oven", "Bathroom", "Hall", "Bedroom", "Lounge + skirting"], regular: ["Kitchen", "Bathroom", "Hall", "Bedroom", "Lounge"], deep: ["Kitchen", "Bathroom", "Hall", "Bedroom", "Lounge"], office: ["Kitchen", "Toilets", "Reception", "Desks", "Meeting room"], airbnb: ["Kitchen", "Bathroom", "Hall", "Bedroom + linen", "Lounge"], oven: ["Oven", "Hob", "Racks", "Kitchen", "Extractor"], carpet: ["Stairs", "Hall", "Rugs", "Bedroom", "Lounge"] };
-const SHOT_ROOM = { "1-regular": "Kitchen", "2-deep": "Lounge" };
+const SHOT_ROOM = { "emma/1-regular": "Kitchen", "emma/2-deep": "Lounge", "ava/1-regular": "Lounge", "ava/2-deep": "Kitchen", "olivia/1-regular": "Hall", "olivia/2-deep": "Bedroom" };
 /* where the big date goes when the face sits low on the left of a shot */
 const BIG_SPOT = { "olivia/2-deep": "tr" };
 const ALT_SHOT = { regular: "2-deep", deep: "1-regular", tenancy: "1-regular", office: "1-regular", airbnb: "1-regular", oven: "1-regular", carpet: "2-deep" };
@@ -1917,7 +2100,10 @@ function quizPosts(d) {
   const chip = wkT ? `Busiest day in ${town}` : isXmas && calM !== 11 ? `This month in ${town}` : `Peak month in ${town}`;
   const gold = isXmas ? `${toXmas} days to go` : wkT ? "Book your slot" : calM === today.getMonth() ? "Booking now" : "Book ahead";
   /* no photo repeats across the 3 posts */
-  const tenancy = key === "tenancy", altImg = quizPeople(d, "alt"), p3Img = tenancy ? face : altImg;
+  const isModel = d.faceType === "model" && MODELS.some(x => x.id === d.model), roomsK = (ROOMS[key] || ROOMS.regular).map(x => x.split(" ")[0]);
+  /* pick a second model photo whose room matches this service's floor plan, so the label fits the photo */
+  const altPick = isModel ? (["1-regular", "2-deep"].map(sl => modelShot(d.model, sl)).find(u => u !== face && roomsK.includes(SHOT_ROOM[(u.match(/models\/([^/]+\/[^/]+)\.jpg$/) || [])[1]])) || quizPeople(d, "alt")) : quizPeople(d, "alt");
+  const tenancy = key === "tenancy", altImg = altPick, p3Img = tenancy ? face : altImg;
   const extra = d.faceType === "model" && MODELS.some(x => x.id === d.model) ? ["1-regular", "2-deep", "5-airbnb", "4-office", "7-carpet"].map(x => modelShot(d.model, x)) : [];
   const pool = [face, altImg, ...extra, PH("p-caddy"), PH("p-room"), PH("p-room2"), PH("p-faucet"), PH("p-sink"), "/assets/localpost/people/relax.jpg", "/assets/localpost/people/sun-read.jpg"];
   const p1Img = pool.find(x => x !== p3Img);
@@ -1928,7 +2114,7 @@ function quizPosts(d) {
     ? ed("reviewx", b, { img: p2Img, q: quoteFrom(d.review, 150), who: "Verified customer", rating: d.rating, count: d.reviewCount, tag: "Words like these<br>never get old." })
     : ed("reviewx", b, { img: p2Img, q: `${PRAISE[top]?.label || "Reliable"}, every single visit. Couldn't recommend them more.`, who: "Your next review", rating: d.rating, count: d.reviewCount, tag: "Your best reviews,<br>made into posts." });
   const chips = [d.rating ? `<b>${esc(d.rating)}★</b> Google` : null, d.reviewCount ? `${esc(d.reviewCount)} reviews` : "Fully insured", `Local to ${esc(town)}`].filter(Boolean);
-  const altRoom = SHOT_ROOM[(altImg.match(/([^/]+)\.jpg$/) || [])[1]];
+  const altRoom = SHOT_ROOM[(altImg.match(/models\/([^/]+\/[^/]+)\.jpg$/) || [])[1]];
   const p3 = ed("planx", b, { img: p3Img, pos: tenancy ? "45% 20%" : "45% 22%", rooms: ROOMS[key] || ROOMS.regular, photoRoom: tenancy ? "Bedroom" : (ROOMS[key] || ROOMS.regular).some(x => x.split(" ")[0] === altRoom) ? altRoom : null,
     a: esc(tenancy ? "Moving out?" : l1), b: esc(tenancy ? "Every room, deposit-ready." : (l2 || "Every time.")), icon: tenancy ? ICON.key : ICON.home,
     foot: tenancy ? "Keys back on time. You just pack." : (PRAISE[top]?.label || "Thorough, spotless") + ", in every room.",
@@ -2351,6 +2537,32 @@ document.addEventListener("keydown", e => {
   if (e.key === "Escape") closeQuiz();
   if (e.key === "Enter" && e.target.tagName === "INPUT" && e.target.type !== "checkbox" && !$("#qNav").hidden) { e.preventDefault(); next(); }
 });
+
+/* Exit-intent offer: shown once per visit when someone is about to leave without starting the quiz */
+(() => {
+  const xo = document.getElementById("xo"); if (!xo) return;
+  const seen = () => { try { return sessionStorage.getItem("lp-xo") === "1"; } catch (e) { return false; } };
+  const mark = () => { try { sessionStorage.setItem("lp-xo", "1"); } catch (e) {} };
+  const t0 = Date.now(); let started = false;
+  document.querySelectorAll("[data-open-quiz]").forEach(b => b.addEventListener("click", () => { started = true; mark(); }));
+  const show = () => { if (started || seen() || Date.now() - t0 < 6000) return; const q = document.getElementById("quiz"); if (q && !q.hidden) return;
+    mark(); xo.classList.add("on"); xo.setAttribute("aria-hidden", "false"); document.getElementById("xoGo").focus(); };
+  const hide = () => { xo.classList.remove("on"); xo.setAttribute("aria-hidden", "true"); };
+  document.getElementById("xoClose").onclick = hide;
+  xo.addEventListener("click", e => { if (e.target === xo) hide(); });
+  document.addEventListener("keydown", e => { if (e.key === "Escape") hide(); });
+  document.getElementById("xoGo").onclick = () => { hide(); started = true; openQuiz(); };
+  const wa = document.getElementById("xoWa"); if (wa && typeof CONFIG !== "undefined") wa.href = `https://wa.me/${CONFIG.whatsapp}?text=${encodeURIComponent("Hi, I have a question about LocalPost for my cleaning business.")}`;
+  // desktop: pointer leaves through the top of the window
+  document.addEventListener("mouseout", e => { if (!e.relatedTarget && e.clientY <= 0) show(); });
+  // mobile: a fast scroll back up after reading a good part of the page, or going idle in a tab switch
+  let lastY = scrollY, lastT = Date.now(), deep = 0;
+  addEventListener("scroll", () => { const y = scrollY, now = Date.now(); deep = Math.max(deep, y / Math.max(1, document.body.scrollHeight - innerHeight));
+    if (deep > .35 && lastY - y > 120 && (lastY - y) / Math.max(1, now - lastT) > 1.6) show(); lastY = y; lastT = now; }, { passive: true });
+  document.addEventListener("visibilitychange", () => { if (document.visibilityState === "visible" && deep > .2 && Date.now() - t0 > 15000) show(); });
+})();
+
+}, 0));
 </script>
 </body>
 </html>
