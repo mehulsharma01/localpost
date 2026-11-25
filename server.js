@@ -45,7 +45,9 @@ const ROOT = path.join(__dirname, "public");
 const PORT = process.env.PORT || 3000;
 const MIME = { ".html": "text/html; charset=utf-8", ".js": "text/javascript; charset=utf-8", ".css": "text/css; charset=utf-8",
   ".json": "application/json; charset=utf-8", ".png": "image/png", ".jpg": "image/jpeg", ".jpeg": "image/jpeg",
-  ".webp": "image/webp", ".svg": "image/svg+xml", ".ico": "image/x-icon", ".txt": "text/plain; charset=utf-8", ".woff2": "font/woff2", ".pdf": "application/pdf" };
+  ".webp": "image/webp", ".svg": "image/svg+xml", ".ico": "image/x-icon", ".txt": "text/plain; charset=utf-8", ".woff2": "font/woff2", ".pdf": "application/pdf",
+  ".mp4": "video/mp4", ".webm": "video/webm" };
+const MEDIA = new Set([".mp4", ".webm"]);
 
 process.on("uncaughtException", e => console.error("uncaughtException:", e && e.stack || e));
 process.on("unhandledRejection", e => console.error("unhandledRejection:", e && e.stack || e));
@@ -58,11 +60,24 @@ http.createServer((req, res) => {
   let p;
   try { p = decodeURIComponent(url); } catch { res.writeHead(400).end("Bad request"); return; }
   if (p === "/" || p === "/localpost") p = "/index.html";
+  else if (p.endsWith("/")) p += "index.html";
   const file = path.normalize(path.join(ROOT, p));
   if (!file.startsWith(ROOT)) { res.writeHead(403).end("Forbidden"); return; }
   fs.stat(file, (err, st) => {
     if (err || !st.isFile()) { res.writeHead(302, { Location: "/" }); res.end(); return; }
     const ext = path.extname(file).toLowerCase();
+    // Large media (video) is streamed with HTTP Range support; iOS Safari will not play video without it.
+    if (MEDIA.has(ext)) {
+      const total = st.size, m = /^bytes=(\d*)-(\d*)$/.exec(String(req.headers.range || ""));
+      const base = { "Content-Type": MIME[ext], "Accept-Ranges": "bytes", "Cache-Control": "public, max-age=604800" };
+      if (!m) { res.writeHead(200, { ...base, "Content-Length": total }); if (req.method === "HEAD") return res.end(); return fs.createReadStream(file).pipe(res); }
+      let start = m[1] === "" ? total - Number(m[2]) : Number(m[1]);
+      let end = m[1] !== "" && m[2] !== "" ? Math.min(Number(m[2]), total - 1) : total - 1;
+      if (!(start >= 0) || start > end || start >= total) { res.writeHead(416, { "Content-Range": `bytes */${total}` }); return res.end(); }
+      res.writeHead(206, { ...base, "Content-Range": `bytes ${start}-${end}/${total}`, "Content-Length": end - start + 1 });
+      if (req.method === "HEAD") return res.end();
+      return fs.createReadStream(file, { start, end }).pipe(res);
+    }
     const send = (entry) => {
       const ae = String(req.headers["accept-encoding"] || "");
       let body = entry.raw, enc = null;
