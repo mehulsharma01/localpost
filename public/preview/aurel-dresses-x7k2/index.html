@@ -492,7 +492,7 @@ function filtered(){
 /* cards */
 const heart=`<svg viewBox="0 0 24 24"><path d="M12 20s-7-4.4-9-9.2C1.7 7.6 4 4.5 7.2 4.5c2 0 3.6 1.1 4.8 2.8 1.2-1.7 2.8-2.8 4.8-2.8 3.2 0 5.5 3.1 4.2 6.3C19 15.6 12 20 12 20Z"/></svg>`;
 const tagHTML=t=>t==="new"?`<span class="tag new">New</span>`:t==="sale"?`<span class="tag sale">Sale</span>`:t==="Low stock"?`<span class="tag y">Low stock</span>`:`<span class="tag">${t}</span>`;
-function media(p){return `<img src="${p.img}" alt="${p.name}" ${p.video?"":"loading=\"lazy\""}>`+(p.video?`<video muted loop playsinline autoplay preload="auto" poster="${p.img}" onplaying="this.parentNode.classList.add('playing')"><source src="${p.video}"></video>`:"")}
+function media(p){return `<img src="${p.img}" alt="${p.name}" width="640" height="1138" ${p.video?"":"loading=\"lazy\""}>`+(p.video?`<video muted loop playsinline autoplay preload="auto" poster="${p.img}" onplaying="this.parentNode.classList.add('playing')"><source src="${p.video}"></video>`:"")}
 function card(p,i){
   return `<article class="card" data-id="${p.id}" style="animation-delay:${(i%PAGE)*40}ms">
   <div class="mwrap"><a href="#" class="media${p.video?" has-video":""}" aria-label="${p.name}">${media(p)}</a>
