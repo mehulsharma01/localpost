@@ -45,7 +45,7 @@ const ROOT = path.join(__dirname, "public");
 const PORT = process.env.PORT || 3000;
 const MIME = { ".html": "text/html; charset=utf-8", ".js": "text/javascript; charset=utf-8", ".css": "text/css; charset=utf-8",
   ".json": "application/json; charset=utf-8", ".png": "image/png", ".jpg": "image/jpeg", ".jpeg": "image/jpeg",
-  ".webp": "image/webp", ".svg": "image/svg+xml", ".ico": "image/x-icon", ".txt": "text/plain; charset=utf-8", ".woff2": "font/woff2" };
+  ".webp": "image/webp", ".svg": "image/svg+xml", ".ico": "image/x-icon", ".txt": "text/plain; charset=utf-8", ".woff2": "font/woff2", ".pdf": "application/pdf" };
 
 process.on("uncaughtException", e => console.error("uncaughtException:", e && e.stack || e));
 process.on("unhandledRejection", e => console.error("unhandledRejection:", e && e.stack || e));
