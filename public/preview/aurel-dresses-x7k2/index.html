@@ -64,15 +64,36 @@ header.site{position:sticky;top:env(safe-area-inset-top,0px);z-index:50;backgrou
 .dlnav{display:none}
 
 /* hero */
-.hero{position:relative;background:var(--well);overflow:hidden;border-bottom:1.5px solid var(--ink)}
-.hero picture,.hero img{display:block;width:100%}
-.hero img{aspect-ratio:3/4;max-width:100%;object-fit:cover;object-position:50% 0}
-.hero .copy{position:absolute;left:0;right:0;bottom:0;padding-block:0 18px;display:flex;flex-direction:column;gap:12px;color:var(--ink);background:linear-gradient(180deg,rgba(239,239,238,0) 0,rgba(239,239,238,.92) 38%)}
-.hero .code{display:flex;gap:10px;align-items:center;padding-top:60px}
+.hero{position:relative;background:var(--bg);border-bottom:1.5px solid var(--ink);display:grid;grid-template-columns:minmax(0,1fr);overflow:hidden}
+.hero-copy{padding-block:20px 22px;display:flex;flex-direction:column;gap:14px;min-width:0}
+.hero .code{display:flex;flex-wrap:wrap;gap:8px 10px;align-items:center}
+.live{display:inline-flex;align-items:center;gap:6px;font-family:var(--mono);font-size:11px;font-weight:700;text-transform:uppercase}
+.live i{width:8px;height:8px;border-radius:50%;background:#ff2b2b;box-shadow:0 0 0 0 rgba(255,43,43,.6);animation:pulse 1.6s infinite}
+@keyframes pulse{70%{box-shadow:0 0 0 8px rgba(255,43,43,0)}100%{box-shadow:0 0 0 0 rgba(255,43,43,0)}}
 .chip-k{background:var(--ink);color:#fff;padding:4px 8px;font-family:var(--mono);font-size:11px;font-weight:700;letter-spacing:.04em}
-.hero h1{margin:0;font-size:clamp(64px,21vw,230px)}
-.hero h1 i{font-style:italic;color:var(--cobalt)}
-.hero p{margin:0;max-width:38ch;font-size:15px}
+.hero h1{margin:0;font-size:clamp(76px,25vw,200px);display:flex;flex-direction:column}
+.hero h1 span{display:block;animation:lineup .9s cubic-bezier(.2,.8,.2,1) both}
+.hero h1 span+span{animation-delay:.12s}
+@keyframes lineup{from{transform:translateY(18%)}to{transform:none}}
+.hero h1 i{font-style:italic;color:var(--cobalt);padding-right:.04em}
+.hero p{margin:0;max-width:36ch;font-size:15px;line-height:1.45}
+.stats{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));margin:4px 0 0;border-top:1.5px solid var(--ink);border-bottom:1.5px solid var(--ink)}
+.stats div{padding:10px 0 10px 12px;border-left:1.5px solid var(--ink)}
+.stats div:first-child{border-left:0;padding-left:0}
+.stats dt{font-family:var(--mono);font-size:10px;text-transform:uppercase;color:var(--mute)}
+.stats dd{margin:2px 0 0;font-family:var(--display);font-stretch:62%;font-weight:900;font-size:34px;line-height:1}
+.reelwrap{position:relative;min-width:0}
+.reel{display:grid;grid-auto-flow:column;grid-auto-columns:46%;gap:8px;overflow-x:auto;scroll-snap-type:x mandatory;scrollbar-width:none;padding:0 var(--gutr) 18px var(--gut);scroll-padding-left:var(--gut)}
+.reel::-webkit-scrollbar{display:none}
+.rtile{position:relative;aspect-ratio:9/16;max-width:100%;background:var(--well);border:1.5px solid var(--ink);border-radius:18px;overflow:hidden;scroll-snap-align:start;display:block}
+.rtile>img,.rtile>video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.rtile>video{opacity:0;transition:opacity .4s}
+.rtile.playing>video{opacity:1}
+.rtile .cap{position:absolute;left:8px;right:8px;bottom:8px;z-index:2;background:var(--bg);border:1.5px solid var(--ink);border-radius:12px;padding:7px 9px;display:grid;gap:1px}
+.rtile .cap span{font-stretch:80%;font-weight:800;font-size:13px;line-height:1.1;text-transform:uppercase;overflow:hidden;white-space:nowrap;text-overflow:ellipsis}
+.rtile .cap em{font-style:normal;font-family:var(--mono);font-size:12px;font-weight:700}
+.rtile .rec{position:absolute;top:10px;left:10px;z-index:2;display:flex;align-items:center;gap:5px;font-family:var(--mono);font-size:10px;font-weight:700;background:var(--ink);color:#fff;border-radius:999px;padding:3px 8px 3px 6px}
+.rtile .rec i{width:6px;height:6px;border-radius:50%;background:#ff2b2b}
 .ctas{display:flex;gap:8px;flex-wrap:wrap}
 .btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;height:48px;padding:0 22px;font:800 13px var(--display);font-stretch:100%;letter-spacing:.08em;text-transform:uppercase;border:1.5px solid var(--ink);border-radius:999px;transition:transform .15s,background .2s,color .2s}
 .btn:active{transform:scale(.97)}
@@ -82,7 +103,7 @@ header.site{position:sticky;top:env(safe-area-inset-top,0px);z-index:50;backgrou
 .btn.ghost:hover{background:var(--ink);color:#fff}
 .btn.y{background:var(--sticker);border-color:var(--ink)}
 /* rotating sticker */
-.seal{position:absolute;top:calc(14px + env(safe-area-inset-top,0px));right:calc(12px + env(safe-area-inset-right,0px));width:96px;height:96px;z-index:3}
+.seal{position:absolute;top:-46px;right:calc(10px + env(safe-area-inset-right,0px));width:88px;height:88px;z-index:3}
 .seal svg{width:100%;height:100%;animation:spin 14s linear infinite}
 .seal b{position:absolute;inset:0;display:grid;place-items:center;font:900 22px var(--display);font-stretch:62%}
 @keyframes spin{to{transform:rotate(360deg)}}
@@ -123,7 +144,7 @@ header.site{position:sticky;top:env(safe-area-inset-top,0px);z-index:50;backgrou
 /* grid */
 .grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:0;margin-top:10px;border-top:1.5px solid var(--ink)}
 .grid.big{grid-template-columns:minmax(0,1fr)}
-.card{position:relative;min-width:0;background:var(--bg);padding-bottom:14px;border-right:1.5px solid var(--ink);border-bottom:1.5px solid var(--ink);animation:rise .6s ease both}
+.card{scroll-margin-top:120px;position:relative;min-width:0;background:var(--bg);padding-bottom:14px;border-right:1.5px solid var(--ink);border-bottom:1.5px solid var(--ink);animation:rise .6s ease both}
 @keyframes rise{from{opacity:.001;transform:translateY(12px)}to{opacity:1;transform:none}}
 .mwrap{position:relative;overflow:hidden;background:var(--well)}
 .media{display:block;position:relative;aspect-ratio:9/16;max-width:100%}
@@ -246,16 +267,13 @@ footer{background:var(--ink);color:#c9c9c7}
 .toast p b{display:block;font-family:var(--mono);font-size:10px;color:var(--sticker);text-transform:uppercase}
 .toast a{font-family:var(--mono);font-size:11px;font-weight:700;text-transform:uppercase;text-decoration:underline;text-underline-offset:3px;white-space:nowrap}
 
-@media (max-width:399px){.info{padding:8px 8px 0}.info h3{font-size:13px}.count{display:none}.seal{width:80px;height:80px}}
+@media (max-width:399px){.stats dd{font-size:28px}.reel{grid-auto-columns:52%}.info{padding:8px 8px 0}.info h3{font-size:13px}.count{display:none}.seal{width:80px;height:80px}}
 @media (min-width:700px){
   .grid{grid-template-columns:repeat(3,minmax(0,1fr))}
   .grid.big{grid-template-columns:repeat(2,minmax(0,1fr))}
-  .hero img{aspect-ratio:16/9}
-  .hero .copy{background:linear-gradient(90deg,rgba(239,239,238,.95) 0,rgba(239,239,238,.6) 40%,rgba(239,239,238,0) 65%);top:0;justify-content:flex-end;padding-block:0 40px;max-width:none}
-  .hero .copy>*{max-width:640px}
-  .hero h1{font-size:clamp(64px,10.5vw,168px)}
-  .seal{width:130px;height:130px;top:24px;right:28px}
-  .seal b{font-size:30px}
+  .reel{grid-auto-columns:31.5%}
+  .seal{width:110px;height:110px;top:-56px}
+  .seal b{font-size:28px}
   .fit{flex-basis:260px}
   .perks .wrap{grid-template-columns:repeat(4,minmax(0,1fr))}
   .next .wrap{grid-template-columns:1.1fr 1fr;align-items:end}
@@ -273,7 +291,14 @@ footer{background:var(--ink);color:#c9c9c7}
   .dlnav{display:flex;gap:22px;margin-left:8px}
   .dlnav a{font:800 12px var(--display);letter-spacing:.08em;text-transform:uppercase}
   .dlnav a:hover,.dlnav a.on{color:var(--cobalt)}
-  .hero .copy{padding-block:0 56px}
+  .hero{grid-template-columns:minmax(0,5fr) minmax(0,7fr);min-height:min(84vh,780px)}
+  .hero-copy{justify-content:center;padding-block:48px;padding-right:24px;border-right:1.5px solid var(--ink)}
+  .hero h1{font-size:clamp(96px,9.6vw,176px)}
+  .reelwrap{display:flex;align-items:center}
+  .reel{grid-auto-flow:row;grid-template-columns:repeat(3,minmax(0,1fr));grid-auto-columns:auto;overflow:visible;gap:12px;padding:40px var(--gutr) 40px 28px;width:100%}
+  .rtile:nth-child(2){transform:translateY(-28px)}
+  .rtile:nth-child(3){transform:translateY(28px)}
+  .seal{top:14px;right:calc(14px + env(safe-area-inset-right,0px));width:120px;height:120px}
 }
 @media (prefers-reduced-motion:reduce){*,*::before,*::after{animation:none!important;transition:none!important}}
 </style>
@@ -312,19 +337,19 @@ footer{background:var(--ink);color:#c9c9c7}
 
 <main>
   <section class="hero" aria-label="Drop 07">
-    <picture>
-      <source media="(min-width:700px)" srcset="img/hero-wide.jpg">
-      <img src="img/hero-tall.jpg" alt="Four models in denim, leather and hoodie dresses from Drop 07" fetchpriority="high">
-    </picture>
-    <div class="seal" aria-hidden="true">
-      <svg viewBox="0 0 100 100"><defs><path id="circ" d="M50 50 m-38 0 a38 38 0 1 1 76 0 a38 38 0 1 1 -76 0"/></defs><circle cx="50" cy="50" r="49" fill="#fff200" stroke="#0a0a0a" stroke-width="1.5"/><text font-family="JetBrains Mono, monospace" font-size="10" font-weight="700" fill="#0a0a0a"><textPath href="#circ" textLength="232" lengthAdjust="spacing">NEW DROP ✦ LIMITED RUN ✦ NO RESTOCKS ✦</textPath></text></svg>
-      <b>07</b>
-    </div>
-    <div class="copy wrap">
-      <div class="code"><span class="chip-k">DRP—07</span><span class="mono">22 pieces · live now</span></div>
-      <h1 class="big">No dress <i>code.</i></h1>
-      <p>Denim corsets, leather minis, hoodie dresses and full fits. Small runs, no restocks.</p>
+    <div class="hero-copy wrap">
+      <div class="code"><span class="live"><i></i>Live now</span><span class="chip-k">DRP—07</span><span class="mono">Small run · no restocks</span></div>
+      <h1 class="big"><span>No dress</span><span><i>code.</i></span></h1>
+      <p>Denim corsets, leather minis, hoodie dresses and full fits. Made in small runs. When it's gone, it's gone.</p>
       <div class="ctas"><a href="#shop" class="btn blue">Shop the drop →</a><a href="#fits" class="btn ghost">See the fits</a></div>
+      <dl class="stats"><div><dt>Pieces</dt><dd>22</dd></div><div><dt>From</dt><dd>$49</dd></div><div><dt>Restocks</dt><dd>0</dd></div></dl>
+    </div>
+    <div class="reelwrap">
+      <div class="seal" aria-hidden="true">
+        <svg viewBox="0 0 100 100"><defs><path id="circ" d="M50 50 m-38 0 a38 38 0 1 1 76 0 a38 38 0 1 1 -76 0"/></defs><circle cx="50" cy="50" r="49" fill="#fff200" stroke="#0a0a0a" stroke-width="1.5"/><text font-family="JetBrains Mono, monospace" font-size="10" font-weight="700" fill="#0a0a0a"><textPath href="#circ" textLength="232" lengthAdjust="spacing">NEW DROP ✦ LIMITED RUN ✦ NO RESTOCKS ✦</textPath></text></svg>
+        <b>07</b>
+      </div>
+      <div class="reel" id="reel" aria-label="Drop 07 in motion"></div>
     </div>
   </section>
 
@@ -454,6 +479,7 @@ const FITS=[
   {img:"img/s11.jpg",name:"Cargo + corset",n:"Camo mini · corset",price:78},
   {img:"img/s14.jpg",name:"Track day",n:"Track jacket · tube dress",price:59}
 ];
+const HERO_REEL=[4,1,6]; /* product ids shown as looping videos in the hero */
 const PILLS=[["All","All"],["Dress","Dresses"],["Skirt","Skirts"],["Set","Full fits"],["Denim","Denim"],["Leather","Leather"],["Under100","Under $100"],["Sale","Sale"]];
 const STRIP=["<b>DRP—07</b> is live","Free shipping $150+","Small runs · no restocks","Pay in 4","<b>DRP—08</b> drops soon"];
 const MARQ=["Dressed different","No restocks","Drop 07"];
@@ -470,6 +496,14 @@ try{const v=localStorage.getItem("aurel_view");if(v==="big"||v==="grid")state.vi
 /* strips */
 $("#strip").innerHTML=Array(4).fill(STRIP).flat().map(t=>`<span>${t}</span>`).join("");
 $("#marq").innerHTML=Array(6).fill(MARQ).flat().map((t,i)=>`<span class="${i%2?"o":""}">${t}</span><span><em>✦</em></span>`).join("");
+
+/* hero reel */
+$("#reel").innerHTML=HERO_REEL.map(id=>PRODUCTS.find(p=>p.id===id)).filter(Boolean).map(p=>`<a href="#p-${p.id}" class="rtile" aria-label="${p.name}, $${p.price}">
+  <img src="${p.img}" alt="" width="480" height="853" fetchpriority="high">
+  ${p.video?`<video muted loop playsinline autoplay preload="auto" poster="${p.img}" onplaying="this.parentNode.classList.add('playing')"><source src="${p.video}"></video>`:""}
+  <span class="rec"><i></i>#${String(p.id).padStart(3,"0")}</span>
+  <span class="cap"><span>${p.name}</span><em>$${p.price}</em></span></a>`).join("");
+document.querySelectorAll("#reel video").forEach(v=>{v.muted=true;v.play().catch(()=>{})});
 
 /* pills */
 const pillMatch=(k,p)=>k==="All"||p.type===k||p.fab===k||(k==="Under100"&&p.price<100)||(k==="Sale"&&!!p.was);
@@ -494,7 +528,7 @@ const heart=`<svg viewBox="0 0 24 24"><path d="M12 20s-7-4.4-9-9.2C1.7 7.6 4 4.5
 const tagHTML=t=>t==="new"?`<span class="tag new">New</span>`:t==="sale"?`<span class="tag sale">Sale</span>`:t==="Low stock"?`<span class="tag y">Low stock</span>`:`<span class="tag">${t}</span>`;
 function media(p){return `<img src="${p.img}" alt="${p.name}" width="640" height="1138" ${p.video?"":"loading=\"lazy\""}>`+(p.video?`<video muted loop playsinline autoplay preload="auto" poster="${p.img}" onplaying="this.parentNode.classList.add('playing')"><source src="${p.video}"></video>`:"")}
 function card(p,i){
-  return `<article class="card" data-id="${p.id}" style="animation-delay:${(i%PAGE)*40}ms">
+  return `<article class="card" id="p-${p.id}" data-id="${p.id}" style="animation-delay:${(i%PAGE)*40}ms">
   <div class="mwrap"><a href="#" class="media${p.video?" has-video":""}" aria-label="${p.name}">${media(p)}</a>
     <span class="num">#${String(p.id).padStart(3,"0")}</span>
     <button class="wish" aria-label="Save ${p.name}" aria-pressed="${wish.has(p.id)}">${heart}</button>
